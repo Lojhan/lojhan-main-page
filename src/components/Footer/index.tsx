@@ -11,7 +11,7 @@ const SocialLink = ({
 }: {
   href: string;
   label: string;
-  Icon: () => JSX.Element;
+  Icon: () => React.JSX.Element;
 }) => (
   <Link href={href} className="flex items-center gap-2 w-100">
     <Icon />

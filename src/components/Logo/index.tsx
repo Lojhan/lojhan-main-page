@@ -1,32 +1,32 @@
-import WhiteGreenArrowsSubtitle from "./color=white-green, type=arrows-subtitle.svg";
-import BlueSubtitleubtitle from "./color=blue, type=subtitle.svg";
-import DarkLogo from "./color=dark, type=logo.svg";
-import LightArrowsSubtitle from "./color=light, type=arrows-subtitle.svg";
-import WhiteBlueSubtitleubtitle from "./color=white-blue, type=subtitle.svg";
-import WhiteGreenArrows from "./color=White-green, type=arrows.svg";
-import BlueGreenArrowsSubtitle from "./color=blue-green, type=arrows-subtitle.svg";
-import DarkSubtitleubtitle from "./color=dark, type=subtitle.svg";
-import LightArrows from "./color=light, type=arrows.svg";
-import WhiteGreenSubtitleubtitle from "./color=White-green, type=subtitle.svg";
-import BlueGreenArrows from "./color=blue-green, type=arrows.svg";
-import GreenArrowsSubtitle from "./color=green, type=arrows-subtitle.svg";
-import LightLogo from "./color=light, type=logo.svg";
-import BlueArrowsSubtitle from "./color=blue, type=arrows-subtitle.svg";
-import BlueGreenSubtitleubtitle from "./color=blue-green, type=subtitle.svg";
-import GreenArrows from "./color=green, type=arrows.svg";
-import LightSubtitleubtitle from "./color=light, type=subtitle.svg";
-import BlueArrows from "./color=blue, type=arrows.svg";
-import DarkArrowsSubtitle from "./color=dark, type=arrows-subtitle.svg";
-import GreenLogo from "./color=green, type=logo.svg";
-import WhiteBlueArrowsSubtitle from "./color=white-blue, type=arrows-subtitle.svg";
-import BlueLogo from "./color=blue, type=logo.svg";
-import DarkArrows from "./color=dark, type=arrows.svg";
-import GreenSubtitleubtitle from "./color=green, type=subtitle.svg";
-import WhiteBlueArrows from "./color=white-blue, type=arrows.svg";
+import WhiteGreenArrowsSubtitle from "./color=white-green, type=arrows-subtitle";
+import BlueSubtitleubtitle from "./color=blue, type=subtitle";
+import DarkLogo from "./color=dark, type=logo";
+import LightArrowsSubtitle from "./color=light, type=arrows-subtitle";
+import WhiteBlueSubtitleubtitle from "./color=white-blue, type=subtitle";
+import WhiteGreenArrows from "./color=white-green, type=arrows";
+import BlueGreenArrowsSubtitle from "./color=blue-green, type=arrows-subtitle";
+import DarkSubtitleubtitle from "./color=dark, type=subtitle";
+import LightArrows from "./color=light, type=arrows";
+import WhiteGreenSubtitleubtitle from "./color=white-green, type=subtitle";
+import BlueGreenArrows from "./color=blue-green, type=arrows";
+import GreenArrowsSubtitle from "./color=green, type=arrows-subtitle";
+import LightLogo from "./color=light, type=logo";
+import BlueArrowsSubtitle from "./color=blue, type=arrows-subtitle";
+import BlueGreenSubtitleubtitle from "./color=blue-green, type=subtitle";
+import GreenArrows from "./color=green, type=arrows";
+import LightSubtitleubtitle from "./color=light, type=subtitle";
+import BlueArrows from "./color=blue, type=arrows";
+import DarkArrowsSubtitle from "./color=dark, type=arrows-subtitle";
+import GreenLogo from "./color=green, type=logo";
+import WhiteBlueArrowsSubtitle from "./color=white-blue, type=arrows-subtitle";
+import BlueLogo from "./color=blue, type=logo";
+import DarkArrows from "./color=dark, type=arrows";
+import GreenSubtitleubtitle from "./color=green, type=subtitle";
+import WhiteBlueArrows from "./color=white-blue, type=arrows";
 
 type SVGProps = React.SVGProps<SVGSVGElement>;
 
-export const Logo: Record<string, (props: SVGProps) => JSX.Element> = {
+export const Logo: Record<string, (props: SVGProps) => React.JSX.Element> = {
   WhiteGreenArrowsSubtitle,
   BlueSubtitleubtitle,
   DarkLogo,
