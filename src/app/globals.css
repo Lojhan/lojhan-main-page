@@ -2,57 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Qwitcher Grypen';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/qwitchergrypen/v6/pxicypclp9tDilN9RrC5BSI1dZmbQGlBgGygpspO.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Qwitcher Grypen';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/qwitchergrypen/v6/pxicypclp9tDilN9RrC5BSI1dZmbQWlBgGygpspO.woff2) format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Qwitcher Grypen';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/qwitchergrypen/v6/pxicypclp9tDilN9RrC5BSI1dZmbT2lBgGygpg.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+/* Azul Safira
+#083968
+CMYK: 92,45,0,59
+RGB: 8,57,104
+
+Verde Keppel
+#56AE9E
+CMYK: 51,0,9,32
+RGB: 86,174,158
+
+Tangaroa
+#121F2B
+CMYK: 58,28,0,83
+RGB: 18,31,43
+
+Branco Lavanda
+
+#EAF5FC
+CMYK: 7,3,0,1
+RGB: 234,245,252 */
+
+@layer base {
+    :root {
+        --tangaroa: #121f2b;
+        --saphire-blue: #083968;
+        --keppel-green: #56ae9e;
+        --lavender-white: #eaf5fc;
+        --light-font-color: #eaf5fc;
+        --dark-font-color: #121f2b;
+    }
 }
 
-.test {
-  font-family: 'Qwitcher Grypen', sans-serif;
-}
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+    body {
+        @apply antialiased bg-tangaroa text-light-font-color;
+    }
 }

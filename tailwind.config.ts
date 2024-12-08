@@ -1,20 +1,33 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
+
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {},
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        lojhan: ["'Qwitcher Grypen'", "cursive"],
+        outfit: ["Outfit", "comic-sans"],
+        lato: ["Lato", "comic-sans"],
+      },
+      colors: {
+        tangaroa: "var(--tangaroa)",
+        "saphire-blue": "var(--saphire-blue)",
+        "keppel-green": "var(--keppel-green)",
+        "lavender-white": "var(--lavender-white)",
+        "light-font-color": "var(--light-font-color)",
+        "dark-font-color": "var(--dark-font-color)",
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
