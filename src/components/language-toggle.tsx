@@ -10,6 +10,42 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 
+function getLanguage() {
+  if (typeof window === "undefined") {
+    return "pt-BR";
+  }
+
+  const languageFromStorage = localStorage.getItem("language");
+  if (languageFromStorage) {
+    return languageFromStorage;
+  }
+
+  const languageFromCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("language="))
+    ?.split("=")[1];
+
+  if (languageFromCookie) {
+    return languageFromCookie;
+  }
+
+  const languageFromPathname = window.location.pathname.split("/")[1];
+
+  if (languageFromPathname === "pt-BR" || languageFromPathname === "en-US") {
+    return languageFromPathname;
+  }
+
+  const browserLanguage = window.navigator.language;
+  const language = browserLanguage.split("-")[0];
+  if (language === "pt") {
+    return "pt-BR";
+  }
+  if (language === "en") {
+    return "en-US";
+  }
+  return "pt-BR";
+}
+
 function useLanguage() {
   if (typeof window === "undefined") {
     return ["pt-BR", () => {}] as const;
@@ -21,7 +57,7 @@ function useLanguage() {
       window.addEventListener("storage", onStoreChange);
       return () => window.removeEventListener("storage", onStoreChange);
     },
-    () => localStorage.getItem("language") || "en-US"
+    () => getLanguage()
   );
 
   const [language, setLanguage] = useState(languageFromStorage);
