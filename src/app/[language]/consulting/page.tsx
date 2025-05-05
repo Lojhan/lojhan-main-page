@@ -126,7 +126,6 @@ function EngagementModelsSection({
   engagementModels: LangMap["/consulting"]["engagementModels"];
 }) {
   const tabs = engagementModels.tabs.map((tab) => tab.title);
-  console.log(tabs);
   return (
     <>
       <span className="hidden" id="engagement-models" />

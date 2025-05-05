@@ -30,6 +30,10 @@ export async function generateMetadata({
   return {
     ...metadata,
     creator: "Lojhan",
+    applicationName: "Lojhan",
+
+    category: "technology",
+
     keywords: [
       "lojhan",
       "tech lead",
@@ -39,6 +43,15 @@ export async function generateMetadata({
       "technology",
       "innovation",
     ],
+
+    robots: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+
     openGraph: {
       title: metadata.title,
       description: metadata.description,

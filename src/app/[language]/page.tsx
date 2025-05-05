@@ -68,6 +68,8 @@ function AboutSection({ about }: { about: LangMap["/"]["about"] }) {
             width={550}
             height={550}
             alt="Tech Lead"
+            loading="eager"
+            priority
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
           />
         </div>
