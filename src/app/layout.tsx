@@ -35,12 +35,44 @@ export async function generateMetadata({
     category: "technology",
 
     keywords: [
+      "vinicius",
       "lojhan",
+      "vinicius lojhan",
       "tech lead",
+      "software engineer",
+      "software architect",
       "mentor",
       "consultant",
-      "software engineer",
+
+      "mentoring",
+      "technology mentoring",
+      "software development mentoring",
+      "software architecture mentoring",
+      "leadership mentoring",
+
+      "mentoria de tecnologia",
+      "mentoria de desenvolvimento de software",
+      "mentoria de arquitetura de software",
+      "mentoria de liderança",
+
+      "consulting",
+      "technology consulting",
+      "software development consulting",
+      "software architecture consulting",
+      "leadership consulting",
+
+      "consultoria",
+      "consultoria de tecnologia",
+      "consultoria de desenvolvimento de software",
+      "consultoria de arquitetura de software",
+      "consultoria de liderança",
+
       "technology",
+      "software",
+      "software engineering",
+      "software development",
+      "software architecture",
+      "leadership",
       "innovation",
     ],
 
