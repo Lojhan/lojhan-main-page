@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+
 import { useState, useSyncExternalStore } from "react";
 import {
   DropdownMenu,
@@ -7,7 +10,11 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 
-const useLanguage = () => {
+function useLanguage() {
+  if (typeof window === "undefined") {
+    return ["pt-BR", () => {}] as const;
+  }
+
   // sync with localStorage :language
   const languageFromStorage = useSyncExternalStore(
     (onStoreChange) => {
@@ -35,7 +42,7 @@ const useLanguage = () => {
       document.cookie = `language=${newLanguage}; path=/; max-age=31536000;`;
     },
   ] as const;
-};
+}
 
 const flagEmojiMap: Record<string, string> = {
   "en-US": "🇺🇸",
