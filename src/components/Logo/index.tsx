@@ -12,7 +12,7 @@ import BlueGreenArrows from "./color=blue-green, type=arrows";
 import GreenArrowsSubtitle from "./color=green, type=arrows-subtitle";
 import LightLogo from "./color=light, type=logo";
 import BlueArrowsSubtitle from "./color=blue, type=arrows-subtitle";
-import BlueGreenSubtitleubtitle from "./color=blue-green, type=subtitle";
+import BlueGreenSubtitle from "./color=blue-green, type=subtitle";
 import GreenArrows from "./color=green, type=arrows";
 import LightSubtitleubtitle from "./color=light, type=subtitle";
 import BlueArrows from "./color=blue, type=arrows";
@@ -41,7 +41,7 @@ export const Logo: Record<string, (props: SVGProps) => React.JSX.Element> = {
   GreenArrowsSubtitle,
   LightLogo,
   BlueArrowsSubtitle,
-  BlueGreenSubtitleubtitle,
+  BlueGreenSubtitle,
   GreenArrows,
   LightSubtitleubtitle,
   BlueArrows,
