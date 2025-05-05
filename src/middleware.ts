@@ -18,11 +18,8 @@ function getLocale(request: NextRequest) {
 }
 
 function isFilePath(pathname: string) {
-  return (
-    pathname.includes(".svg") ||
-    pathname.includes(".png") ||
-    pathname.includes(".jpg")
-  );
+  const regex = /\.(svg|png|jpg|webp)$/;
+  return regex.test(pathname);
 }
 
 export function middleware(request: NextRequest) {

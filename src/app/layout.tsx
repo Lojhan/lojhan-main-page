@@ -26,7 +26,7 @@ export async function generateMetadata({
   params: { language: "en-US" | "pt-BR" };
 }): Promise<Metadata> {
   const { language } = params;
-  const metadata = metaMap[language];
+  const metadata = metaMap[language ?? "pt-BR"];
   return {
     ...metadata,
     creator: "Lojhan",

@@ -64,7 +64,7 @@ function AboutSection({ about }: { about: LangMap["/"]["about"] }) {
             </div>
           </div>
           <Image
-            src="/lojhan-photo-home.png"
+            src="/lojhan-photo-home.webp"
             width={550}
             height={550}
             alt="Tech Lead"
