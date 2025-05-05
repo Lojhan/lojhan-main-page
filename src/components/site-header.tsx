@@ -1,0 +1,152 @@
+"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Logo } from "./Logo";
+import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { LanguageToggle } from "./language-toggle";
+
+interface NavItem {
+  title: { [lang: string]: string };
+  href: string;
+  isActive?: boolean;
+}
+
+const navItems: NavItem[] = [
+  {
+    title: {
+      "pt-BR": "Início",
+      "en-US": "Home",
+    },
+    href: "/",
+  },
+  {
+    title: {
+      "pt-BR": "Blog",
+      "en-US": "Blog",
+    },
+    href: "https://blog.lojhan.com",
+  },
+  {
+    title: {
+      "pt-BR": "Mentoria",
+      "en-US": "Mentorship",
+    },
+    href: "/mentorship",
+  },
+  {
+    title: {
+      "pt-BR": "Consultoria",
+      "en-US": "Consulting",
+    },
+    href: "/consulting",
+  },
+  {
+    title: {
+      "pt-BR": "Contato",
+      "en-US": "Contact",
+    },
+    href: "/contact",
+  },
+];
+
+export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, activePath] = usePathname().split("/").slice(1);
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container px-4 mx-auto flex h-16 items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+          <HeaderLogo />
+        </Link>
+        <nav className="hidden md:flex gap-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`text-sm font-medium ${
+                item.href === activePath
+                  ? "transition-colors hover:text-primary"
+                  : "text-muted-foreground transition-colors hover:text-primary"
+              }`}
+            >
+              {item.title[lang]}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <LanguageToggle />
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMenuOpen((prev) => !prev)}
+            >
+              <span className="sr-only">Toggle menu</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-6 w-6"
+              >
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+            </Button>
+            {menuOpen && (
+              <div className="absolute top-16 left-0 w-full bg-background shadow-md">
+                <nav className="flex flex-col gap-4 p-4">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`text-sm font-medium ${
+                        item.href === activePath
+                          ? "transition-colors hover:text-primary"
+                          : "text-muted-foreground transition-colors hover:text-primary"
+                      }`}
+                    >
+                      {item.title[lang]}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function HeaderLogo() {
+  const { theme } = useTheme();
+
+  if (theme === "dark") {
+    return <Logo.LightArrows width={100} />;
+  }
+
+  if (theme === "light") {
+    return <Logo.DarkArrows width={100} />;
+  }
+
+  if (
+    theme === "system" &&
+    globalThis.window.matchMedia("(prefers-color-scheme:dark)").matches
+  ) {
+    return <Logo.LightArrows width={100} />;
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "/": {
+    "about": {
+      "title": "Tech Lead & Full Stack Developer",
+      "description": "Helping teams build scalable applications with modern technologies. Specialized in frontend, backend, and architecture design.",
+      "contact": "Get in touch"
+    },
+    "expertise": {
+      "title": "My specialties",
+      "description": "With over 10 years of software development experience, I have a proven track record of delivering high-quality solutions.",
+      "areas": [
+        {
+          "title": "Frontend Development",
+          "description": "Creating responsive and accessible user interfaces, utilizing best practices in design and usability.",
+          "icon": "globe"
+        },
+        {
+          "title": "Backend Development",
+          "description": "Building scalable and secure APIs with modern technologies, ensuring performance and reliability.",
+          "icon": "database"
+        },
+        {
+          "title": "Software Architecture",
+          "description": "Designing robust and scalable systems using industry best practices.",
+          "icon": "layers"
+        },
+        {
+          "title": "Technical Leadership",
+          "description": "Guiding and supporting development teams, promoting good practices and agile methodologies.",
+          "icon": "users"
+        },
+        {
+          "title": "Mentoring",
+          "description": "Supporting developers in their learning journey and professional growth.",
+          "icon": "lightbulb"
+        },
+        {
+          "title": "Consulting",
+          "description": "Analyzing and optimizing development processes, helping companies achieve their goals.",
+          "icon": "code"
+        }
+      ]
+    },
+    "services": {
+      "title": "Services",
+      "description": "I offer a variety of services to help you and your team achieve your objectives.",
+      "learnMore": "Learn more",
+      "items": [
+        {
+          "title": "Mentoring",
+          "description": "Personalized guidance for developers seeking to improve their careers and technical skills.",
+          "icon": "lightbulb",
+          "href": "/mentorship",
+          "features": [
+            "Individual mentoring sessions",
+            "Support for personal or professional projects",
+            "Code feedback and development practice review",
+            "Career and professional development guidance"
+          ]
+        },
+        {
+          "title": "Consulting",
+          "description": "Analysis and optimization of development processes, helping companies achieve their goals.",
+          "icon": "code",
+          "href": "/consulting",
+          "features": [
+            "Software architecture assessment",
+            "Performance improvement recommendations",
+            "Implementation of development best practices",
+            "Support in adopting new technologies"
+          ]
+        }
+      ]
+    },
+    "blog": {
+      "title": "Featured Posts",
+      "description": "Read my latest articles about development, leadership, and technology.",
+      "readMore": "Read more",
+      "viewAll": "View all articles"
+    }
+  },
+  "/consulting": {
+    "about": {
+      "title": "Technical Consulting Services",
+      "description": "Specialized guidance to help your team overcome technical challenges, optimize your architecture, and deliver high-quality software.",
+      "exploreServices": "Explore services",
+      "requestConsultation": "Request Consultation"
+    },
+    "expertise": {
+      "title": "My specialties",
+      "description": "With over 10 years of software development experience, I have a proven track record of delivering high-quality solutions.",
+      "areas": [
+        {
+          "title": "Software Architecture",
+          "description": "Design scalable and sustainable system architectures aligned with your business objectives and technical requirements.",
+          "icon": "layers"
+        },
+        {
+          "title": "Code Review",
+          "description": "Comprehensive code reviews to identify bugs, security issues, and opportunities for optimization and improvement.",
+          "icon": "code"
+        },
+        {
+          "title": "Database Optimization",
+          "description": "Improve database performance, optimize queries, and design efficient data models for your applications.",
+          "icon": "database"
+        },
+        {
+          "title": "Technical Strategy",
+          "description": "Develop technical scripts and strategies that align with your business objectives and maximize your team's effectiveness.",
+          "icon": "settings"
+        },
+        {
+          "title": "Technology Selection",
+          "description": "Guidance on selecting the right technologies, frameworks, and tools for your specific project requirements.",
+          "icon": "filecode"
+        },
+        {
+          "title": "Team Optimization",
+          "description": "Improve team workflows, development processes, and collaboration to increase productivity and code quality.",
+          "icon": "users"
+        }
+      ]
+    },
+    "engagementModels": {
+      "title": "Engagement Models",
+      "description": "Flexible consulting options to meet your needs.",
+      "getStarted": "Get started",
+      "tabs": [
+        {
+          "title": "Project-Based",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Standard Project",
+              "description": "For specific technical challenges",
+              "price": "R$ 5,000.00",
+              "modifier": "+",
+              "features": [
+                "Detailed project analysis",
+                "Improvement recommendations",
+                "Final report with implementation suggestions",
+                "Email support during the project"
+              ],
+              "timeline": "2 to 4 weeks"
+            },
+            {
+              "isMostPopular": true,
+              "title": "Advanced Project",
+              "description": "For complex technical challenges",
+              "price": "R$ 15,000.00",
+              "modifier": "+",
+              "features": [
+                "Detailed project analysis",
+                "Improvement recommendations",
+                "Final report with implementation suggestions",
+                "Weekly progress meetings",
+                "Knowledge transfer to your team"
+              ],
+              "timeline": "4 to 8 weeks"
+            }
+          ]
+        },
+        { "title": "Fixed Price", "items": [] },
+        { "title": "Workshops", "items": [] }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Here are some common questions I receive about my consulting services.",
+      "items": [
+        {
+          "question": "What is your consulting process?",
+          "answer": "My consulting process involves detailed project analysis, followed by personalized recommendations and continuous support."
+        },
+        {
+          "question": "Which technologies do you use?",
+          "answer": "I use a variety of modern technologies, including JavaScript, Python, Node.js, React, Angular, and many more."
+        },
+        {
+          "question": "How can I schedule a consultation?",
+          "answer": "You can schedule a consultation by contacting me through the contact form or sending an email directly."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Ready to solve your technical challenges?",
+      "description": "Schedule a free 1-hour session to discuss your project and how I can help your team succeed.",
+      "getInTouch": "Get in touch"
+    }
+  },
+  "/mentorship": {
+    "about": {
+      "title": "Technical Mentoring",
+      "description": "Personalized guidance for developers looking to improve their careers and technical skills.",
+      "exploreMentorshipPlans": "Explore mentorship plans",
+      "requestMentorship": "Request Mentorship"
+    },
+    "expertise": {
+      "title": "My specialties",
+      "description": "With over 10 years of software development experience, I have a proven track record of delivering high-quality solutions.",
+      "areas": [
+        {
+          "title": "Frontend Development",
+          "description": "Creating responsive and accessible user interfaces, utilizing best practices in design and usability.",
+          "icon": "globe"
+        },
+        {
+          "title": "Backend Development",
+          "description": "Building scalable and secure APIs with modern technologies, ensuring performance and reliability.",
+          "icon": "database"
+        },
+        {
+          "title": "Software Architecture",
+          "description": "Designing robust and scalable systems using industry best practices.",
+          "icon": "layers"
+        },
+        {
+          "title": "Technical Leadership",
+          "description": "Guiding and supporting development teams, promoting good practices and agile methodologies.",
+          "icon": "users"
+        },
+        {
+          "title": "Mentoring",
+          "description": "Supporting developers in their learning journey and professional growth.",
+          "icon": "lightbulb"
+        },
+        {
+          "title": "Consulting",
+          "description": "Analyzing and optimizing development processes, helping companies achieve their goals.",
+          "icon": "code"
+        }
+      ]
+    },
+    "mentorshipPlans": {
+      "title": "Mentorship Plans",
+      "description": "Choose the mentorship plan that best adapts to your needs and objectives.",
+      "getStarted": "Get started",
+      "tabs": [
+        {
+          "title": "Monthly",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Basic Plan",
+              "description": "For beginner developers",
+              "price": "R$ 500.00",
+              "modifier": "/month",
+              "features": [
+                "2 one-hour mentoring sessions per month",
+                "Email or WhatsApp support",
+                "Code feedback and development practice review"
+              ]
+            },
+            {
+              "isMostPopular": true,
+              "title": "Professional Plan",
+              "description": "For developers serious about career growth",
+              "price": "R$ 1,000.00",
+              "modifier": "/month",
+              "features": [
+                "4 one-hour mentoring sessions per month",
+                "Email or WhatsApp support",
+                "Priority scheduling",
+                "Support for personal or professional projects",
+                "Weekly code review and feedback",
+                "Career and professional development guidance"
+              ]
+            },
+            {
+              "isMostPopular": false,
+              "title": "Expert Plan",
+              "description": "For developers seeking excellence",
+              "price": "R$ 2,500.00",
+              "modifier": "/month",
+              "features": [
+                "8 mentoring sessions per month",
+                "Email or WhatsApp support",
+                "Priority scheduling",
+                "Support for personal or professional projects",
+                "Feedback on code and development practices",
+                "Career and professional development guidance",
+                "Technical interview preparation"
+              ]
+            }
+          ]
+        },
+        { "title": "Package", "items": [] }
+      ]
+    },
+    "successStories": {
+      "title": "Success Stories",
+      "description": "See how my mentoring helped other developers achieve their goals.",
+      "items": [
+        {
+          "name": "João Silva",
+          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "role": "Frontend Developer",
+          "feedback": "The mentoring helped me improve my React skills and land my dream job!"
+        },
+        {
+          "name": "Maria Oliveira",
+          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "role": "Backend Developer",
+          "feedback": "The mentoring sessions were extremely valuable for my professional growth. I learned a lot about software architecture."
+        },
+        {
+          "name": "Carlos Pereira",
+          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "role": "Full Stack Developer",
+          "feedback": "The mentoring gave me the confidence and skills needed to lead complex projects. I highly recommend!"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Here are some common questions I receive about my mentoring services.",
+      "items": [
+        {
+          "question": "What is your mentoring process?",
+          "answer": "My mentoring process involves individual sessions where we discuss your goals, challenges, and how I can help you achieve them."
+        },
+        {
+          "question": "Which technologies do you use?",
+          "answer": "I use a variety of modern technologies, including JavaScript, Python, Node.js, React, Angular, and much more."
+        },
+        {
+          "question": "How can I schedule a mentoring session?",
+          "answer": "You can schedule a mentoring session by contacting me through the contact form or sending an email directly."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Ready to take the next step in your career?",
+      "description": "Schedule a free 30-minute session to discuss your goals and how I can help you achieve them.",
+      "getInTouch": "Get in touch"
+    }
+  },
+  "/contact": {
+    "about": {
+      "title": "Contact Me",
+      "description": "Have a question or want to discuss a project? I'm here to help!",
+      "getInTouch": "Get in touch"
+    },
+    "contactMe": {
+      "letsConnect": "Let's connect",
+      "description": "Fill out the form or contact me directly through my communication channels.",
+      "contactInfo": {
+        "email": "Email",
+        "emailValue": "viniciuslojhan@gmail.com",
+        "phone": "Phone",
+        "phoneValue": "+55 41 99731-4223",
+        "location": "Location",
+        "locationValue": "Curitiba, PR, Brazil"
+      },
+      "contactForm": {
+        "title": "Contact Form",
+        "description": "Fill out the form below and I'll get back to you as soon as possible.",
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Your email"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Your message"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Message subject",
+          "options": [
+            {
+              "label": "Mentoring",
+              "value": "mentorship"
+            },
+            {
+              "label": "Consulting",
+              "value": "consulting"
+            },
+            {
+              "label": "Job Opportunity",
+              "value": "job-opportunity"
+            },
+            {
+              "label": "Collaboration",
+              "value": "collaboration"
+            },
+            {
+              "label": "Others",
+              "value": "others"
+            }
+          ]
+        },
+        "sendMessage": "Send Message",
+        "successMessage": "Message sent successfully! I'll get back to you shortly.",
+        "errorMessage": "An error occurred while sending the message. Please try again later."
+      }
+    }
+  }
+}

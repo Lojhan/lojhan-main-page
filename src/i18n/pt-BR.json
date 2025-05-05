@@ -1,0 +1,407 @@
+{
+  "/": {
+    "about": {
+      "title": "Tech Lead & Desenvolvedor Full Stack",
+      "description": "Ajudando equipes a construir aplicações escaláveis com tecnologias modernas. Especializado em frontend, backend e design de arquitetura.",
+      "contact": "Entre em contato"
+    },
+    "expertise": {
+      "title": "Minhas especialidades",
+      "description": "Com mais de 10 anos de experiência em desenvolvimento de software, tenho um histórico comprovado de entrega de soluções de alta qualidade.",
+      "areas": [
+        {
+          "title": "Desenvolvimento Frontend",
+          "description": "Criação de interfaces de usuário responsivas e acessíveis, utilizando as melhores práticas de design e usabilidade.",
+          "icon": "globe"
+        },
+        {
+          "title": "Desenvolvimento Backend",
+          "description": "Construção de APIs escaláveis e seguras com tecnologias modernas, garantindo desempenho e confiabilidade.",
+          "icon": "database"
+        },
+        {
+          "title": "Arquitetura de Software",
+          "description": "Design de sistemas robustos e escaláveis, utilizando das melhores práticas do setor.",
+          "icon": "layers"
+        },
+        {
+          "title": "Liderança Técnica",
+          "description": "Orientação e suporte a equipes de desenvolvimento, promovendo boas práticas e metodologias ágeis.",
+          "icon": "users"
+        },
+        {
+          "title": "Mentoria",
+          "description": "Apoio a desenvolvedores em suas jornadas de aprendizado e crescimento profissional.",
+          "icon": "lightbulb"
+        },
+        {
+          "title": "Consultoria",
+          "description": "Análise e otimização de processos de desenvolvimento, ajudando empresas a alcançarem seus objetivos.",
+          "icon": "code"
+        }
+      ]
+    },
+    "services": {
+      "title": "Serviços",
+      "description": "Ofereço uma variedade de serviços para ajudar você e sua equipe a alcançarem seus objetivos.",
+      "learnMore": "Saiba mais",
+      "items": [
+        {
+          "title": "Mentoria",
+          "description": "Orientação personalizada para desenvolvedores que buscam aprimorar suas carreiras e habilidades técnicas.",
+          "icon": "lightbulb",
+          "href": "/mentorship",
+          "features": [
+            "Sessões de mentoria individuais",
+            "Apoio em projetos pessoais ou profissionais",
+            "Feedback sobre código e práticas de desenvolvimento",
+            "Orientação sobre carreira e desenvolvimento profissional"
+          ]
+        },
+        {
+          "title": "Consultoria",
+          "description": "Análise e otimização de processos de desenvolvimento, ajudando empresas a alcançarem seus objetivos.",
+          "icon": "code",
+          "href": "/consulting",
+          "features": [
+            "Avaliação de arquitetura de software",
+            "Recomendações para melhorias de desempenho",
+            "Implementação de melhores práticas de desenvolvimento",
+            "Suporte na adoção de novas tecnologias"
+          ]
+        }
+      ]
+    },
+    "blog": {
+      "title": "Postagens em destaque",
+      "description": "Leia meus artigos mais recentes sobre desenvolvimento, liderança e tecnologia.",
+      "readMore": "Leia mais",
+      "viewAll": "Ver todos os artigos"
+    }
+  },
+  "/consulting": {
+    "about": {
+      "title": "Serviços de Consultoria Técnica",
+      "description": "Orientação especializada para ajudar sua equipe a superar desafios técnicos, otimizar sua arquitetura e entregar software de alta qualidade.",
+      "exploreServices": "Veja as opções de serviços",
+      "requestConsultation": "Solicite uma Consultoria"
+    },
+    "expertise": {
+      "title": "Minhas especialidades",
+      "description": "Com mais de 10 anos de experiência em desenvolvimento de software, tenho um histórico comprovado de entrega de soluções de alta qualidade.",
+      "areas": [
+        {
+          "title": "Arquitetura de Software",
+          "description": "Projete arquiteturas de sistema escaláveis e sustentáveis que se alinhem aos seus objetivos de negócios e requisitos técnicos.",
+          "icon": "layers"
+        },
+        {
+          "title": "Code Review",
+          "description": "Revisões de código abrangentes para identificar bugs, problemas de segurança e oportunidades de otimização e melhoria.",
+          "icon": "code"
+        },
+        {
+          "title": "Otimização de Banco de Dados",
+          "description": "Melhore o desempenho do banco de dados, otimize consultas e projete modelos de dados eficientes para seus aplicativos.",
+          "icon": "database"
+        },
+        {
+          "title": "Estratégia Técnica",
+          "description": "Desenvolva roteiros e estratégias técnicas que se alinhem aos seus objetivos de negócios e maximizem a eficácia da sua equipe.",
+          "icon": "settings"
+        },
+        {
+          "title": "Seleção de Tecnologia",
+          "description": "Orientações sobre como selecionar as tecnologias, frameworks e ferramentas certas para o seu projeto específico requisitos.",
+          "icon": "filecode"
+        },
+        {
+          "title": "Otimização da Equipe",
+          "description": "Melhore os fluxos de trabalho da equipe, os processos de desenvolvimento e a colaboração para aumentar a produtividade e a qualidade do código.",
+          "icon": "users"
+        }
+      ]
+    },
+
+    "engagementModels": {
+      "title": "Modelos de Engajamento",
+      "description": "Opções de consultoria flexíveis para atender às suas necessidades.",
+      "getStarted": "Entre em contato",
+      "tabs": [
+        {
+          "title": "Por Projeto",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Projeto padrão",
+              "description": "Para desafios técnicos específicos",
+              "price": "R$ 5.000,00",
+              "modifier": "+",
+              "features": [
+                "Análise detalhada do projeto",
+                "Recomendações de melhorias",
+                "Relatório final com sugestões de implementação",
+                "Suporte por e-mail durante o projeto"
+              ],
+              "timeline": "2 a 4 semanas"
+            },
+            {
+              "isMostPopular": true,
+              "title": "Projeto avançado",
+              "description": "Para desafios técnicos complexos",
+              "price": "R$ 15.000,00",
+              "modifier": "+",
+              "features": [
+                "Análise detalhada do projeto",
+                "Recomendações de melhorias",
+                "Relatório final com sugestões de implementação",
+                "Suporte por e-mail durante o projeto",
+                "Reuniões semanais para acompanhamento",
+                "Transferencia de conhecimento para a equipe"
+              ],
+              "timeline": "4 a 8 semanas"
+            }
+          ]
+        },
+        { "title": "Fixado", "items": [] },
+        { "title": "Workshops", "items": [] }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "description": "Aqui estão algumas perguntas comuns que recebo sobre meus serviços de consultoria.",
+      "items": [
+        {
+          "question": "Qual é o seu processo de consultoria?",
+          "answer": "Meu processo de consultoria envolve uma análise detalhada do seu projeto, seguida de recomendações personalizadas e suporte contínuo."
+        },
+        {
+          "question": "Quais tecnologias você utiliza?",
+          "answer": "Utilizo uma variedade de tecnologias modernas, incluindo JavaScript, Python, Node.js, React, Angular e muito mais."
+        },
+        {
+          "question": "Como posso agendar uma consulta?",
+          "answer": "Você pode agendar uma consulta entrando em contato comigo através do formulário de contato ou enviando um e-mail diretamente."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Pronto para resolver seus desafios técnicos?",
+      "description": "Agende uma sessão de 1 hora gratuita para discutir seu projeto e como posso ajudar sua equipe a ter sucesso.",
+      "getInTouch": "Entre em contato"
+    }
+  },
+  "/mentorship": {
+    "about": {
+      "title": "Mentoria Técnica",
+      "description": "Orientação personalizada para desenvolvedores que buscam aprimorar suas carreiras e habilidades técnicas.",
+      "exploreMentorshipPlans": "Veja os planos de mentoria",
+      "requestMentorship": "Solicite uma Mentoria"
+    },
+    "expertise": {
+      "title": "Minhas especialidades",
+      "description": "Com mais de 10 anos de experiência em desenvolvimento de software, tenho um histórico comprovado de entrega de soluções de alta qualidade.",
+      "areas": [
+        {
+          "title": "Desenvolvimento Frontend",
+          "description": "Criação de interfaces de usuário responsivas e acessíveis, utilizando as melhores práticas de design e usabilidade.",
+          "icon": "globe"
+        },
+        {
+          "title": "Desenvolvimento Backend",
+          "description": "Construção de APIs escaláveis e seguras com tecnologias modernas, garantindo desempenho e confiabilidade.",
+          "icon": "database"
+        },
+        {
+          "title": "Arquitetura de Software",
+          "description": "Design de sistemas robustos e escaláveis, utilizando das melhores práticas do setor.",
+          "icon": "layers"
+        },
+        {
+          "title": "Liderança Técnica",
+          "description": "Orientação e suporte a equipes de desenvolvimento, promovendo boas práticas e metodologias ágeis.",
+          "icon": "users"
+        },
+        {
+          "title": "Mentoria",
+          "description": "Apoio a desenvolvedores em suas jornadas de aprendizado e crescimento profissional.",
+          "icon": "lightbulb"
+        },
+        {
+          "title": "Consultoria",
+          "description": "Análise e otimização de processos de desenvolvimento, ajudando empresas a alcançarem seus objetivos.",
+          "icon": "code"
+        }
+      ]
+    },
+    "mentorshipPlans": {
+      "title": "Planos de Mentoria",
+      "description": "Escolha o plano de mentoria que melhor se adapta às suas necessidades e objetivos.",
+      "getStarted": "Entre em contato",
+      "tabs": [
+        {
+          "title": "Mensal",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Plano Básico",
+              "description": "Para desenvolvedores iniciantes",
+              "price": "R$ 500,00",
+              "modifier": "/mês",
+              "features": [
+                "2 sessões de uma hora de mentoria por mês",
+                "Suporte por email ou whatsapp",
+                "Feedback sobre código e práticas de desenvolvimento"
+              ]
+            },
+            {
+              "isMostPopular": true,
+              "title": "Plano Profissional",
+              "description": "Para desenvolvedores que levam a sério o crescimento profissional",
+              "price": "R$ 1.000,00",
+              "modifier": "/mês",
+              "features": [
+                "4 sessões de uma hora de mentoria por mês",
+                "Suporte por email ou whatsapp",
+                "Prioridade no agendamento de sessões",
+                "Apoio em projetos pessoais ou profissionais",
+                "Code review e feedback sobre código semanais",
+                "Orientação sobre carreira e desenvolvimento profissional"
+              ]
+            },
+            {
+              "isMostPopular": false,
+              "title": "Plano Expert",
+              "description": "Para desenvolvedores que buscam excelência",
+              "price": "R$ 2.500,00",
+              "modifier": "/mês",
+              "features": [
+                "8 sessões de mentoria por mês",
+                "Suporte por email ou whatsapp",
+                "Prioridade no agendamento de sessões",
+                "Apoio em projetos pessoais ou profissionais",
+                "Feedback sobre código e práticas de desenvolvimento",
+                "Orientação sobre carreira e desenvolvimento profissional",
+                "Preparacão para entrevistas técnicas"
+              ]
+            }
+          ]
+        },
+        { "title": "Pacote", "items": [] }
+      ]
+    },
+    "successStories": {
+      "title": "Histórias de Sucesso",
+      "description": "Veja como minha mentoria ajudou outros desenvolvedores a alcançarem seus objetivos.",
+      "items": [
+        {
+          "name": "João Silva",
+          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "role": "Desenvolvedor Frontend",
+          "feedback": "A mentoria me ajudou a melhorar minhas habilidades em React e a conseguir um emprego na empresa dos meus sonhos!"
+        },
+        {
+          "name": "Maria Oliveira",
+          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "role": "Desenvolvedora Backend",
+          "feedback": "As sessões de mentoria foram extremamente valiosas para meu crescimento profissional. Aprendi muito sobre arquitetura de software."
+        },
+        {
+          "name": "Carlos Pereira",
+          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "role": "Desenvolvedor Full Stack",
+          "feedback": "A mentoria me deu a confiança e as habilidades necessárias para liderar projetos complexos. Recomendo fortemente!"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "description": "Aqui estão algumas perguntas comuns que recebo sobre meus serviços de mentoria.",
+      "items": [
+        {
+          "question": "Qual é o seu processo de mentoria?",
+          "answer": "Meu processo de mentoria envolve sessões individuais, onde discutimos seus objetivos, desafios e como posso ajudar você a alcançá-los."
+        },
+        {
+          "question": "Quais tecnologias você utiliza?",
+          "answer": "Utilizo uma variedade de tecnologias modernas, incluindo JavaScript, Python, Node.js, React, Angular e muito mais."
+        },
+        {
+          "question": "Como posso agendar uma sessão de mentoria?",
+          "answer": "Você pode agendar uma sessão de mentoria entrando em contato comigo através do formulário de contato ou enviando um e-mail diretamente."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Pronto para dar o próximo passo na sua carreira?",
+      "description": "Agende uma sessão de 30 minutos gratuita para discutir seus objetivos e como posso ajudar você a alcançá-los.",
+      "getInTouch": "Entre em contato"
+    }
+  },
+  "/contact": {
+    "about": {
+      "title": "Entre em contato",
+      "description": "Tem uma pergunta ou deseja discutir um projeto? Estou aqui para ajudar!",
+      "getInTouch": "Entre em contato"
+    },
+    "contactMe": {
+      "letsConnect": "Vamos nos conectar",
+      "description": "Preencha o formulário ou entre em contato diretamente pelos meus canais de comunicação.",
+
+      "contactInfo": {
+        "email": "E-mail",
+        "emailValue": "viniciuslojhan@gmail.com",
+        "phone": "Telefone",
+        "phoneValue": "+55 41 99731-4223",
+        "location": "Localização",
+        "locationValue": "Curitiba, PR, Brasil"
+      },
+      "contactForm": {
+        "title": "Formulário de Contato",
+        "description": "Preencha o formulário abaixo e entrarei em contato o mais breve possível.",
+        "name": {
+          "label": "Nome",
+          "placeholder": "Seu nome"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Seu e-mail"
+        },
+        "message": {
+          "label": "Mensagem",
+          "placeholder": "Sua mensagem"
+        },
+        "subject": {
+          "label": "Assunto",
+          "placeholder": "Assunto da mensagem",
+          "options": [
+            {
+              "label": "Mentoria",
+              "value": "mentorship"
+            },
+            {
+              "label": "Consultoria",
+              "value": "consulting"
+            },
+            {
+              "label": "Oportunidade de Trabalho",
+              "value": "job-opportunity"
+            },
+            {
+              "label": "Colaboração",
+              "value": "collaboration"
+            },
+            {
+              "label": "Outros",
+              "value": "others"
+            }
+          ]
+        },
+        "sendMessage": "Enviar Mensagem",
+        "successMessage": "Mensagem enviada com sucesso! Entrarei em contato em breve.",
+        "errorMessage": "Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde."
+      }
+    }
+  }
+}
+
