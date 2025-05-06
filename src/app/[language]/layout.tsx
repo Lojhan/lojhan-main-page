@@ -100,10 +100,10 @@ export async function generateMetadata({
       ],
     },
     alternates: {
-      canonical: "https://www.lojhan.com",
+      canonical: "https://www.lojhan.com/pt-BR",
       languages: {
-        "en-US": "/en-US",
-        "pt-BR": "/pt-BR",
+        "en-US": "https://www.lojhan.com/en-US",
+        "pt-BR": "https://www.lojhan.com/pt-BR",
       },
     },
   };
