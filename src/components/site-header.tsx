@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LanguageToggle } from "./language-toggle";
 import { Logo } from "./Logo";
 
@@ -55,6 +55,22 @@ const navItems: NavItem[] = [
 export function SiteHeader({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [language, activePath] = usePathname().split("/").slice(1);
+
+  useEffect(() => {
+    const handleDocumentScroll = () => {
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("scroll", handleDocumentScroll, {
+      passive: true,
+    });
+
+    return () => {
+      document.removeEventListener("scroll", handleDocumentScroll);
+    };
+  }, [menuOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -123,7 +139,7 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className={`text-sm font-medium ${
-                        item.href === activePath
+                        item.href.replace("/", "") === (activePath || "")
                           ? "transition-colors hover:text-primary"
                           : "text-muted-foreground transition-colors hover:text-primary"
                       }`}
