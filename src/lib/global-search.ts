@@ -1,4 +1,5 @@
-import { getContentRaw, humanizeDirentName } from "./filesystem";
+import { getContentRaw } from "./filesystem";
+import { humanizeDirentName } from "./humanize";
 
 export type LinkCommand = {
   name: { "pt-BR": string; "en-US": string };
@@ -73,14 +74,21 @@ export async function getAllCommands(filter: string) {
 
   const content = await getContentRaw(filter);
 
-  const contentCommands = content.map((file) => {
-    const name = file.split("/").map(humanizeDirentName).join(" / ");
-    return {
-      name: { "pt-BR": name, "en-US": name },
-      kind: "link",
-      value: `/content/${file}`,
-    };
-  });
+  const contentCommands = content
+    // Then map the unique files to commands
+    .map((file) => {
+      const name = file.split("/").map(humanizeDirentName).join(" / ");
+      return {
+        name: { "pt-BR": name, "en-US": name },
+        kind: "link",
+        value: `/content/${file.replace(/((.en-US)|(.pt-BR))/, "")}`,
+      };
+    })
+    .filter((cmd, index, arr) => {
+      const match = arr.find((e) => e.name["pt-BR"] === cmd.name["pt-BR"])!;
+      const index2 = arr.indexOf(match);
+      return index === index2;
+    });
 
   return [
     ...filteredCommands,

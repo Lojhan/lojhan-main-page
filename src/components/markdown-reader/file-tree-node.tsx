@@ -5,7 +5,8 @@ import { ChevronDown, ChevronRight, Folder, File } from "lucide-react";
 import Link from "next/link";
 import { FileTree } from "./file-tree";
 import { useState } from "react";
-import { FileNode, humanizeDirentName } from "@/lib/filesystem";
+import { FileNode } from "@/lib/filesystem";
+import { humanizeDirentName } from "@/lib/humanize";
 
 export function FileTreeNode({
   node,
@@ -22,6 +23,7 @@ export function FileTreeNode({
   const [expanded, setExpanded] = useState(
     path[level] === node.name || node.path === "/"
   );
+
   const isMarkdown = node.name.endsWith(".md");
 
   return (
@@ -64,7 +66,7 @@ export function FileTreeNode({
       </Link>
 
       {node.type === "dir" && expanded && node.children && (
-        <FileTree nodes={node.children} level={level + 1} path={path} />
+        <FileTree nodes={node.children} level={level + 1} />
       )}
     </li>
   );

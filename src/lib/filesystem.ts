@@ -79,17 +79,14 @@ export async function getContentStructure(
   filter: string = ""
 ): Promise<FileNode[]> {
   const files = await getContentRaw(filter);
-  return buildFileTree(files);
-}
 
-export function humanizeDirentName(name: string): string {
-  return (
-    name
-      .replace(/_/g, " ")
-      .replace(/-/g, " ")
-      // remove the file extension
-      .replace(/\.[^/.]+$/, "")
-      // uppercase the first letter of the first word
-      .replace(/^\w/, (c) => c.toUpperCase())
+  return buildFileTree(
+    files
+      .filter((f, index, arr) => {
+        const match = arr.find((e) => e.split(".")[0] === f.split(".")[0])!;
+        const index2 = arr.indexOf(match);
+        return index === index2;
+      })
+      .map((f) => f.replace(/((.en-US)|(.pt-BR))/, ""))
   );
 }

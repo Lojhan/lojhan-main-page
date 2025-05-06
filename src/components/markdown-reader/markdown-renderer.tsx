@@ -15,12 +15,10 @@ import { ScrollArea } from "../ui/scroll-area";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
-import { humanizeDirentName } from "@/lib/filesystem";
+import { humanizeDirentName } from "@/lib/humanize";
 
 interface MarkdownRendererProps {
   content: string;
