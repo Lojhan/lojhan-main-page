@@ -64,7 +64,7 @@ export default async function ContactPage({
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         <AboutSection about={dictionary.about} />
-        <Container>
+        <Container id="contact-form">
           <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
             <ContactInfoSection contactMe={dictionary.contactMe} />
             <ContactFormSection contactMe={dictionary.contactMe} />
@@ -78,21 +78,18 @@ export default async function ContactPage({
 
 function AboutSection({ about }: { about: LangMap["/contact"]["about"] }) {
   return (
-    <>
-      <span className="hidden" id="about" />
-      <Container className="bg-muted">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-              {about.getInTouch}
-            </h1>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {about.description}
-            </p>
-          </div>
+    <Container className="bg-muted" id="about">
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+            {about.getInTouch}
+          </h1>
+          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            {about.description}
+          </p>
         </div>
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 }
 
@@ -104,7 +101,6 @@ function ContactInfoSection({
   const { contactInfo } = contactMe;
   return (
     <>
-      <span className="hidden" id="contact-info" />
       <div className="space-y-8">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
@@ -158,59 +154,56 @@ function ContactFormSection({
   const { email, message, subject, name, ...contactForm } =
     contactMe.contactForm;
   return (
-    <>
-      <span className="hidden" id="contact-form" />
-      <Card>
-        <CardHeader>
-          <CardTitle>{contactForm.title}</CardTitle>
-          <CardDescription>{contactForm.description}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="grid gap-4" action={createGithubIssue}>
-            <div className="grid gap-2">
-              <Label htmlFor="name">{name.label}</Label>
-              <Input id="name" name="name" placeholder={name.placeholder} />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">{email.label}</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="subject">{subject.label}</Label>
-              <Select name="subject" defaultValue={subject.options[0].value}>
-                <SelectTrigger id="subject">
-                  <SelectValue placeholder={subject.placeholder} />
-                </SelectTrigger>
-                <SelectContent>
-                  {subject.options.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="message">{message.label}</Label>
-              <Textarea
-                id="message"
-                name="message"
-                placeholder={message.placeholder}
-                className="min-h-[150px]"
-              />
-            </div>
-            <Button type="submit" className="w-full">
-              {contactForm.sendMessage}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </>
+    <Card>
+      <CardHeader>
+        <CardTitle>{contactForm.title}</CardTitle>
+        <CardDescription>{contactForm.description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form className="grid gap-4" action={createGithubIssue}>
+          <div className="grid gap-2">
+            <Label htmlFor="name">{name.label}</Label>
+            <Input id="name" name="name" placeholder={name.placeholder} />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">{email.label}</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="subject">{subject.label}</Label>
+            <Select name="subject" defaultValue={subject.options[0].value}>
+              <SelectTrigger id="subject">
+                <SelectValue placeholder={subject.placeholder} />
+              </SelectTrigger>
+              <SelectContent>
+                {subject.options.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="message">{message.label}</Label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder={message.placeholder}
+              className="min-h-[150px]"
+            />
+          </div>
+          <Button type="submit" className="w-full">
+            {contactForm.sendMessage}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 }

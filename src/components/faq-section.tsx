@@ -21,7 +21,7 @@ export function FAQSection({
   className = "",
 }: FAQSectionProps) {
   return (
-    <Container className={className}>
+    <Container className={className} id="faq">
       <SectionIntro title={title} subtitle={subtitle} />
       <div className="mx-auto grid max-w-5xl gap-8 py-12">
         {questions.map((faq, index) => (

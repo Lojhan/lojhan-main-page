@@ -46,7 +46,10 @@ function getLanguage() {
   return "pt-BR";
 }
 
-function useLanguage() {
+type Lang = "pt-BR" | "en-US";
+type SetLang = (arg0: Lang) => void;
+
+export function useLanguage(): readonly [Lang, SetLang] {
   if (typeof window === "undefined") {
     return ["pt-BR", () => {}] as const;
   }
@@ -60,11 +63,11 @@ function useLanguage() {
     () => getLanguage()
   );
 
-  const [language, setLanguage] = useState(languageFromStorage);
+  const [language, setLanguage] = useState(languageFromStorage as Lang);
   const pathname = window.location.pathname;
   return [
     language,
-    (newLanguage: string) => {
+    (newLanguage: Lang) => {
       setLanguage(newLanguage);
       localStorage.setItem("language", newLanguage);
       window.history.pushState(

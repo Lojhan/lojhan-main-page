@@ -53,13 +53,13 @@ const navItems: NavItem[] = [
   },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, activePath] = usePathname().split("/").slice(1);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container px-4 mx-auto flex h-16 items-center justify-between">
+      <div className="container px-4 mx-auto flex h-16 items-center justify-between min-w-[300px]">
         <Link
           href="/"
           aria-label={navItems[0].title[lang]}
@@ -85,6 +85,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          {children}
           <ThemeToggle />
           <LanguageToggle />
           <div className="md:hidden">

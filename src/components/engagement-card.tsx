@@ -42,7 +42,7 @@ export function EngagementCard({
         </div>
       </CardHeader>
       <CardContent className="grid flex-1 gap-4">
-        <ul className="grid gap-2 text-sm">
+        <ul className=" gap-2 text-sm flex flex-col">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center gap-2">
               <Check className="mr-2 h-4 w-4 text-green-500" />{" "}

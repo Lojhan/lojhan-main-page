@@ -293,22 +293,10 @@
       "description": "See how my mentoring helped other developers achieve their goals.",
       "items": [
         {
-          "name": "João Silva",
-          "photoUrl": "https://cataas.com/cat?width=200&height=200",
-          "role": "Frontend Developer",
-          "feedback": "The mentoring helped me improve my React skills and land my dream job!"
-        },
-        {
-          "name": "Maria Oliveira",
-          "photoUrl": "https://cataas.com/cat?width=200&height=200",
+          "name": "Felipe Carneiro",
+          "photoUrl": "/success-cases/felipe_carneiro.webp",
           "role": "Backend Developer",
-          "feedback": "The mentoring sessions were extremely valuable for my professional growth. I learned a lot about software architecture."
-        },
-        {
-          "name": "Carlos Pereira",
-          "photoUrl": "https://cataas.com/cat?width=200&height=200",
-          "role": "Full Stack Developer",
-          "feedback": "The mentoring gave me the confidence and skills needed to lead complex projects. I highly recommend!"
+          "feedback": "The mentoring helped me with the theoretical and practical basis of software development. Before, I studied independently, but with Lojhan's teaching, my learning and direction increased exponentially."
         }
       ]
     },

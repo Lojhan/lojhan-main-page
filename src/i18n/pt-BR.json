@@ -295,22 +295,10 @@
       "description": "Veja como minha mentoria ajudou outros desenvolvedores a alcançarem seus objetivos.",
       "items": [
         {
-          "name": "João Silva",
-          "photoUrl": "https://cataas.com/cat?width=200&height=200",
-          "role": "Desenvolvedor Frontend",
-          "feedback": "A mentoria me ajudou a melhorar minhas habilidades em React e a conseguir um emprego na empresa dos meus sonhos!"
-        },
-        {
-          "name": "Maria Oliveira",
-          "photoUrl": "https://cataas.com/cat?width=200&height=200",
-          "role": "Desenvolvedora Backend",
-          "feedback": "As sessões de mentoria foram extremamente valiosas para meu crescimento profissional. Aprendi muito sobre arquitetura de software."
-        },
-        {
-          "name": "Carlos Pereira",
-          "photoUrl": "https://cataas.com/cat?width=200&height=200",
-          "role": "Desenvolvedor Full Stack",
-          "feedback": "A mentoria me deu a confiança e as habilidades necessárias para liderar projetos complexos. Recomendo fortemente!"
+          "name": "Felipe Carneiro",
+          "photoUrl": "/success-cases/felipe_carneiro.webp",
+          "role": "Desenvolvedor Backend",
+          "feedback": "A mentoria me ajudou com a base teórica e prática do desenvolvimento de software. Antes eu estudava de forma independente, mas com a condução do ensino do Lojhan exponencializou meu aprendizado e direcionamento."
         }
       ]
     },
@@ -404,4 +392,3 @@
     }
   }
 }
-

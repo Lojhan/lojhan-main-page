@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+import { GlobalSearchServer } from "@/components/global-search-server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export async function generateMetadata({
   return {
     ...metadata,
     creator: "Lojhan",
-    applicationName: "Lojhan",
+    applicationName: metadata.title,
 
     category: "technology",
 
@@ -88,7 +89,7 @@ export async function generateMetadata({
       title: metadata.title,
       description: metadata.description,
       url: "https://www.lojhan.com",
-      siteName: "Lojhan",
+      siteName: metadata.title,
       images: [
         {
           url: "https://www.lojhan.com/lojhan-photo-home.png",
@@ -122,7 +123,9 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
+          <SiteHeader >
+          <GlobalSearchServer />
+          </SiteHeader>
           {children}
         </ThemeProvider>
       </body>

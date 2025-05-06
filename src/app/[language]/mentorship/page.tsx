@@ -20,6 +20,13 @@ import { getDictionary } from "@/i18n";
 import { LangMap } from "@/i18n/lang-map";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EngagementCard } from "@/components/engagement-card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default async function MentorshipPage({
   params,
@@ -57,41 +64,38 @@ export default async function MentorshipPage({
 
 function AboutSection({ about }: { about: LangMap["/mentorship"]["about"] }) {
   return (
-    <>
-      <span className="hidden" id="about" />
-      <Container className="bg-muted">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                {about.title}
-              </h1>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                {about.description}
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 min-[600px]:flex-row">
-              <Button asChild size="lg">
-                <Link href="#mentorship-plans">
-                  {about.exploreMentorshipPlans}{" "}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild size="lg">
-                <Link href="/contact">{about.requestMentorship}</Link>
-              </Button>
-            </div>
+    <Container className="bg-muted" id="about">
+      <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+        <div className="flex flex-col justify-center space-y-4">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+              {about.title}
+            </h1>
+            <p className="max-w-[600px] text-muted-foreground md:text-xl">
+              {about.description}
+            </p>
           </div>
-          <Image
-            src="/placeholder.svg?height=550&width=550"
-            width={550}
-            height={550}
-            alt="Mentorship"
-            className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-          />
+          <div className="flex flex-col gap-2 min-[600px]:flex-row">
+            <Button asChild size="lg">
+              <Link href="#mentorship-plans">
+                {about.exploreMentorshipPlans}{" "}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" asChild size="lg">
+              <Link href="/contact">{about.requestMentorship}</Link>
+            </Button>
+          </div>
         </div>
-      </Container>
-    </>
+        <Image
+          src="/placeholder.svg?height=550&width=550"
+          width={550}
+          height={550}
+          alt="Mentorship"
+          className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+        />
+      </div>
+    </Container>
   );
 }
 
@@ -101,20 +105,14 @@ function HowICanHelpYouSection({
   expertise: LangMap["/consulting"]["expertise"];
 }) {
   return (
-    <>
-      <span className="hidden" id="how-i-can-help-you" />
-      <Container>
-        <SectionIntro
-          title={expertise.title}
-          subtitle={expertise.description}
-        />
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-          {expertise.areas.map((expertise, index) => (
-            <ExpertiseCard {...expertise} key={index} />
-          ))}
-        </div>
-      </Container>
-    </>
+    <Container id="how-i-can-help-you">
+      <SectionIntro title={expertise.title} subtitle={expertise.description} />
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+        {expertise.areas.map((expertise, index) => (
+          <ExpertiseCard {...expertise} key={index} />
+        ))}
+      </div>
+    </Container>
   );
 }
 
@@ -125,45 +123,42 @@ function MentorshipPlansSection({
 }) {
   const tabs = mentorshipPlans.tabs.map((tab) => tab.title);
   return (
-    <>
-      <span className="hidden" id="mentorship-plans" />
-      <Container className="bg-muted">
-        <SectionIntro
-          title={mentorshipPlans.title}
-          subtitle={mentorshipPlans.description}
-        />
-        <Tabs defaultValue={tabs[0]} className="mx-auto max-w-7xl py-12">
-          <div className="max-sm:sticky relative max-sm:top-16 z-40 py-2 bg-muted">
-            <TabsList className="grid w-full grid-cols-2 gap-2">
-              {tabs.map((tab, index) => (
-                <TabsTrigger
-                  key={index}
-                  value={tab}
-                  className="cursor-pointer hover:bg-muted-foreground hover:text-foreground"
-                >
-                  {tab}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
-          {mentorshipPlans.tabs.map((tab, index) => (
-            <TabsContent
-              key={index}
-              value={tab.title}
-              className="grid gap-8 md:grid-cols-3"
-            >
-              {tab.items.map((item, itemIndex) => (
-                <EngagementCard
-                  key={itemIndex}
-                  {...item}
-                  getStarted={mentorshipPlans.getStarted}
-                />
-              ))}
-            </TabsContent>
-          ))}
-        </Tabs>
-      </Container>
-    </>
+    <Container className="bg-muted" id="plans">
+      <SectionIntro
+        title={mentorshipPlans.title}
+        subtitle={mentorshipPlans.description}
+      />
+      <Tabs defaultValue={tabs[0]} className="mx-auto max-w-7xl py-12">
+        <div className="max-sm:sticky relative max-sm:top-16 z-40 py-2 bg-muted">
+          <TabsList className="grid w-full grid-cols-2 gap-2">
+            {tabs.map((tab, index) => (
+              <TabsTrigger
+                key={index}
+                value={tab}
+                className="cursor-pointer hover:bg-muted-foreground hover:text-foreground"
+              >
+                {tab}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+        {mentorshipPlans.tabs.map((tab, index) => (
+          <TabsContent
+            key={index}
+            value={tab.title}
+            className="grid gap-8 md:grid-cols-3"
+          >
+            {tab.items.map((item, itemIndex) => (
+              <EngagementCard
+                key={itemIndex}
+                {...item}
+                getStarted={mentorshipPlans.getStarted}
+              />
+            ))}
+          </TabsContent>
+        ))}
+      </Tabs>
+    </Container>
   );
 }
 
@@ -173,38 +168,73 @@ function SuccessStoriesSection({
   successStories: LangMap["/mentorship"]["successStories"];
 }) {
   return (
-    <>
-      <span className="hidden" id="success-stories" />
-      <Container>
-        <SectionIntro
-          title={successStories.title}
-          subtitle={successStories.description}
-        />
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-          {successStories.items.map((item, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={item.photoUrl}
-                    width={60}
-                    height={60}
-                    alt={`Testimonial ${index + 1}`}
-                    className="rounded-full object-contain object-center"
-                  />
-                  <div>
-                    <CardTitle className="text-lg">{item.name}</CardTitle>
-                    <CardDescription>{item.role}</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{item.feedback}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </Container>
-    </>
+    <Container id="success-stories">
+      <SectionIntro
+        title={successStories.title}
+        subtitle={successStories.description}
+      />
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+        {successStories.items.map((item, index) => (
+          <SuccessStoryCase key={index} story={item} />
+        ))}
+      </div>
+    </Container>
+  );
+}
+
+function SuccessStoryCase({
+  story,
+}: {
+  story: LangMap["/mentorship"]["successStories"]["items"][number];
+}) {
+  return (
+    <Dialog>
+      <DialogTrigger>
+        <Card className="cursor-pointer transition-transform hover:scale-[1.01]">
+          <CardHeader>
+            <div className="flex items-center gap-4">
+              <Image
+                src={story.photoUrl}
+                width={60}
+                height={60}
+                alt={story.name}
+                className="rounded-full object-contain object-center"
+              />
+              <div>
+                <CardTitle className="text-lg text-left">
+                  {story.name}
+                </CardTitle>
+                <CardDescription className="text-left">
+                  {story.role}
+                </CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="flex bottom-0">
+            <p className="text-sm text-muted-foreground text-left line-clamp-3">
+              {story.feedback}
+            </p>
+          </CardContent>
+        </Card>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader className="flex flex-row items-center gap-4">
+          <Image
+            src={story.photoUrl}
+            width={60}
+            height={60}
+            alt={story.name}
+            className="rounded-full object-contain object-center"
+          />
+          <div>
+            <CardTitle className="text-lg text-left">{story.name}</CardTitle>
+            <CardDescription className="text-left">
+              {story.role}
+            </CardDescription>
+          </div>
+        </DialogHeader>
+        <DialogDescription>{story.feedback}</DialogDescription>
+      </DialogContent>
+    </Dialog>
   );
 }
