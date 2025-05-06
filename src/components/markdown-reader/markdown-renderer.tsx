@@ -6,14 +6,10 @@ import type React from "react";
 import { useState } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  materialDark,
-  materialLight,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 import { Copy, Check } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "../ui/scroll-area";
 
@@ -31,7 +27,11 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   );
 }
 
-function CodeBlock({ language, value }: { language: string; value: string }) {
+function CodeBlock({
+  language,
+  value,
+  children,
+}: React.PropsWithChildren<{ language: string; value: string }>) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -60,7 +60,7 @@ function CodeBlock({ language, value }: { language: string; value: string }) {
       </div>
       <SyntaxHighlighter
         language={language}
-        style={materialLight}
+        style={materialDark}
         customStyle={{
           margin: 0,
           borderRadius: 0,
@@ -110,27 +110,17 @@ const components: Components = {
     <blockquote className="mt-6 border-l-2 pl-6 italic" {...props} />
   ),
 
-  code({ node, inline, className, children, ...props }) {
+  code({ node, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || "");
     const language = match ? match[1] : "";
 
-    return !inline ? (
+    return (
       <CodeBlock
         language={language}
         value={String(children).replace(/\n$/, "")}
       >
         {String(children).replace(/\n$/, "")}
       </CodeBlock>
-    ) : (
-      <code
-        className={cn(
-          "rounded bg-muted px-1 py-0.5 font-mono text-sm",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </code>
     );
   },
 
