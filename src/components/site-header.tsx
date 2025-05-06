@@ -10,7 +10,7 @@ import { useState } from "react";
 import { LanguageToggle } from "./language-toggle";
 
 interface NavItem {
-  title: { [lang: string]: string };
+  title: { [language: string]: string };
   href: string;
   isActive?: boolean;
 }
@@ -55,14 +55,14 @@ const navItems: NavItem[] = [
 
 export function SiteHeader({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, activePath] = usePathname().split("/").slice(1);
+  const [language, activePath] = usePathname().split("/").slice(1);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container px-4 mx-auto flex h-16 items-center justify-between min-w-[300px]">
         <Link
           href="/"
-          aria-label={navItems[0].title[lang]}
+          aria-label={navItems[0].title[language]}
           className="flex items-center gap-2 font-bold text-xl"
         >
           <HeaderLogo />
@@ -72,14 +72,14 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
             <Link
               key={item.href}
               href={item.href}
-              aria-label={item.title[lang]}
+              aria-label={item.title[language]}
               className={`text-sm font-medium ${
-                item.href === activePath
+                item.href.replace("/", "") === (activePath || "")
                   ? "transition-colors hover:text-primary"
                   : "text-muted-foreground transition-colors hover:text-primary"
               }`}
             >
-              {item.title[lang]}
+              {item.title[language]}
             </Link>
           ))}
         </nav>
@@ -126,7 +126,7 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
                           : "text-muted-foreground transition-colors hover:text-primary"
                       }`}
                     >
-                      {item.title[lang]}
+                      {item.title[language]}
                     </Link>
                   ))}
                 </nav>

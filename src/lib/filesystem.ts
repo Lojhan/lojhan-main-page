@@ -1,3 +1,5 @@
+import path from "node:path";
+
 export type FileNode = {
   path: string;
   type: "file" | "dir";
@@ -61,10 +63,14 @@ function buildFileTree(paths: string[]): FileNode[] {
   );
 }
 
-export async function getContentRaw(filter: string = ""): Promise<string[]> {
+export async function getContentRaw(
+  filter: string,
+  language: string
+): Promise<string[]> {
   const { readdir } = await import("node:fs/promises");
-  const basePath = process.cwd();
-  const contentPath = `${basePath}/public/content`;
+
+  const contentPath = path.join(process.cwd(), "public", "content", language);
+
   const files = await readdir(contentPath, {
     recursive: true,
   });
@@ -76,17 +82,10 @@ export async function getContentRaw(filter: string = ""): Promise<string[]> {
 }
 
 export async function getContentStructure(
-  filter: string = ""
+  filter: string,
+  language: string
 ): Promise<FileNode[]> {
-  const files = await getContentRaw(filter);
+  const files = await getContentRaw(filter, language);
 
-  return buildFileTree(
-    files
-      .filter((f, index, arr) => {
-        const match = arr.find((e) => e.split(".")[0] === f.split(".")[0])!;
-        const index2 = arr.indexOf(match);
-        return index === index2;
-      })
-      .map((f) => f.replace(/((.en-US)|(.pt-BR))/, ""))
-  );
+  return buildFileTree(files);
 }

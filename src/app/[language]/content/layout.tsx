@@ -5,8 +5,16 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { PropsWithChildren } from "react";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+type Props = PropsWithChildren<{
+  params: Promise<{
+    language: string;
+  }>;
+}>;
+
+export default async function Layout({ children, params }: Props) {
+  const { language } = await params;
   const path =
     typeof window == "undefined"
       ? []
@@ -24,7 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="hidden w-full sm:block">
         <ResizablePanelGroup direction="horizontal" className="h-50">
           <ResizablePanel defaultSize={15} maxSize={50} minSize={5}>
-            <ContentSidebar />
+            <ContentSidebar language={language} />
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={85}>

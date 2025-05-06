@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
-import "./globals.css";
 import { GlobalSearchServer } from "@/components/global-search-server";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -111,9 +111,14 @@ export async function generateMetadata({
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{
+    language: "en-US" | "pt-BR";
+  }>;
 }>) {
+  const { language } = await params;
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
@@ -123,8 +128,8 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader >
-          <GlobalSearchServer />
+          <SiteHeader>
+            <GlobalSearchServer language={language} />
           </SiteHeader>
           {children}
         </ThemeProvider>

@@ -54,7 +54,7 @@ const commands = [
   },
 ] as unknown as Command[];
 
-export async function getAllCommands(filter: string) {
+export async function getAllCommands(filter: string, language: string): Promise<Command[]> {
   const filteredCommands = commands.filter((command) => {
     if (command.kind === "link") {
       return (
@@ -72,7 +72,7 @@ export async function getAllCommands(filter: string) {
     }
   });
 
-  const content = await getContentRaw(filter);
+  const content = await getContentRaw(filter, language);
 
   const contentCommands = content
     // Then map the unique files to commands
@@ -81,7 +81,7 @@ export async function getAllCommands(filter: string) {
       return {
         name: { "pt-BR": name, "en-US": name },
         kind: "link",
-        value: `/content/${file.replace(/((.en-US)|(.pt-BR))/, "")}`,
+        value: `/content/${file}`,
       };
     })
     .filter((cmd, index, arr) => {

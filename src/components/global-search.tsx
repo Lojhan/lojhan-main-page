@@ -70,7 +70,7 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
 }
 
 function renderCommandItem(command: Cmd, setOpen: (open: boolean) => void) {
-  const lang = (
+  const language = (
     typeof window !== "undefined"
       ? window.location.pathname.split("/")[1]
       : "pt-BR"
@@ -89,14 +89,17 @@ function renderCommandItem(command: Cmd, setOpen: (open: boolean) => void) {
           }}
         >
           <span className="flex justify-between">
-            <span>{command.name[lang]}</span>
+            <span>{command.name[language]}</span>
             <Link className="w-4 h-4" />
           </span>
         </CommandItem>
       );
     case "group":
       return (
-        <CommandGroup key={command.name[lang]} heading={command.name[lang]}>
+        <CommandGroup
+          key={command.name[language]}
+          heading={command.name[language]}
+        >
           {command.value.map((e) => renderCommandItem(e, setOpen))}
         </CommandGroup>
       );
