@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Logo } from "./Logo";
-import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LanguageToggle } from "./language-toggle";
+import { Logo } from "./Logo";
 
 interface NavItem {
   title: { [language: string]: string };
@@ -65,7 +64,10 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
           aria-label={navItems[0].title[language]}
           className="flex items-center gap-2 font-bold text-xl"
         >
-          <HeaderLogo />
+          <Logo.DarkArrows
+            width={100}
+            className="dark:[&_path]:fill-[#EAF5FC] light:[&_path]:fill-[#121F2B]"
+          />
         </Link>
         <nav className="hidden md:flex gap-6">
           {navItems.map((item) => (
@@ -137,23 +139,4 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
       </div>
     </header>
   );
-}
-
-function HeaderLogo() {
-  const { theme } = useTheme();
-
-  if (theme === "dark") {
-    return <Logo.LightArrows width={100} />;
-  }
-
-  if (theme === "light") {
-    return <Logo.DarkArrows width={100} />;
-  }
-
-  if (
-    theme === "system" &&
-    globalThis.window.matchMedia("(prefers-color-scheme:dark)").matches
-  ) {
-    return <Logo.LightArrows width={100} />;
-  }
 }

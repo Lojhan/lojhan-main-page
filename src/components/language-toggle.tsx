@@ -60,6 +60,7 @@ export function useLanguage(): readonly [Lang, SetLang] {
       window.addEventListener("storage", onStoreChange);
       return () => window.removeEventListener("storage", onStoreChange);
     },
+    () => getLanguage(),
     () => getLanguage()
   );
 
