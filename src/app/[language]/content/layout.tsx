@@ -25,7 +25,7 @@ export default async function Layout({ children, params }: Props) {
       {/* Mobile view - hidden on sm screens and above */}
       <div className="block w-full sm:hidden">
         <span className="text-primary">{path.join(" > ")}</span>
-        <ScrollArea className="h-[calc(100vh-4rem-1px)]">{children}</ScrollArea>
+        {children}
       </div>
 
       {/* Desktop view - hidden on screens smaller than sm */}
