@@ -7,6 +7,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  Command as CommandWrapper,
 } from "./ui/command";
 import { Command, Link, Search } from "lucide-react";
 import { Button } from "./ui/button";
@@ -14,6 +15,7 @@ import { useIsMobile } from "./ui/use-mobile";
 import { Card } from "./ui/card";
 import { useLanguage } from "./language-toggle";
 import { type Command as Cmd } from "@/lib/global-search";
+import { Drawer, DrawerContent } from "./ui/drawer";
 
 const searchLabel = {
   "pt-BR": "Bucar",
@@ -58,13 +60,35 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
           );
         })()}
       </div>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          {commands.map((command) => renderCommandItem(command, setOpen))}
-        </CommandList>
-      </CommandDialog>
+      {(() => {
+        if (isMobile) {
+          return (
+            <Drawer open={open} onOpenChange={setOpen}>
+              <DrawerContent>
+                <CommandWrapper className="bg-black md:min-w-[450px] px-2 py-4">
+                  <CommandInput placeholder="Type a command or search..." />
+                  <CommandList>
+                    <CommandEmpty>No results found.</CommandEmpty>
+                    {commands.map((command) =>
+                      renderCommandItem(command, setOpen)
+                    )}
+                  </CommandList>
+                </CommandWrapper>
+              </DrawerContent>
+            </Drawer>
+          );
+        }
+
+        return (
+          <CommandDialog open={open} onOpenChange={setOpen}>
+            <CommandInput placeholder="Type a command or search..." />
+            <CommandList>
+              <CommandEmpty>No results found.</CommandEmpty>
+              {commands.map((command) => renderCommandItem(command, setOpen))}
+            </CommandList>
+          </CommandDialog>
+        );
+      })()}
     </>
   );
 }

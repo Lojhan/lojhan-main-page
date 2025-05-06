@@ -4,9 +4,17 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { LanguageToggle } from "./language-toggle";
 import { Logo } from "./Logo";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerTrigger,
+} from "./ui/drawer";
+import { Menu } from "lucide-react";
+import { useIsMobile } from "./ui/use-mobile";
 
 interface NavItem {
   title: { [language: string]: string };
@@ -53,24 +61,8 @@ const navItems: NavItem[] = [
 ];
 
 export function SiteHeader({ children }: { children: React.ReactNode }) {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [language, activePath] = usePathname().split("/").slice(1);
-
-  useEffect(() => {
-    const handleDocumentScroll = () => {
-      if (menuOpen) {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("scroll", handleDocumentScroll, {
-      passive: true,
-    });
-
-    return () => {
-      document.removeEventListener("scroll", handleDocumentScroll);
-    };
-  }, [menuOpen]);
+  const isMobile = useIsMobile();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -85,74 +77,88 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
             className="dark:[&_path]:fill-[#EAF5FC] light:[&_path]:fill-[#121F2B]"
           />
         </Link>
-        <nav className="hidden md:flex gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-label={item.title[language]}
-              className={`text-sm font-medium ${
-                item.href.replace("/", "") === (activePath || "")
-                  ? "transition-colors hover:text-primary"
-                  : "text-muted-foreground transition-colors hover:text-primary"
-              }`}
-            >
-              {item.title[language]}
-            </Link>
-          ))}
-        </nav>
+        <DesktopMenu language={language} activePath={activePath} />
 
         <div className="flex items-center gap-2">
           {children}
-          <ThemeToggle />
-          <LanguageToggle />
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMenuOpen((prev) => !prev)}
-            >
-              <span className="sr-only">Toggle menu</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
-            </Button>
-            {menuOpen && (
-              <div className="absolute top-16 left-0 w-full bg-background shadow-md">
-                <nav className="flex flex-col gap-4 p-4">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMenuOpen(false)}
-                      className={`text-sm font-medium ${
-                        item.href.replace("/", "") === (activePath || "")
-                          ? "transition-colors hover:text-primary"
-                          : "text-muted-foreground transition-colors hover:text-primary"
-                      }`}
-                    >
-                      {item.title[language]}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            )}
-          </div>
+          {isMobile ? null : <ThemeToggle />}
+          {isMobile ? null : <LanguageToggle />}
+          <MobileMenu language={language} activePath={activePath} />
         </div>
       </div>
     </header>
+  );
+}
+
+function DesktopMenu({
+  language,
+  activePath,
+}: {
+  language: string;
+  activePath: string;
+}) {
+  return (
+    <nav className="hidden md:flex gap-6">
+      {navItems.map((item) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          aria-label={item.title[language]}
+          className={`text-sm font-medium ${
+            item.href.replace("/", "") === (activePath || "")
+              ? "transition-colors hover:text-primary"
+              : "text-muted-foreground transition-colors hover:text-primary"
+          }`}
+        >
+          {item.title[language]}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+function MobileMenu({
+  language,
+  activePath,
+}: {
+  language: string;
+  activePath: string;
+}) {
+  return (
+    <div className="md:hidden">
+      <Drawer>
+        <DrawerTrigger>
+          <Button variant="ghost" size="icon">
+            <span className="sr-only">Toggle menu</span>
+            <Menu className="h-5 w-5" />
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => {}}
+                className={`text-sm font-medium ${
+                  item.href.replace("/", "") === (activePath || "")
+                    ? "transition-colors hover:text-primary"
+                    : "text-muted-foreground transition-colors hover:text-primary"
+                }`}
+              >
+                <DrawerClose>{item.title[language]}</DrawerClose>
+              </Link>
+            ))}
+          </div>
+
+          <DrawerFooter>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <LanguageToggle />
+            </div>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </div>
   );
 }
