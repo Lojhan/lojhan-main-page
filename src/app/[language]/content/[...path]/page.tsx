@@ -10,13 +10,11 @@ type Props = {
 };
 
 export default async function Content({ params }: Props) {
-  const { path: filePath, language } = await params;
+  const { path: filePath = ["README.md"], language } = await params;
 
   const content = await readFile(
     path.join(process.cwd(), "public", "content", language, ...filePath)
   ).catch(() => "no content");
 
-  return (
-    <MarkdownRenderer content={content.toString()} path={filePath || []} />
-  );
+  return <MarkdownRenderer content={content.toString()} path={filePath} />;
 }
