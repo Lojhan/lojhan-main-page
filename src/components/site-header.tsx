@@ -74,7 +74,7 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
         >
           <Logo.DarkArrows
             width={100}
-            className="dark:[&_path]:fill-[#EAF5FC] light:[&_path]:fill-[#121F2B]"
+            className="dark:[&_path]:fill-[#EAF5FC] light:[&_path]:fill-[#121F2B] mx-4"
           />
         </Link>
         <DesktopMenu language={language} activePath={activePath} />
