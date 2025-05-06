@@ -51,7 +51,7 @@ export default function MarkdownRenderer({
           })}
         </BreadcrumbList>
       </Breadcrumb>
-      <ScrollArea className="mx-auto max-w-3xl px-4 py-8">
+      <ScrollArea className="mx-auto px-2 max-sm:px-0 py-8 max-w-4xl max-sm:max-w-[90vw]">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
           {content}
         </ReactMarkdown>
@@ -74,7 +74,7 @@ function CodeBlock({
   };
 
   return (
-    <div className="relative my-4 overflow-hidden rounded-lg border">
+    <div className="relative my-4 overflow-hidden rounded-lg border max-sm:max-w-[90vw]">
       <div className="flex items-center justify-between bg-muted px-4 py-2">
         <span className="text-xs font-medium">{language || "code"}</span>
         <Button
@@ -109,38 +109,59 @@ function CodeBlock({
 
 const components: Components = {
   h1: ({ node, ...props }) => (
-    <h1 className="mb-4 mt-6 text-3xl font-bold" {...props} />
+    <h1
+      className="mb-4 mt-6 text-3xl font-bold max-sm:max-w-[90vw]"
+      {...props}
+    />
   ),
   h2: ({ node, ...props }) => (
-    <h2 className="mb-3 mt-5 text-2xl font-bold" {...props} />
+    <h2
+      className="mb-3 mt-5 text-2xl font-bold max-sm:max-w-[90vw]"
+      {...props}
+    />
   ),
   h3: ({ node, ...props }) => (
-    <h3 className="mb-3 mt-4 text-xl font-bold" {...props} />
+    <h3
+      className="mb-3 mt-4 text-xl font-bold max-sm:max-w-[90vw]"
+      {...props}
+    />
   ),
   h4: ({ node, ...props }) => (
-    <h4 className="mb-2 mt-4 text-lg font-bold" {...props} />
+    <h4
+      className="mb-2 mt-4 text-lg font-bold max-sm:max-w-[90vw]"
+      {...props}
+    />
   ),
-  p: ({ node, ...props }) => <p className="mb-4 leading-7" {...props} />,
+  p: ({ node, ...props }) => (
+    <p className="mb-4 leading-7 max-sm:max-w-[90vw]" {...props} />
+  ),
 
   a: ({ node, ...props }) => (
     <a
-      className="font-medium text-primary underline underline-offset-4"
+      className="font-medium text-primary underline underline-offset-4 max-sm:max-w-[90vw]"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
     />
   ),
 
-  ul: ({ node, ...props }) => <ul className="mb-4 ml-6 list-disc" {...props} />,
-
-  ol: ({ node, ...props }) => (
-    <ol className="mb-4 ml-6 list-decimal" {...props} />
+  ul: ({ node, ...props }) => (
+    <ul className="mb-4 ml-6 list-disc max-sm:max-w-[90vw]" {...props} />
   ),
 
-  li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+  ol: ({ node, ...props }) => (
+    <ol className="mb-4 ml-6 list-decimal max-sm:max-w-[90vw]" {...props} />
+  ),
+
+  li: ({ node, ...props }) => (
+    <li className="mb-1 max-sm:max-w-[90vw]" {...props} />
+  ),
 
   blockquote: ({ node, ...props }) => (
-    <blockquote className="mt-6 border-l-2 pl-6 italic" {...props} />
+    <blockquote
+      className="mt-6 border-l-2 pl-6 italic max-sm:max-w-[90vw]"
+      {...props}
+    />
   ),
 
   code({ node, className, children, ...props }) {
@@ -158,21 +179,21 @@ const components: Components = {
   },
 
   table: ({ node, ...props }) => (
-    <div className="my-6 w-full overflow-y-auto">
+    <div className="my-6 w-full overflow-y-auto max-sm:max-w-[90vw]">
       <table className="w-full" {...props} />
     </div>
   ),
 
   th: ({ node, ...props }) => (
     <th
-      className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
+      className="border px-4 py-2 text-left font-bold max-sm:max-w-[90vw] [&[align=center]]:text-center [&[align=right]]:text-right"
       {...props}
     />
   ),
 
   td: ({ node, ...props }) => (
     <td
-      className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+      className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right max-sm:max-w-[90vw]"
       {...props}
     />
   ),
