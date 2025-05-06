@@ -30,8 +30,8 @@ export default function MarkdownRenderer({
   path,
 }: MarkdownRendererProps) {
   return (
-    <div>
-      <Breadcrumb className="p-4">
+    <>
+      <Breadcrumb className="py-4 px-6">
         <BreadcrumbList>
           {path.map((item, index) => {
             if (index === path.length - 1) {
@@ -51,12 +51,12 @@ export default function MarkdownRenderer({
           })}
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="container mx-auto max-sm:max-w-[90vw]">
+      <div className="sm:px-6 container mx-auto max-sm:max-w-[90vw]">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
           {content}
         </ReactMarkdown>
       </div>
-    </div>
+    </>
   );
 }
 

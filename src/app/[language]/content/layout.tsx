@@ -15,18 +15,11 @@ type Props = PropsWithChildren<{
 
 export default async function Layout({ children, params }: Props) {
   const { language } = await params;
-  const path =
-    typeof window == "undefined"
-      ? []
-      : window.location.pathname.split("/").slice(3);
 
   return (
     <>
       {/* Mobile view - hidden on sm screens and above */}
-      <div className="block w-full sm:hidden">
-        <span className="text-primary">{path.join(" > ")}</span>
-        {children}
-      </div>
+      <div className="block w-full sm:hidden">{children}</div>
 
       {/* Desktop view - hidden on screens smaller than sm */}
       <div className="hidden w-full sm:block">
