@@ -32,6 +32,11 @@ export const langMap = {
       readMore: "[string]",
       viewAll: "[string]",
     },
+    contact: {
+      title: "[string]",
+      description: "[string]",
+      getInTouch: "[string]",
+    }
   },
   "/consulting": {
     about: {

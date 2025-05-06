@@ -53,6 +53,13 @@ const navItems: NavItem[] = [
   },
   {
     title: {
+      "pt-BR": "Conteúdos",
+      "en-US": "Content",
+    },
+    href: "/content",
+  },
+  {
+    title: {
       "pt-BR": "Contato",
       "en-US": "Contact",
     },

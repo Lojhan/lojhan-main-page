@@ -64,36 +64,25 @@ export default async function MentorshipPage({
 
 function AboutSection({ about }: { about: LangMap["/mentorship"]["about"] }) {
   return (
-    <Container className="bg-muted" id="about">
-      <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-        <div className="flex flex-col justify-center space-y-4">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-              {about.title}
-            </h1>
-            <p className="max-w-[600px] text-muted-foreground md:text-xl">
-              {about.description}
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 min-[600px]:flex-row">
-            <Button asChild size="lg">
-              <Link href="#mentorship-plans">
-                {about.exploreMentorshipPlans}{" "}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" asChild size="lg">
-              <Link href="/contact">{about.requestMentorship}</Link>
-            </Button>
-          </div>
+    <Container id="how-i-can-help-you" className="bg-muted">
+      <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col max-sm:px-2">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+          {about.title}
+        </h1>
+        <p className="max-w-[600px] text-muted-foreground md:text-xl">
+          {about.description}
+        </p>
+        <div className="flex flex-col gap-2 min-[600px]:flex-row">
+          <Button asChild size="lg">
+            <Link href="#plans">
+              {about.exploreMentorshipPlans}{" "}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button variant="outline" asChild size="lg">
+            <Link href="/contact">{about.requestMentorship}</Link>
+          </Button>
         </div>
-        <Image
-          src="/placeholder.svg?height=550&width=550"
-          width={550}
-          height={550}
-          alt="Mentorship"
-          className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-        />
       </div>
     </Container>
   );

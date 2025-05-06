@@ -77,6 +77,11 @@
       "description": "Leia meus artigos mais recentes sobre desenvolvimento, liderança e tecnologia.",
       "readMore": "Leia mais",
       "viewAll": "Ver todos os artigos"
+    },
+    "contact": {
+      "title": "Entre em contato",
+      "description": "Tem uma pergunta ou deseja discutir um projeto? Estou aqui para ajudar!",
+      "getInTouch": "Entre em contato"
     }
   },
   "/consulting": {

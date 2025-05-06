@@ -77,6 +77,11 @@
       "description": "Read my latest articles about development, leadership, and technology.",
       "readMore": "Read more",
       "viewAll": "View all articles"
+    },
+    "contact": {
+      "title": "Get in touch",
+      "description": "Have a question or want to discuss a project? I'm here to help!",
+      "getInTouch": "Contact me"
     }
   },
   "/consulting": {

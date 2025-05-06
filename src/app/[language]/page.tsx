@@ -33,7 +33,7 @@ export default async function Home({
         <ExpertiseSection expertise={dictionary.expertise} />
         <ServicesSection services={dictionary.services} />
         <BlogSection blog={dictionary.blog} />
-        <ContactCTA />
+        <ContactCTA contact={dictionary.contact} />
       </main>
       <SiteFooter />
     </div>
@@ -203,34 +203,22 @@ async function BlogSection({ blog }: { blog: LangMap["/"]["blog"] }) {
   );
 }
 
-function ContactCTA() {
+function ContactCTA({ contact }: { contact: LangMap["/"]["contact"] }) {
   return (
-    <Container id="contact">
-      <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-        <Image
-          src="/placeholder.svg?height=550&width=550"
-          width={550}
-          height={550}
-          alt="Contact"
-          className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full"
-        />
-        <div className="flex flex-col justify-center space-y-4">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Let&apos;s Work Together
-            </h2>
-            <p className="max-w-[600px] text-muted-foreground md:text-xl">
-              Whether you need mentorship, consulting, or a tech lead for your
-              project, I&apos;m here to help you succeed.
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 min-[600px]:flex-row">
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Contact Me <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
+    <Container id="how-i-can-help-you">
+      <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+          {contact.title}
+        </h1>
+        <p className="max-w-[600px] text-muted-foreground md:text-xl">
+          {contact.description}
+        </p>
+        <div className="flex flex-col gap-2 min-[600px]:flex-row">
+          <Button asChild size="lg">
+            <Link href="#plans">
+              {contact.getInTouch} <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </Container>
