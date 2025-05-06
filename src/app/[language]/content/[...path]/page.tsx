@@ -13,5 +13,5 @@ export default async function Content({ params }: Props) {
     path.join(process.cwd(), "public", "content", filePath.join("/"))
   ).catch(() => "no content");
 
-  return <MarkdownRenderer content={content.toString()} />;
+  return <MarkdownRenderer content={content.toString()} path={filePath} />;
 }

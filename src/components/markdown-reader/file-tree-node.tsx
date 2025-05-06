@@ -5,17 +5,20 @@ import { ChevronDown, ChevronRight, Folder, File } from "lucide-react";
 import Link from "next/link";
 import { FileTree } from "./file-tree";
 import { useState } from "react";
-import { FileNode } from "@/lib/filesystem";
+import { FileNode, humanizeDirentName } from "@/lib/filesystem";
 
 export function FileTreeNode({
   node,
   level,
-  path,
 }: {
   node: FileNode;
   level: number;
-  path: string[];
 }) {
+  const path =
+    typeof window == "undefined"
+      ? []
+      : window.location.pathname.split("/").slice(3);
+
   const [expanded, setExpanded] = useState(
     path[level] === node.name || node.path === "/"
   );
@@ -57,7 +60,7 @@ export function FileTreeNode({
             />
           </>
         )}
-        <span className="truncate">{node.name}</span>
+        <span className="truncate">{humanizeDirentName(node.name)}</span>
       </Link>
 
       {node.type === "dir" && expanded && node.children && (

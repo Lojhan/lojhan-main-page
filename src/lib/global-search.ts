@@ -1,4 +1,4 @@
-import { getContentRaw } from "./filesystem";
+import { getContentRaw, humanizeDirentName } from "./filesystem";
 
 export type LinkCommand = {
   name: { "pt-BR": string; "en-US": string };
@@ -74,8 +74,9 @@ export async function getAllCommands(filter: string) {
   const content = await getContentRaw(filter);
 
   const contentCommands = content.map((file) => {
+    const name = file.split("/").map(humanizeDirentName).join(" / ");
     return {
-      name: { "pt-BR": file, "en-US": file },
+      name: { "pt-BR": name, "en-US": name },
       kind: "link",
       value: `/content/${file}`,
     };

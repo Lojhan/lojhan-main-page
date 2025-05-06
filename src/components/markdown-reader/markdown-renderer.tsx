@@ -3,7 +3,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -12,18 +12,53 @@ import { Copy, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "../ui/scroll-area";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "../ui/breadcrumb";
+import { humanizeDirentName } from "@/lib/filesystem";
 
 interface MarkdownRendererProps {
   content: string;
+  path: string[];
 }
 
-export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
+export default function MarkdownRenderer({
+  content,
+  path,
+}: MarkdownRendererProps) {
   return (
-    <ScrollArea className="mx-auto max-w-3xl px-4 py-8">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
-        {content}
-      </ReactMarkdown>
-    </ScrollArea>
+    <div>
+      <Breadcrumb className="p-4">
+        <BreadcrumbList>
+          {path.map((item, index) => {
+            if (index === path.length - 1) {
+              return (
+                <BreadcrumbItem key={index}>
+                  {humanizeDirentName(item)}
+                </BreadcrumbItem>
+              );
+            }
+
+            return (
+              <Fragment key={index}>
+                <BreadcrumbItem>{humanizeDirentName(item)}</BreadcrumbItem>
+                <BreadcrumbSeparator />
+              </Fragment>
+            );
+          })}
+        </BreadcrumbList>
+      </Breadcrumb>
+      <ScrollArea className="mx-auto max-w-3xl px-4 py-8">
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+          {content}
+        </ReactMarkdown>
+      </ScrollArea>
+    </div>
   );
 }
 

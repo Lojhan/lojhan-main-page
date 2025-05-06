@@ -81,3 +81,15 @@ export async function getContentStructure(
   const files = await getContentRaw(filter);
   return buildFileTree(files);
 }
+
+export function humanizeDirentName(name: string): string {
+  return (
+    name
+      .replace(/_/g, " ")
+      .replace(/-/g, " ")
+      // remove the file extension
+      .replace(/\.[^/.]+$/, "")
+      // uppercase the first letter of the first word
+      .replace(/^\w/, (c) => c.toUpperCase())
+  );
+}
