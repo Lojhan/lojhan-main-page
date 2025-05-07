@@ -43,7 +43,7 @@ export function FileTreeNode({
         }}
         href={`/content/${node.path}`}
         className={cn(
-          "flex items-center rounded-md pl-2 py-1 text-left text-sm hover:bg-accent",
+          "flex items-center rounded-md py-1 text-left text-sm hover:bg-accent",
           isMarkdown && "font-medium text-primary",
           shouldHighlight && "bg-accent"
         )}

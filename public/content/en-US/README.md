@@ -16,7 +16,7 @@ This documentation hub houses guides, tutorials, references, and examples across
 
 The content is organized as follows:
 
-```
+```map
 content/
 ├── golang/       # Go programming resources
 │   └── ...       # Topic-specific content

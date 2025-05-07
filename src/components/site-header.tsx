@@ -15,6 +15,8 @@ import {
 } from "./ui/drawer";
 import { Menu } from "lucide-react";
 import { useIsMobile } from "./ui/use-mobile";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
   title: { [language: string]: string };
@@ -71,8 +73,44 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
   const [language, activePath] = usePathname().split("/").slice(1);
   const isMobile = useIsMobile();
 
+  // after some scroll, hide the header
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(window?.scrollY || 0);
+  useEffect(() => {
+    if (!activePath.includes("content")) {
+      setIsHeaderVisible(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      console.log("scrolling");
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY || currentScrollY <= 200) {
+        setIsHeaderVisible(true);
+      } else {
+        setIsHeaderVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY, activePath]);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+        isHeaderVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-full pointer-events-none",
+        "transition-all duration-100 ease-in-out"
+      )}
+    >
       <div className="container px-4 mx-auto flex h-16 items-center justify-between min-w-[300px]">
         <Link
           href="/"

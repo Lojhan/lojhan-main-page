@@ -21,6 +21,7 @@ import {
 import { humanizeDirentName } from "@/lib/humanize";
 import Link from "next/link";
 import { useIsMobile } from "../ui/use-mobile";
+import { cn } from "@/lib/utils";
 
 interface MarkdownRendererProps {
   content: string;
@@ -53,11 +54,40 @@ export default function MarkdownRenderer({
     };
   }, [isMobile]);
 
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(window?.scrollY || 0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY || currentScrollY <= 200) {
+        setIsHeaderVisible(true);
+      } else {
+        setIsHeaderVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <>
       <Sheet>
-        <SheetTrigger>
-          <Breadcrumb className="">
+        <SheetTrigger asChild>
+          <Breadcrumb
+            className={cn(
+              "max-sm:sticky relative max-sm:top-16 z-40 py-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+              isHeaderVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-full pointer-events-none",
+              "transition-all duration-100 ease-in-out"
+            )}
+          >
             <BreadcrumbList className="m-2 py-2 px-4 rounded cursor-pointer hover:bg-muted/50">
               {(showText ? ["Click to view content"] : path).map(
                 (item, index) => {
