@@ -84,14 +84,18 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
             className="dark:[&_path]:fill-[#EAF5FC] light:[&_path]:fill-[#121F2B] mx-4"
           />
         </Link>
-        <DesktopMenu language={language} activePath={activePath} />
+        {typeof window == "undefined" ? null : (
+          <DesktopMenu language={language} activePath={activePath} />
+        )}
 
-        <div className="flex items-center gap-2">
-          {children}
-          {isMobile ? null : <ThemeToggle />}
-          {isMobile ? null : <LanguageToggle />}
-          <MobileMenu language={language} activePath={activePath} />
-        </div>
+        {typeof window == "undefined" ? null : (
+          <div className="flex items-center gap-2">
+            {children}
+            {isMobile ? null : <ThemeToggle />}
+            {isMobile ? null : <LanguageToggle />}
+            <MobileMenu language={language} activePath={activePath} />
+          </div>
+        )}
       </div>
     </header>
   );

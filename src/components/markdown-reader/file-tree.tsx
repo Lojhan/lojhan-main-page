@@ -3,9 +3,11 @@ import { FileTreeNode } from "./file-tree-node";
 import type { FileNode } from "@/lib/filesystem";
 
 export function FileTree({
+  parent,
   nodes,
   level = 0,
 }: {
+  parent?: FileNode;
   nodes: FileNode[];
   level?: number;
 }) {
@@ -18,7 +20,12 @@ export function FileTree({
           return a.name.localeCompare(b.name);
         })
         .map((node) => (
-          <FileTreeNode key={node.path} node={node} level={level} />
+          <FileTreeNode
+            key={node.path}
+            node={node}
+            level={level}
+            parent={parent}
+          />
         ))}
     </ul>
   );

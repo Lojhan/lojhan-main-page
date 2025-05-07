@@ -7,18 +7,21 @@ import { FileTree } from "./file-tree";
 import { useState } from "react";
 import { FileNode } from "@/lib/filesystem";
 import { humanizeDirentName } from "@/lib/humanize";
+import { usePathname } from "next/navigation";
 
 export function FileTreeNode({
   node,
   level,
+  parent,
 }: {
+  parent?: FileNode;
   node: FileNode;
   level: number;
 }) {
-  const path =
-    typeof window == "undefined"
-      ? []
-      : window.location.pathname.split("/").slice(3);
+  const path = usePathname()
+    .split("/")
+    .filter((item) => item !== "")
+    .slice(2);
 
   const [expanded, setExpanded] = useState(
     path[level] === node.name || node.path === "/"
@@ -26,8 +29,10 @@ export function FileTreeNode({
 
   const isMarkdown = node.name.endsWith(".md");
 
+  const shouldHighlight =
+    isMarkdown && path[level] === node.name && path[level - 1] === parent?.name;
   return (
-    <>
+    <li className="relative">
       <Link
         key={node.path}
         onClick={(e) => {
@@ -39,7 +44,8 @@ export function FileTreeNode({
         href={`/content/${node.path}`}
         className={cn(
           "flex items-center rounded-md pl-2 py-1 text-left text-sm hover:bg-accent",
-          isMarkdown && "font-medium text-primary"
+          isMarkdown && "font-medium text-primary",
+          shouldHighlight && "bg-accent"
         )}
       >
         {node.type === "dir" ? (
@@ -59,14 +65,12 @@ export function FileTreeNode({
             )}
           />
         )}
-        <span className="truncate">
-          {humanizeDirentName(node.name)}
-        </span>
+        <span className="truncate">{humanizeDirentName(node.name)}</span>
       </Link>
 
       {node.type === "dir" && expanded && node.children && (
-        <FileTree nodes={node.children} level={level + 1} />
+        <FileTree nodes={node.children} level={level + 1} parent={node} />
       )}
-    </>
+    </li>
   );
 }
