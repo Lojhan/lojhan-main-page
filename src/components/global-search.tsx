@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -15,7 +15,7 @@ import { useIsMobile } from "./ui/use-mobile";
 import { Card } from "./ui/card";
 import { useLanguage } from "./language-toggle";
 import { type Command as Cmd } from "@/lib/global-search";
-import { Drawer, DrawerContent } from "./ui/drawer";
+import { Drawer, DrawerContent, DrawerHeader } from "./ui/drawer";
 
 const searchLabel = {
   "pt-BR": "Bucar",
@@ -25,7 +25,7 @@ const searchLabel = {
 export function GlobalSearch({ commands }: { commands: Cmd[] }) {
   const [open, setOpen] = useState(false);
   const isMobile = useIsMobile();
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const [language] = useLanguage();
 
   useEffect(() => {
@@ -37,7 +37,12 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [isMobile, open]);
+
+  if (open) {
+    inputRef.current?.focus();
+    inputRef.current?.select();
+  }
 
   return (
     <>
@@ -52,7 +57,6 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
           return (
             <Card className=" text-xs text-muted-foreground hover:text-primary flex items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out min-w-min">
               <span>{searchLabel[language]}</span>
-
               <span className="flex items-center gap-1">
                 <Command className="w-3 h-3" />+ K
               </span>
@@ -63,26 +67,34 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
       {(() => {
         if (isMobile) {
           return (
-            <Drawer open={open} onOpenChange={setOpen}>
-              
-              <DrawerContent>
-                <CommandWrapper className="bg-white dark:bg-background md:min-w-[450px] px-2 py-4">
-                  <CommandInput placeholder="Type a command or search..." />
+            <Drawer open={open} onOpenChange={setOpen} autoFocus>
+              <CommandWrapper className="bg-white dark:bg-background md:min-w-[450px] px-2 py-4">
+                <DrawerContent>
+                  <DrawerHeader>
+                    <CommandInput
+                      className="flex"
+                      placeholder="Type a command or search..."
+                      ref={inputRef}
+                    />
+                  </DrawerHeader>
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     {commands.map((command) =>
                       renderCommandItem(command, setOpen)
                     )}
                   </CommandList>
-                </CommandWrapper>
-              </DrawerContent>
+                </DrawerContent>
+              </CommandWrapper>
             </Drawer>
           );
         }
 
         return (
           <CommandDialog open={open} onOpenChange={setOpen}>
-            <CommandInput placeholder="Type a command or search..." />
+            <CommandInput
+              placeholder="Type a command or search..."
+              ref={inputRef}
+            />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
               {commands.map((command) => renderCommandItem(command, setOpen))}
