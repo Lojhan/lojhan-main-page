@@ -18,8 +18,6 @@ import { Container } from "@/components/ui/container";
 import { FAQSection } from "@/components/faq-section";
 import { getDictionary } from "@/i18n";
 import { LangMap } from "@/i18n/lang-map";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { EngagementCard } from "@/components/engagement-card";
 import {
   Dialog,
   DialogContent,
@@ -27,6 +25,8 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+import { EngagementSection } from "@/components/engagement-methods";
 
 export default async function MentorshipPage({
   params,
@@ -105,51 +105,11 @@ function HowICanHelpYouSection({
   );
 }
 
-function MentorshipPlansSection({
+const MentorshipPlansSection = ({
   mentorshipPlans,
 }: {
   mentorshipPlans: LangMap["/mentorship"]["mentorshipPlans"];
-}) {
-  const tabs = mentorshipPlans.tabs.map((tab) => tab.title);
-  return (
-    <Container className="bg-muted" id="plans">
-      <SectionIntro
-        title={mentorshipPlans.title}
-        subtitle={mentorshipPlans.description}
-      />
-      <Tabs defaultValue={tabs[0]} className="mx-auto max-w-7xl py-12">
-        <div className="max-sm:sticky relative max-sm:top-16 z-40 py-2 bg-muted">
-          <TabsList className="grid w-full grid-cols-2 gap-2">
-            {tabs.map((tab, index) => (
-              <TabsTrigger
-                key={index}
-                value={tab}
-                className="cursor-pointer hover:bg-muted-foreground hover:text-foreground"
-              >
-                {tab}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </div>
-        {mentorshipPlans.tabs.map((tab, index) => (
-          <TabsContent
-            key={index}
-            value={tab.title}
-            className="grid gap-8 md:grid-cols-3"
-          >
-            {tab.items.map((item, itemIndex) => (
-              <EngagementCard
-                key={itemIndex}
-                {...item}
-                getStarted={mentorshipPlans.getStarted}
-              />
-            ))}
-          </TabsContent>
-        ))}
-      </Tabs>
-    </Container>
-  );
-}
+}) => <EngagementSection {...mentorshipPlans} id="plans" />;
 
 function SuccessStoriesSection({
   successStories,
@@ -162,7 +122,11 @@ function SuccessStoriesSection({
         title={successStories.title}
         subtitle={successStories.description}
       />
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        className={cn(
+          "mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3"
+        )}
+      >
         {successStories.items.map((item, index) => (
           <SuccessStoryCase key={index} story={item} />
         ))}
@@ -222,7 +186,14 @@ function SuccessStoryCase({
             </CardDescription>
           </div>
         </DialogHeader>
-        <DialogDescription>{story.feedback}</DialogDescription>
+        <DialogDescription className="whitespace-break-spaces">
+          {story.feedback.replaceAll(
+            "\n",
+            `
+            
+`
+          )}
+        </DialogDescription>
       </DialogContent>
     </Dialog>
   );

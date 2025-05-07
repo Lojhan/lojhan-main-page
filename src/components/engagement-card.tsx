@@ -30,7 +30,7 @@ export function EngagementCard({
   getStarted,
 }: EngagementCardProps) {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col transition-transform hover:scale-[1.01]">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>

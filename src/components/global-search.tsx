@@ -66,7 +66,7 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
             <Drawer open={open} onOpenChange={setOpen}>
               
               <DrawerContent>
-                <CommandWrapper className="bg-white dark:bg-black md:min-w-[450px] px-2 py-4">
+                <CommandWrapper className="bg-white dark:bg-background md:min-w-[450px] px-2 py-4">
                   <CommandInput placeholder="Type a command or search..." />
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>

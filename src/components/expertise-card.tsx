@@ -16,7 +16,10 @@ export type Expertise = {
 export function ExpertiseCard(expertise: Expertise) {
   const Icon = iconMap[expertise.icon as keyof typeof iconMap];
   return (
-    <Card key={expertise.title}>
+    <Card
+      key={expertise.title}
+      className="transition-transform hover:scale-[1.01]"
+    >
       <CardHeader className="flex flex-row items-center gap-4">
         <Icon />
         <div className="grid gap-1">

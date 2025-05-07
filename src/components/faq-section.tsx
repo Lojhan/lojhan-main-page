@@ -25,7 +25,7 @@ export function FAQSection({
       <SectionIntro title={title} subtitle={subtitle} />
       <div className="mx-auto grid max-w-5xl gap-8 py-12">
         {questions.map((faq, index) => (
-          <Card key={index}>
+          <Card key={index} className="hover:scale-[1.01] transition-transform">
             <CardHeader>
               <CardTitle>{faq.question}</CardTitle>
             </CardHeader>

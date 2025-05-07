@@ -250,49 +250,105 @@
             {
               "isMostPopular": false,
               "title": "Plano Básico",
-              "description": "Para desenvolvedores iniciantes",
-              "price": "R$ 500,00",
+              "description": "Para desenvolvedores buscando continuarem crescendo",
+              "price": "R$ 720,00",
               "modifier": "/mês",
               "features": [
-                "2 sessões de uma hora de mentoria por mês",
-                "Suporte por email ou whatsapp",
-                "Feedback sobre código e práticas de desenvolvimento"
+                "Sessões em português ou inglês",
+
+                "3 sessões de uma hora de mentoria por mês",
+
+                "Revisão de currículo",
+                "Acesso ao grupo de estudos",
+
+                "Suporte por email ou whatsapp"
               ]
             },
             {
               "isMostPopular": true,
               "title": "Plano Profissional",
               "description": "Para desenvolvedores que levam a sério o crescimento profissional",
-              "price": "R$ 1.000,00",
+              "price": "R$ 1.045,00",
               "modifier": "/mês",
               "features": [
+                "Sessões em português ou inglês",
+
                 "4 sessões de uma hora de mentoria por mês",
-                "Suporte por email ou whatsapp",
+                "1 entrevista simulada",
+
+                "Revisão de currículo",
                 "Prioridade no agendamento de sessões",
-                "Apoio em projetos pessoais ou profissionais",
-                "Code review e feedback sobre código semanais",
-                "Orientação sobre carreira e desenvolvimento profissional"
+                "Acesso ao grupo de estudos",
+
+                "Suporte por email ou whatsapp"
               ]
             },
             {
               "isMostPopular": false,
               "title": "Plano Expert",
-              "description": "Para desenvolvedores que buscam excelência",
-              "price": "R$ 2.500,00",
+              "description": "Para desenvolvedores que buscam excelência técnica e profissional",
+              "price": "R$ 1.595,00",
               "modifier": "/mês",
               "features": [
-                "8 sessões de mentoria por mês",
-                "Suporte por email ou whatsapp",
+                "Sessões em português ou inglês",
+
+                "4 sessões de uma hora de mentoria por mês",
+                "2 sessões de preparação para entrevista",
+                "2 entrevistas simuladas",
+
+                "Revisão de currículo",
                 "Prioridade no agendamento de sessões",
-                "Apoio em projetos pessoais ou profissionais",
-                "Feedback sobre código e práticas de desenvolvimento",
-                "Orientação sobre carreira e desenvolvimento profissional",
-                "Preparacão para entrevistas técnicas"
+                "Acesso ao grupo de estudos",
+
+                "Suporte por email ou whatsapp"
               ]
             }
           ]
         },
-        { "title": "Pacote", "items": [] }
+        {
+          "title": "Pacote",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Pacote Básico",
+              "description": "Para desenvolvedores buscando continuarem crescendo",
+              "price": "R$ 2.035,00",
+              "modifier": "",
+              "features": [
+                "Sessões em português ou inglês",
+
+                "10 sessões de uma hora de mentoria",
+                "1 entrevistas simuladas",
+
+                "Revisão de currículo",
+                "Acesso ao grupo de estudos",
+
+                "Suporte por email ou whatsapp"
+              ],
+              "timeline": "10 a 12 semanas"
+            },
+            {
+              "isMostPopular": false,
+              "title": "Pacote Avançado",
+              "description": "Para desenvolvedores que buscam excelência técnica e profissional",
+              "price": "R$ 3.685,00",
+              "modifier": "",
+              "features": [
+                "Sessões em português ou inglês",
+
+                "20 sessões de uma hora de mentoria",
+                "1 entrevistas simuladas",
+
+                "Revisão de currículo",
+                "Prioridade no agendamento de sessões",
+                "Acesso ao grupo de estudos",
+
+                "Suporte por email ou whatsapp"
+              ],
+              "timeline": "20 a 24 semanas"
+            }
+          ]
+        }
       ]
     },
     "successStories": {
@@ -301,9 +357,15 @@
       "items": [
         {
           "name": "Felipe Carneiro",
-          "photoUrl": "/success-cases/felipe_carneiro.webp",
+          "photoUrl": "/success-cases/felipe-carneiro.webp",
           "role": "Desenvolvedor Backend",
           "feedback": "A mentoria me ajudou com a base teórica e prática do desenvolvimento de software. Antes eu estudava de forma independente, mas com a condução do ensino do Lojhan exponencializou meu aprendizado e direcionamento."
+        },
+        {
+          "name": "Fernando Lotti",
+          "role": "Desenvolvedor Backend Sênior",
+          "photoUrl": "/success-cases/fernando-lotti.webp",
+          "feedback": "Cara, a mentoria com o Lojhan foi simplesmente diferente de tudo que eu já tinha vivido. \nEle tem um jeito suave, tranquilo, que deixa tudo mais leve — mas ao mesmo tempo super afiado e provocativo (no bom sentido). Durante nossas conversas, ele me fez pensar em vários pontos que eu nunca tinha parado pra refletir. A gente ia de indicações de leitura a trocas sinceras de experiências — onde acertamos, onde erramos, o que aprendemos com isso. \nNas dúvidas técnicas, ele nunca dava a resposta de mão beijada. Ao invés disso, me estimulava a experimentar, a usar uma ferramenta nova, a sair da zona de conforto. Sem dúvidas, durante o tempo que ele me mentorou, eu dei um salto enorme na minha carreira. Foi uma virada de chave mesmo."
         }
       ]
     },

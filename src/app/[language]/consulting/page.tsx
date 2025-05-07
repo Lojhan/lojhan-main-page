@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionIntro } from "@/components/section-intro";
 import { Container } from "@/components/ui/container";
@@ -19,7 +18,7 @@ import { FAQSection } from "@/components/faq-section";
 import { ContactCTA } from "@/components/contact-cta";
 import { getDictionary } from "@/i18n";
 import { LangMap } from "@/i18n/lang-map";
-import { EngagementCard } from "@/components/engagement-card";
+import { EngagementSection } from "@/components/engagement-methods";
 
 export default async function ConsultingPage({
   params,
@@ -100,51 +99,11 @@ function ExpertiseSection({
   );
 }
 
-function EngagementModelsSection({
+const EngagementModelsSection = ({
   engagementModels,
 }: {
   engagementModels: LangMap["/consulting"]["engagementModels"];
-}) {
-  const tabs = engagementModels.tabs.map((tab) => tab.title);
-  return (
-    <Container className="bg-muted" id="engagement-models">
-      <SectionIntro
-        title={engagementModels.title}
-        subtitle={engagementModels.description}
-      />
-      <Tabs defaultValue={tabs[0]} className="mx-auto max-w-6xl py-12">
-        <div className="max-sm:sticky relative max-sm:top-16 z-40 py-2 bg-muted">
-          <TabsList className="grid w-full grid-cols-3 gap-2">
-            {tabs.map((tab, index) => (
-              <TabsTrigger
-                key={index}
-                value={tab}
-                className="cursor-pointer hover:bg-muted-foreground hover:text-foreground"
-              >
-                {tab}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </div>
-        {engagementModels.tabs.map((tab, index) => (
-          <TabsContent
-            key={index}
-            value={tab.title}
-            className="grid gap-8 md:grid-cols-2"
-          >
-            {tab.items.map((item, itemIndex) => (
-              <EngagementCard
-                key={itemIndex}
-                {...item}
-                getStarted={engagementModels.getStarted}
-              />
-            ))}
-          </TabsContent>
-        ))}
-      </Tabs>
-    </Container>
-  );
-}
+}) => <EngagementSection {...engagementModels} id="engagement-models" />;
 
 function ContactSuccessStoriesSection() {
   return (
