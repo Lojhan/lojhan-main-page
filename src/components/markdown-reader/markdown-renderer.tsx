@@ -3,7 +3,7 @@
 
 import type React from "react";
 
-import { Fragment, PropsWithChildren, useState } from "react";
+import { Fragment, PropsWithChildren, useEffect, useState } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -19,6 +19,8 @@ import {
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
 import { humanizeDirentName } from "@/lib/humanize";
+import Link from "next/link";
+import { useIsMobile } from "../ui/use-mobile";
 
 interface MarkdownRendererProps {
   content: string;
@@ -28,30 +30,58 @@ interface MarkdownRendererProps {
 export default function MarkdownRenderer({
   content,
   path,
-  children
+  children,
 }: PropsWithChildren<MarkdownRendererProps>) {
+  const [showText, setShowText] = useState(false);
+  const isMobile = useIsMobile();
+  useEffect(() => {
+    if (!isMobile) return;
+    // Show text after approximately 2 seconds
+    const showTextTimer = setTimeout(() => {
+      setShowText(true);
+    }, 2000);
+
+    // Show breadcrumb again after another 2 seconds
+    const showBreadcrumbTimer = setTimeout(() => {
+      setShowText(false);
+    }, 4000);
+
+    // Cleanup timers on unmount
+    return () => {
+      clearTimeout(showTextTimer);
+      clearTimeout(showBreadcrumbTimer);
+    };
+  }, [isMobile]);
+
   return (
-    <div suppressHydrationWarning>
+    <>
       <Sheet>
         <SheetTrigger>
-          <Breadcrumb className="py-4 px-6">
-            <BreadcrumbList>
-              {path.map((item, index) => {
-                if (index === path.length - 1) {
+          <Breadcrumb className="">
+            <BreadcrumbList className="m-2 py-2 px-4 rounded cursor-pointer hover:bg-muted/50">
+              {(showText ? ["Click to view content"] : path).map(
+                (item, index) => {
+                  if (index === path.length - 1 || showText) {
+                    return (
+                      <BreadcrumbItem
+                        key={index}
+                        className="transition-colors duration-500 ease-in-out"
+                      >
+                        {humanizeDirentName(item)}
+                      </BreadcrumbItem>
+                    );
+                  }
+
                   return (
-                    <BreadcrumbItem key={index}>
-                      {humanizeDirentName(item)}
-                    </BreadcrumbItem>
+                    <Fragment key={index}>
+                      <BreadcrumbItem className="transition-colors duration-500 ease-in-out">
+                        {humanizeDirentName(item)}
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                    </Fragment>
                   );
                 }
-
-                return (
-                  <Fragment key={index}>
-                    <BreadcrumbItem>{humanizeDirentName(item)}</BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                  </Fragment>
-                );
-              })}
+              )}
             </BreadcrumbList>
           </Breadcrumb>
         </SheetTrigger>
@@ -65,7 +95,7 @@ export default function MarkdownRenderer({
           {content}
         </ReactMarkdown>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -132,9 +162,9 @@ const components: Components = {
   p: ({ node, ...props }) => <p className="mb-4 leading-7" {...props} />,
 
   a: ({ node, ...props }) => (
-    <a
+    <Link
+      href={props.href || ""}
       className="font-medium text-primary underline underline-offset-4"
-      target="_blank"
       rel="noopener noreferrer"
       {...props}
     />
@@ -153,7 +183,18 @@ const components: Components = {
   ),
 
   code({ node, className, children, ...props }) {
-    const match = /language-(\w+)/.exec(className || "");
+    if (!className) {
+      return (
+        <code
+          className="rounded bg-muted px-1 py-0.5 font-mono text-sm"
+          {...props}
+        >
+          {children}
+        </code>
+      );
+    }
+
+    const match = /language-(\w+)/.exec(className);
     const language = match ? match[1] : "";
 
     return (

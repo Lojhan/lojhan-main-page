@@ -29,14 +29,18 @@ export function EngagementCard({
   timeline,
   getStarted,
 }: EngagementCardProps) {
+  const [unit, value] = price.split(" ");
   return (
     <Card className="flex flex-col transition-transform hover:scale-[1.01]">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
-        <div className="mt-4 flex items-baseline text-5xl font-bold">
-          {price}
-          <span className="ml-1 text-xl font-normal text-muted-foreground">
+        <div className="mt-4 flex items-baseline gap-1 text-5xl font-bold break">
+          <span className="text-xl font-normal text-muted-foreground">
+            {unit}
+          </span>
+          {value}
+          <span className="text-xl font-normal text-muted-foreground">
             {modifier}
           </span>
         </div>
