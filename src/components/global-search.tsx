@@ -15,7 +15,7 @@ import { useIsMobile } from "./ui/use-mobile";
 import { Card } from "./ui/card";
 import { useLanguage } from "./language-toggle";
 import { type Command as Cmd } from "@/lib/global-search";
-import { Drawer, DrawerContent, DrawerHeader } from "./ui/drawer";
+import { Drawer, DrawerContent } from "./ui/drawer";
 
 const searchLabel = {
   "pt-BR": "Bucar",
@@ -68,23 +68,21 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
         if (isMobile) {
           return (
             <Drawer open={open} onOpenChange={setOpen} autoFocus>
-              <CommandWrapper className="bg-white dark:bg-background md:min-w-[450px] px-2 py-4">
-                <DrawerContent>
-                  <DrawerHeader>
-                    <CommandInput
-                      className="flex"
-                      placeholder="Type a command or search..."
-                      ref={inputRef}
-                    />
-                  </DrawerHeader>
+              <DrawerContent>
+                <CommandWrapper className="bg-white dark:bg-background md:min-w-[450px] px-2 py-4">
+                  <CommandInput
+                    className="flex"
+                    placeholder="Type a command or search..."
+                    ref={inputRef}
+                  />
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     {commands.map((command) =>
                       renderCommandItem(command, setOpen)
                     )}
                   </CommandList>
-                </DrawerContent>
-              </CommandWrapper>
+                </CommandWrapper>
+              </DrawerContent>
             </Drawer>
           );
         }

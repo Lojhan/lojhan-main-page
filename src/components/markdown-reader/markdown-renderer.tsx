@@ -3,7 +3,7 @@
 
 import type React from "react";
 
-import { Fragment, useState } from "react";
+import { Fragment, PropsWithChildren, useState } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -11,7 +11,7 @@ import remarkGfm from "remark-gfm";
 import { Copy, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "../ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -28,35 +28,44 @@ interface MarkdownRendererProps {
 export default function MarkdownRenderer({
   content,
   path,
-}: MarkdownRendererProps) {
+  children
+}: PropsWithChildren<MarkdownRendererProps>) {
   return (
-    <>
-      <Breadcrumb className="py-4 px-6">
-        <BreadcrumbList>
-          {path.map((item, index) => {
-            if (index === path.length - 1) {
-              return (
-                <BreadcrumbItem key={index}>
-                  {humanizeDirentName(item)}
-                </BreadcrumbItem>
-              );
-            }
+    <div suppressHydrationWarning>
+      <Sheet>
+        <SheetTrigger>
+          <Breadcrumb className="py-4 px-6">
+            <BreadcrumbList>
+              {path.map((item, index) => {
+                if (index === path.length - 1) {
+                  return (
+                    <BreadcrumbItem key={index}>
+                      {humanizeDirentName(item)}
+                    </BreadcrumbItem>
+                  );
+                }
 
-            return (
-              <Fragment key={index}>
-                <BreadcrumbItem>{humanizeDirentName(item)}</BreadcrumbItem>
-                <BreadcrumbSeparator />
-              </Fragment>
-            );
-          })}
-        </BreadcrumbList>
-      </Breadcrumb>
+                return (
+                  <Fragment key={index}>
+                    <BreadcrumbItem>{humanizeDirentName(item)}</BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                  </Fragment>
+                );
+              })}
+            </BreadcrumbList>
+          </Breadcrumb>
+        </SheetTrigger>
+        <SheetContent side="left" className="pt-10 w-[clamp(300px,80vw,400px)]">
+          {children}
+        </SheetContent>
+      </Sheet>
+
       <div className="sm:px-6 container mx-auto max-sm:max-w-[90vw]">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
           {content}
         </ReactMarkdown>
       </div>
-    </>
+    </div>
   );
 }
 

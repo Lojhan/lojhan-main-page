@@ -10,7 +10,7 @@ export function FileTree({
   level?: number;
 }) {
   return (
-    <ul className={cn(level > 0 && "ml-4", "relative")}>
+    <ul className={cn(level > 0 && "ml-5")}>
       {nodes
         .sort((a, b) => {
           if (a.type === "dir" && b.type === "file") return -1;

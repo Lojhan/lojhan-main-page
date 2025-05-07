@@ -143,18 +143,19 @@ function MobileMenu({
         <DrawerContent>
           <div className="flex flex-col gap-4 p-4">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => {}}
-                className={`text-sm font-medium ${
-                  item.href.replace("/", "") === (activePath || "")
-                    ? "transition-colors hover:text-primary"
-                    : "text-muted-foreground transition-colors hover:text-primary"
-                }`}
-              >
-                <DrawerClose>{item.title[language]}</DrawerClose>
-              </Link>
+              <DrawerClose key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => {}}
+                  className={`text-sm font-medium ${
+                    item.href.replace("/", "") === (activePath || "")
+                      ? "transition-colors hover:text-primary"
+                      : "text-muted-foreground transition-colors hover:text-primary"
+                  }`}
+                >
+                  {item.title[language]}
+                </Link>
+              </DrawerClose>
             ))}
           </div>
 

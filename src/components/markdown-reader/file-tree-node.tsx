@@ -27,7 +27,7 @@ export function FileTreeNode({
   const isMarkdown = node.name.endsWith(".md");
 
   return (
-    <li>
+    <>
       <Link
         key={node.path}
         onClick={(e) => {
@@ -38,7 +38,7 @@ export function FileTreeNode({
         }}
         href={`/content/${node.path}`}
         className={cn(
-          "flex w-full items-center rounded-md px-2 py-1 text-left text-sm hover:bg-accent",
+          "flex items-center rounded-md pl-2 py-1 text-left text-sm hover:bg-accent",
           isMarkdown && "font-medium text-primary"
         )}
       >
@@ -52,22 +52,21 @@ export function FileTreeNode({
             <Folder className="mr-2 h-4 w-4 shrink-0 text-blue-500" />
           </>
         ) : (
-          <>
-            <span className="mr-1 h-4 w-4" />
-            <File
-              className={cn(
-                "mr-2 h-4 w-4 shrink-0",
-                isMarkdown ? "text-green-500" : "text-gray-500"
-              )}
-            />
-          </>
+          <File
+            className={cn(
+              "mr-2 h-4 w-4 shrink-0",
+              isMarkdown ? "text-green-500" : "text-gray-500"
+            )}
+          />
         )}
-        <span className="truncate">{humanizeDirentName(node.name)}</span>
+        <span className="truncate">
+          {humanizeDirentName(node.name)}
+        </span>
       </Link>
 
       {node.type === "dir" && expanded && node.children && (
         <FileTree nodes={node.children} level={level + 1} />
       )}
-    </li>
+    </>
   );
 }

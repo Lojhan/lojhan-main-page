@@ -8,11 +8,12 @@ type ContactCTAProps = {
   subtitle: string;
   cat: string;
   imgSrc: string;
+  className?: string;
 };
 
-export function ContactCTA({ title, subtitle, cat }: ContactCTAProps) {
+export function ContactCTA({ title, subtitle, cat, className }: ContactCTAProps) {
   return (
-    <Container id="how-i-can-help-you">
+    <Container id="how-i-can-help-you" className={className}>
       <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col max-sm:px-2">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
           {title}

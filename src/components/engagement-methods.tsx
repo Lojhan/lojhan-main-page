@@ -32,7 +32,7 @@ export function EngagementSection({
       <SectionIntro title={props.title} subtitle={props.description} />
       <Tabs defaultValue={tabs[0]} className="mx-auto max-w-7xl py-12">
         <div className="max-sm:sticky relative max-sm:top-16 z-40 py-2 bg-muted">
-          <TabsList className={`grid gap-2 grid-cols-${tabs.length}`}>
+          <TabsList className={`flex w-full gap-4 justify-center`}>
             {tabs.map((tab, index) => (
               <TabsTrigger
                 key={index}
@@ -49,9 +49,9 @@ export function EngagementSection({
             key={index}
             value={tab.title}
             className={`grid gap-8
-                sm:grid-cols-${Math.max(1, tab.items.length - 2)}
-                md:grid-cols-${Math.max(1, tab.items.length - 1)}
-                lg:grid-cols-${Math.max(1, tab.items.length)}`}
+              sm:grid-cols-${Math.max(1, tab.items.length - 2)}
+              md:grid-cols-${Math.max(1, tab.items.length - 1)}
+              lg:grid-cols-${Math.max(1, tab.items.length)}`}
           >
             {
                 tab.items.length == 0 ? 

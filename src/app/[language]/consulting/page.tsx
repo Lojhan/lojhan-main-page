@@ -36,16 +36,16 @@ export default async function ConsultingPage({
         <EngagementModelsSection
           engagementModels={dictionary.engagementModels}
         />
-        <ContactSuccessStoriesSection />
-        <span className="hidden" id="frequently-asked-questions" />
+        {/* <ContactSuccessStoriesSection /> */}
         <FAQSection
           title={dictionary.faq.title}
           subtitle={dictionary.faq.description}
           questions={dictionary.faq.items}
-          className="bg-muted"
+          // className="bg-muted"
         />
         <span className="hidden" id="contact" />
         <ContactCTA
+          className="bg-muted"
           title={dictionary.contact.title}
           subtitle={dictionary.contact.description}
           cat={dictionary.contact.getInTouch}
@@ -105,6 +105,7 @@ const EngagementModelsSection = ({
   engagementModels: LangMap["/consulting"]["engagementModels"];
 }) => <EngagementSection {...engagementModels} id="engagement-models" />;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ContactSuccessStoriesSection() {
   return (
     <Container id="client-success-stories">

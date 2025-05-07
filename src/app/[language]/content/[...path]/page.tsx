@@ -1,3 +1,4 @@
+import ContentSidebar from "@/components/markdown-reader/content-sidebar";
 import MarkdownRenderer from "@/components/markdown-reader/markdown-renderer";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -16,5 +17,9 @@ export default async function Content({ params }: Props) {
     path.join(process.cwd(), "public", "content", language, ...filePath)
   ).catch(() => "no content");
 
-  return <MarkdownRenderer content={content.toString()} path={filePath} />;
+  return (
+    <MarkdownRenderer content={content.toString()} path={filePath}>
+      <ContentSidebar language={language} />
+    </MarkdownRenderer>
+  );
 }
