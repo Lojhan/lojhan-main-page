@@ -35,6 +35,7 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
         setOpen((open) => !open);
       }
     };
+
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, [isMobile, open]);
@@ -43,6 +44,9 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
     inputRef.current?.focus();
     inputRef.current?.select();
   }
+
+  const isMacOS =
+    navigator.platform?.includes("Mac") || navigator.userAgent.includes("Mac");
 
   return (
     <>
@@ -55,10 +59,10 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
               </Button>
             );
           return (
-            <Card className=" text-xs text-muted-foreground hover:text-primary flex items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out min-w-min">
+            <Card className="text-xs text-muted-foreground hover:text-primary flex items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out min-w-min">
               <span>{searchLabel[language]}</span>
               <span className="flex items-center gap-1">
-                <Command className="w-3 h-3" />+ K
+                {isMacOS ? <Command className="w-3 h-3" /> : "Ctrl"} + K
               </span>
             </Card>
           );
