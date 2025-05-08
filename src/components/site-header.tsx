@@ -75,15 +75,17 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
 
   // after some scroll, hide the header
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(window?.scrollY || 0);
+  const [lastScrollY, setLastScrollY] = useState(
+    typeof window == "undefined" ? 0 : window?.scrollY
+  );
+
   useEffect(() => {
-    if (!activePath.includes("content")) {
+    if (!activePath?.includes("content")) {
       setIsHeaderVisible(true);
       return;
     }
 
     const handleScroll = () => {
-      console.log("scrolling");
       const currentScrollY = window.scrollY;
 
       if (currentScrollY < lastScrollY || currentScrollY <= 200) {

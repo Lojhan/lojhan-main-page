@@ -1,39 +1,36 @@
-# 📚 Documentation Hub
+## About the Project
 
-Welcome to the knowledge gateway! This repository contains all the content for our documentation site, thoughtfully organized and ready to explore.
+This repository is a structured collection of technical content focused on software development.
+The goal is to provide a reliable source of learning for developers looking to deepen their knowledge of specific technologies.
 
-## 🌟 What's Inside
+## Technologies Covered
 
-This documentation hub houses guides, tutorials, references, and examples across multiple technologies and domains:
+- **Go Programming** - [Explore →](/content/golang/README.md)
+- Goroutines and concurrency patterns
+- Development best practices
+- Performance optimizations
+- Scalable systems architecture
 
-* **Go Programming** - [Explore →](/content/golang/README.md)
-  + Goroutines, concurrency patterns, best practices, and more
-* **DotNet** - [Explore →](/content/dotnet/README.md)
-  + ASP. NET Core, Entity Framework, C# language features, and more
-* **_Other topics coming soon..._**
+- **DotNet** - [Explore →](/content/dotnet/README.md)
+- ASP.NET Core and web development
+- Entity Framework and data access
+- Advanced C# language features
+- Modern architectural patterns
 
-## 🗺️ Navigation
+- __Other topics in development...__
 
-The content is organized as follows:
+## Project Structure
 
-```map
+```text
 content/
-├── golang/       # Go programming resources
-│   └── ...       # Topic-specific content
-├── other-tech/   # Other technology documentation
+├── golang/     # Go programming features
+│ └── ...       # Topic-specific content
+├── dotnet/     # DotNet documentation
+│ └── ...       # Topic-specific content topics
+└── other-tech/ # Other technologies
 ```
 
-## 🌐 Available Languages
+## How to Use This Repository
 
-Currently available in:
-* Portuguese (BR) - `/pt-BR`
-* English (US) - `/en-US`
-
-## 🚀 Purpose
-
-This documentation aims to:
-
-* Provide clear, practical explanations of complex concepts
-* Offer code examples that are ready to use and adapt
-* Share best practices derived from real-world experience
-* Create a community-driven knowledge base that evolves over time
+1. Browse the technology-specific foldersEach folder contains a detailed README.md with the topics covered.
+2. The code examples are organized by concepts

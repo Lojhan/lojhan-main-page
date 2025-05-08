@@ -9,6 +9,10 @@ const links = [
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/lojhan/",
   },
+  {
+    title: "Instagram",
+    href: "https://www.instagram.com/lojhan.dev/",
+  },
 ];
 
 export function SiteFooter() {
@@ -16,7 +20,7 @@ export function SiteFooter() {
     <footer className="w-full border-t py-6 md:py-0">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-          © {new Date().getFullYear()} Lojhan. All rights reserved.
+          © {new Date().getFullYear()} Lojhan.
         </p>
         <div className="flex gap-4">
           {links.map((link) => (
