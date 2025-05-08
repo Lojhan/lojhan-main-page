@@ -7,7 +7,7 @@
     },
     "expertise": {
       "title": "Minhas especialidades",
-      "description": "Com mais de 10 anos de experiência em desenvolvimento de software, tenho um histórico comprovado de entrega de soluções de alta qualidade.",
+      "description": "Desenvolvedor senior com histórico consistente na entrega de soluções inovadoras e eficazes, especializado em desenvolvimento de software de alta qualidade. Meu portfólio demonstra um padrão elevado de excelência técnica e compromisso com a entrega de projetos que superam expectativas.",
       "areas": [
         {
           "title": "Desenvolvimento Frontend",
@@ -93,7 +93,7 @@
     },
     "expertise": {
       "title": "Minhas especialidades",
-      "description": "Com mais de 10 anos de experiência em desenvolvimento de software, tenho um histórico comprovado de entrega de soluções de alta qualidade.",
+      "description": "Desenvolvedor senior com histórico consistente na entrega de soluções inovadoras e eficazes, especializado em desenvolvimento de software de alta qualidade. Meu portfólio demonstra um padrão elevado de excelência técnica e compromisso com a entrega de projetos que superam expectativas.",
       "areas": [
         {
           "title": "Arquitetura de Software",
@@ -162,14 +162,78 @@
                 "Relatório final com sugestões de implementação",
                 "Suporte por e-mail durante o projeto",
                 "Reuniões semanais para acompanhamento",
-                "Transferencia de conhecimento para a equipe"
+                "Transferência de conhecimento para a equipe"
               ],
               "timeline": "4 a 8 semanas"
             }
           ]
         },
-        { "title": "Fixado", "items": [] },
-        { "title": "Workshops", "items": [] }
+        {
+          "title": "Fixado",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Básico",
+              "description": "Suporte contínuo e análises periódicas",
+              "price": "R$ 3.000,00",
+              "modifier": "/mês+",
+              "features": [
+                "Análise mensal da infraestrutura técnica",
+                "Suporte prioritário por e-mail",
+                "Reunião mensal de alinhamento",
+                "Documentação de boas práticas"
+              ],
+              "timeline": "Contrato mínimo de 3 meses"
+            },
+            {
+              "isMostPopular": true,
+              "title": "Premium",
+              "description": "Suporte especializado e estratégia personalizada",
+              "price": "R$ 6.000,00",
+              "modifier": "/mês+",
+              "features": [
+                "Análise semanal da infraestrutura técnica",
+                "Suporte prioritário por e-mail e telefone",
+                "Reuniões semanais de acompanhamento",
+                "Documentação de boas práticas",
+                "Desenvolvimento de roadmap tecnológico"
+              ],
+              "timeline": "Contrato mínimo de 6 meses"
+            }
+          ]
+        },
+        {
+          "title": "Workshops",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Workshop técnico",
+              "description": "Capacitação em melhores práticas",
+              "price": "R$ 8.000,00",
+              "modifier": "+",
+              "features": [
+                "Análise prévia da infraestrutura atual",
+                "Materiais de apoio personalizados",
+                "Suporte por 30 dias após o workshop"
+              ],
+              "timeline": "1 dia intensivo - finais de semana"
+            },
+            {
+              "isMostPopular": true,
+              "title": "Workshop estratégico",
+              "description": "Alinhamento tecnológico e planejamento",
+              "price": "R$ 12.000,00",
+              "modifier": "+",
+              "features": [
+                "Análise detalhada da arquitetura atual",
+                "Desenvolvimento de roadmap tecnológico",
+                "Suporte por 60 dias após o workshop",
+                "Acompanhamento mensal das metas"
+              ],
+              "timeline": "2 dias intensivos  - finais de semana"
+            }
+          ]
+        }
       ]
     },
     "faq": {
@@ -205,7 +269,7 @@
     },
     "expertise": {
       "title": "Minhas especialidades",
-      "description": "Com mais de 10 anos de experiência em desenvolvimento de software, tenho um histórico comprovado de entrega de soluções de alta qualidade.",
+      "description": "Desenvolvedor senior com histórico consistente na entrega de soluções inovadoras e eficazes, especializado em desenvolvimento de software de alta qualidade. Meu portfólio demonstra um padrão elevado de excelência técnica e compromisso com a entrega de projetos que superam expectativas.",
       "areas": [
         {
           "title": "Desenvolvimento Frontend",
@@ -369,7 +433,7 @@
         },
         {
           "name": "Tiago Rodrigues",
-          "role":"Desenvolvedor Backend Sênior",
+          "role": "Desenvolvedor Backend Sênior",
           "photoUrl": "/success-cases/tiago-rodrigues.webp",
           "feedback": "A mentoria com o Lojhan chegou em um momento em que eu ainda refletia sobre os rumos da minha carreira: seguir aprofundando na área técnica ou migrar para uma trajetória mais voltada à gestão em tecnologia.\nApós um período atuando como desenvolvedor sênior, começaram a surgir dúvidas naturais sobre o próximo passo. Com o tempo, meu interesse pela gestão em TI se tornou mais claro, e as mentorias foram fundamentais nesse processo de descoberta e transição.\nAs conversas trouxeram direcionamento, ampliaram minha visão sobre o papel de um líder técnico e me ajudaram a compreender com mais profundidade as responsabilidades de cargos como arquiteto de software e tech lead — tanto sob o ponto de vista técnico quanto comportamental. A troca foi ainda mais rica por incluir exemplos reais de aplicações, tornando o aprendizado prático e aplicável ao dia a dia.\nAcredito que manter esse tipo de mentoria ativa é essencial para apoiar profissionais que estão em transição ou em busca de crescimento, especialmente aqueles que desejam se posicionar de forma mais estratégica dentro de times técnicos e assumir papéis de liderança."
         }

@@ -7,7 +7,7 @@
     },
     "expertise": {
       "title": "My specialties",
-      "description": "With over 10 years of software development experience, I have a proven track record of delivering high-quality solutions.",
+      "description": "Senior software developer with a proven track record of delivering innovative and effective solutions, specializing in high-quality software development. My portfolio demonstrates a consistently elevated standard of technical excellence and commitment to delivering projects that exceed expectations.",
       "areas": [
         {
           "title": "Frontend Development",
@@ -93,7 +93,7 @@
     },
     "expertise": {
       "title": "My specialties",
-      "description": "With over 10 years of software development experience, I have a proven track record of delivering high-quality solutions.",
+      "description": "Senior software developer with a proven track record of delivering innovative and effective solutions, specializing in high-quality software development. My portfolio demonstrates a consistently elevated standard of technical excellence and commitment to delivering projects that exceed expectations.",
       "areas": [
         {
           "title": "Software Architecture",
@@ -130,10 +130,10 @@
     "engagementModels": {
       "title": "Engagement Models",
       "description": "Flexible consulting options to meet your needs.",
-      "getStarted": "Get started",
+      "getStarted": "Get in touch",
       "tabs": [
         {
-          "title": "Project-Based",
+          "title": "By Project",
           "items": [
             {
               "isMostPopular": false,
@@ -142,32 +142,97 @@
               "price": "R$ 5,000.00",
               "modifier": "+",
               "features": [
-                "Detailed project analysis",
-                "Improvement recommendations",
-                "Final report with implementation suggestions",
-                "Email support during the project"
+                "Detailed Project Analysis",
+                "Improvement Recommendations",
+                "Final Report with Implementation Suggestions",
+                "Email Support During the Project"
               ],
-              "timeline": "2 to 4 weeks"
+              "timeline": "2-4 Weeks"
             },
             {
               "isMostPopular": true,
-              "title": "Advanced Project",
+              "title": "Project advanced",
               "description": "For complex technical challenges",
               "price": "R$ 15,000.00",
               "modifier": "+",
               "features": [
                 "Detailed project analysis",
-                "Improvement recommendations",
+                "Recommendations for improvements",
                 "Final report with implementation suggestions",
-                "Weekly progress meetings",
-                "Knowledge transfer to your team"
+                "Email support during the project",
+                "Weekly follow-up meetings",
+                "Knowledge transfer to the team"
               ],
               "timeline": "4 to 8 weeks"
             }
           ]
         },
-        { "title": "Fixed Price", "items": [] },
-        { "title": "Workshops", "items": [] }
+        {
+          "title": "Fixed",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Basic",
+              "description": "Ongoing support and periodic analysis",
+              "price": "R$ 3,000.00",
+              "modifier": "/month+",
+              "features": [
+                "Monthly analysis of technical infrastructure",
+                "Priority support by email",
+                "Monthly alignment meeting",
+                "Best practices documentation"
+              ],
+              "timeline": "Minimum contract of 3 months"
+            },
+            {
+              "isMostPopular": true,
+              "title": "Premium",
+              "description": "Specialized support and personalized strategy",
+              "price": "R$ 6,000.00",
+              "modifier": "/month+",
+              "features": [
+                "Weekly analysis of technical infrastructure",
+                "Priority support by email and phone",
+                "Monthly alignment meeting",
+                "Best practices documentation",
+                "Development of technology roadmap"
+              ],
+              "timeline": "Minimum contract of 6 months"
+            }
+          ]
+        },
+        {
+          "title": "Workshops",
+          "items": [
+            {
+              "isMostPopular": false,
+              "title": "Technical workshop",
+              "description": "Training in best practices",
+              "price": "R$ 8,000.00",
+              "modifier": "+",
+              "features": [
+                "Preliminary analysis of the current infrastructure",
+                "Customized support materials",
+                "Support for 30 days after the workshop"
+              ],
+              "timeline": "1 intensive day - weekend"
+            },
+            {
+              "isMostPopular": true,
+              "title": "Strategic workshop",
+              "description": "Technological alignment and planning",
+              "price": "R$ 12,000.00",
+              "modifier": "+",
+              "features": [
+                "Detailed analysis of the current architecture",
+                "Development of technological roadmap",
+                "Support for 60 days after the workshop",
+                "Monthly monitoring of goals"
+              ],
+              "timeline": "2 intensive days - weekend"
+            }
+          ]
+        }
       ]
     },
     "faq": {
@@ -203,7 +268,7 @@
     },
     "expertise": {
       "title": "My specialties",
-      "description": "With over 10 years of software development experience, I have a proven track record of delivering high-quality solutions.",
+      "description": "Senior software developer with a proven track record of delivering innovative and effective solutions, specializing in high-quality software development. My portfolio demonstrates a consistently elevated standard of technical excellence and commitment to delivering projects that exceed expectations.",
       "areas": [
         {
           "title": "Frontend Development",
