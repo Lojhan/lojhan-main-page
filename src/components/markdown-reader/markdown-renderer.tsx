@@ -54,22 +54,21 @@ export default function MarkdownRenderer({
     };
   }, [isMobile]);
 
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(window?.scrollY || 0);
+  // after some scroll, hide the header
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(
+    typeof window == "undefined" ? 0 : window?.scrollY
+  );
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY || currentScrollY <= 200) {
-        setIsHeaderVisible(true);
-      } else {
-        setIsHeaderVisible(false);
-      }
-
+      const isScrollingDown = currentScrollY > lastScrollY;
+      setIsVisible(!isScrollingDown);
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -82,13 +81,11 @@ export default function MarkdownRenderer({
           <Breadcrumb
             className={cn(
               "max-sm:sticky relative max-sm:top-16 z-40 py-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-              isHeaderVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-full pointer-events-none",
+              isVisible ? "translate-y-0" : "-translate-y-16 -webkit-transform:-translate-y-16",
               "transition-all duration-100 ease-in-out"
             )}
           >
-            <BreadcrumbList className="m-2 py-2 px-4 rounded cursor-pointer hover:bg-muted/50">
+            <BreadcrumbList className="px-4 rounded cursor-pointer hover:bg-muted/50">
               {(showText ? ["Click to view content"] : path).map(
                 (item, index) => {
                   if (index === path.length - 1 || showText) {

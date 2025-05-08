@@ -74,42 +74,34 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobile();
 
   // after some scroll, hide the header
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(
     typeof window == "undefined" ? 0 : window?.scrollY
   );
 
   useEffect(() => {
     if (!activePath?.includes("content")) {
-      setIsHeaderVisible(true);
       return;
     }
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY || currentScrollY <= 200) {
-        setIsHeaderVisible(true);
-      } else {
-        setIsHeaderVisible(false);
-      }
-
+      const isScrollingDown = currentScrollY > lastScrollY;
+      setIsVisible(!isScrollingDown);
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY, activePath]);
+  }, [activePath, lastScrollY]);
 
   return (
     <header
       className={cn(
         "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-        isHeaderVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 -translate-y-full pointer-events-none",
+        isVisible ? "translate-y-0" : "-translate-y-full",
         "transition-all duration-100 ease-in-out"
       )}
     >
