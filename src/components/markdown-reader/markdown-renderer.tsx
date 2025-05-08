@@ -77,7 +77,7 @@ export default function MarkdownRenderer({
   return (
     <>
       <Sheet>
-        <SheetTrigger asChild>
+        <SheetTrigger className="hover:bg-muted/50" asChild>
           <Breadcrumb
             className={cn(
               "max-sm:sticky relative max-sm:top-16 z-40 py-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
@@ -85,7 +85,7 @@ export default function MarkdownRenderer({
               "transition-all duration-100 ease-in-out"
             )}
           >
-            <BreadcrumbList className="px-4 rounded cursor-pointer hover:bg-muted/50">
+            <BreadcrumbList className="px-4 rounded cursor-pointer">
               {(showText ? ["Click to view content"] : path).map(
                 (item, index) => {
                   if (index === path.length - 1 || showText) {
