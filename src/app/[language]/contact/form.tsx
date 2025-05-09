@@ -42,16 +42,8 @@ export function ContactFormSection({
   });
 
   useEffect(() => {
-    switch (state.type) {
-      case "ISSUE_CREATED":
-        toast("Form submission succeeded");
-        break;
-      case "VALIDATION_ERROR":
-        toast("Form validation failed");
-        break;
-      case "UNKNOWN_ERROR":
-        toast("Unknown error occurred");
-        break;
+    if (state.type === "UNKNOWN_ERROR") {
+      toast("Unknown error occurred");
     }
   }, [state.type]);
 
@@ -60,8 +52,21 @@ export function ContactFormSection({
     state.error as ParseError["error"],
   ];
 
+  if (state.success) {
+    return (
+      <Card className="w-full h-full min-h-120 text-center flex flex-col items-center justify-center">
+        <CardHeader>
+          <CardTitle>{contactForm.title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-green-500 text-sm">{contactForm.successMessage}</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
-    <Card>
+    <Card className="w-full h-full min-h-120">
       <CardHeader>
         <CardTitle>{contactForm.title}</CardTitle>
         <CardDescription>{contactForm.description}</CardDescription>
