@@ -179,7 +179,7 @@ function MobileMenu({
         <DrawerContent>
           <div className="flex flex-col gap-4 p-4">
             {navItems.map((item) => (
-              <DrawerClose key={item.href}>
+              <DrawerClose key={item.href} asChild>
                 <Link
                   href={item.href}
                   onClick={() => {}}
