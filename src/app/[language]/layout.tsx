@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { GlobalSearchServer } from "@/components/global-search-server";
 import "../globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -132,6 +133,7 @@ export default async function RootLayout({
             <GlobalSearchServer language={language} />
           </SiteHeader>
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

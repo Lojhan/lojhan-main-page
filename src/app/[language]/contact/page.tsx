@@ -1,56 +1,17 @@
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+
 import { SiteFooter } from "@/components/site-footer";
-import { Octokit } from "octokit";
 import { Container } from "@/components/ui/container";
 import { getDictionary } from "@/i18n";
 import { LangMap } from "@/i18n/lang-map";
-async function createGithubIssue(formData: FormData) {
-  "use server";
-  const issueSubject = formData.get("subject")!.toString();
-  const issueBody = formData.get("message")!.toString();
-  const issueName = formData.get("name")!.toString();
-  const issueEmail = formData.get("email")!.toString();
-
-  const issueBodyContent = `## Contact Form Submission
-  **Name:** ${issueName}
-  **Email:** ${issueEmail}
-  **Message:** ${issueBody}`;
-
-  const issueTitleContent = `[${issueSubject}] Contact Form Submission from ${issueName}`;
-
-  const clientSecret = process.env.GITHUB_TOKEN;
-
-  const octokit = new Octokit({
-    auth: clientSecret,
-  });
-
-  await octokit.rest.issues.create({
-    owner: "Lojhan",
-    repo: "lojhan-contact-issues",
-    title: issueTitleContent,
-    body: issueBodyContent,
-    labels: [issueSubject],
-  });
-}
+import { ContactFormSection } from "./form";
 
 export default async function ContactPage({
   params,
@@ -143,67 +104,5 @@ function ContactInfoSection({
         </div>
       </div>
     </>
-  );
-}
-
-function ContactFormSection({
-  contactMe,
-}: {
-  contactMe: LangMap["/contact"]["contactMe"];
-}) {
-  const { email, message, subject, name, ...contactForm } =
-    contactMe.contactForm;
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{contactForm.title}</CardTitle>
-        <CardDescription>{contactForm.description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form className="grid gap-4" action={createGithubIssue}>
-          <div className="grid gap-2">
-            <Label htmlFor="name">{name.label}</Label>
-            <Input id="name" name="name" placeholder={name.placeholder} />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="email">{email.label}</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="subject">{subject.label}</Label>
-            <Select name="subject" defaultValue={subject.options[0].value}>
-              <SelectTrigger id="subject">
-                <SelectValue placeholder={subject.placeholder} />
-              </SelectTrigger>
-              <SelectContent>
-                {subject.options.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="message">{message.label}</Label>
-            <Textarea
-              id="message"
-              name="message"
-              placeholder={message.placeholder}
-              className="min-h-[150px]"
-            />
-          </div>
-          <Button type="submit" className="w-full">
-            {contactForm.sendMessage}
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
   );
 }
