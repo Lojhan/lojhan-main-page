@@ -25,7 +25,7 @@ export function SiteHeaderMenu({ children }: { children?: React.ReactNode }) {
       <div className="flex items-center gap-2">
         {children}
         <ThemeToggle className="max-sm:hidden" />
-        <LanguageToggle className="max-sm:hidden" x />
+        <LanguageToggle className="max-sm:hidden" />
         <MobileMenu language={language} activePath={activePath} />
       </div>
     </Fragment>
