@@ -526,5 +526,8 @@
         "errorMessage": "An error occurred while sending the message. Please try again later."
       }
     }
+  },
+  "/content": {
+    "showDrawer": "Show menu"
   }
 }

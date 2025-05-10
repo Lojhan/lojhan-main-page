@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/resizable";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getContentRaw } from "@/lib/filesystem";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
   params: Promise<{

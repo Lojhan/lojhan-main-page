@@ -15,7 +15,7 @@ import { ExpertiseCard } from "@/components/expertise-card";
 import { Container } from "@/components/ui/container";
 import { SectionIntro } from "@/components/section-intro";
 import { getDictionary } from "@/i18n";
-import { LangMap } from "@/i18n/lang-map";
+import type { LangMap } from "@/i18n/lang-map";
 import { default as convert } from "xml-js";
 
 export default async function Home({
@@ -84,8 +84,8 @@ function ExpertiseSection({
     <Container className="bg-muted" id="expertise">
       <SectionIntro title={expertise.title} subtitle={expertise.description} />
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-        {expertise.areas.map((expertise, index) => (
-          <ExpertiseCard key={index} {...expertise} />
+        {expertise.areas.map((expertise) => (
+          <ExpertiseCard key={expertise.title} {...expertise} />
         ))}
       </div>
     </Container>
@@ -108,8 +108,8 @@ function ServicesSection({ services }: { services: LangMap["/"]["services"] }) {
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-2 text-sm">
-                  {service.features?.map((feature, index) => (
-                    <li key={index} className="flex items-center">
+                  {service.features?.map((feature) => (
+                    <li key={feature} className="flex items-center">
                       <Check className="mr-2 h-4 w-4 text-green-500" />
                       {feature}
                     </li>
@@ -150,7 +150,7 @@ async function BlogSection({ blog }: { blog: LangMap["/"]["blog"] }) {
             link: { _text: string };
             description: { _cdata: string };
             category: { _cdata: string }[] | { _cdata: string };
-          }
+          },
         ];
       };
     };

@@ -36,7 +36,7 @@ export const langMap = {
       title: "[string]",
       description: "[string]",
       getInTouch: "[string]",
-    }
+    },
   },
   "/consulting": {
     about: {
@@ -198,6 +198,9 @@ export const langMap = {
         errorMessage: "[string]",
       },
     },
+  },
+  "/content": {
+    showDrawer: "[string]",
   },
 } as const;
 

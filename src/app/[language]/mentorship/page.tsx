@@ -17,7 +17,7 @@ import { ExpertiseCard } from "@/components/expertise-card";
 import { Container } from "@/components/ui/container";
 import { FAQSection } from "@/components/faq-section";
 import { getDictionary } from "@/i18n";
-import { LangMap } from "@/i18n/lang-map";
+import type { LangMap } from "@/i18n/lang-map";
 import {
   Dialog,
   DialogContent,
@@ -97,8 +97,8 @@ function HowICanHelpYouSection({
     <Container id="how-i-can-help-you">
       <SectionIntro title={expertise.title} subtitle={expertise.description} />
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-        {expertise.areas.map((expertise, index) => (
-          <ExpertiseCard {...expertise} key={index} />
+        {expertise.areas.map((expertise) => (
+          <ExpertiseCard {...expertise} key={expertise.title} />
         ))}
       </div>
     </Container>
@@ -124,11 +124,11 @@ function SuccessStoriesSection({
       />
       <div
         className={cn(
-          "mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3"
+          "mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3",
         )}
       >
-        {successStories.items.map((item, index) => (
-          <SuccessStoryCase key={index} story={item} />
+        {successStories.items.map((item) => (
+          <SuccessStoryCase key={item.name} story={item} />
         ))}
       </div>
     </Container>
@@ -190,8 +190,8 @@ function SuccessStoryCase({
           {story.feedback.replaceAll(
             "\n",
             `
-            
-`
+
+`,
           )}
         </DialogDescription>
       </DialogContent>

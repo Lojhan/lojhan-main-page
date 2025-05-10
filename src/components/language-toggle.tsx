@@ -61,7 +61,7 @@ export function useLanguage(): readonly [Lang, SetLang] {
       return () => window.removeEventListener("storage", onStoreChange);
     },
     () => getLanguage(),
-    () => getLanguage()
+    () => getLanguage(),
   );
 
   const [language, setLanguage] = useState(languageFromStorage as Lang);
@@ -74,7 +74,7 @@ export function useLanguage(): readonly [Lang, SetLang] {
       window.history.pushState(
         {},
         "",
-        pathname.replace(/\/[a-z]{2}-[A-Z]{2}/, `/${newLanguage}`)
+        pathname.replace(/\/[a-z]{2}-[A-Z]{2}/, `/${newLanguage}`),
       );
       window.dispatchEvent(new Event("storage"));
       window.location.reload();
@@ -89,12 +89,12 @@ const flagEmojiMap: Record<string, string> = {
   "pt-BR": "🇧🇷",
 };
 
-export function LanguageToggle() {
+export function LanguageToggle({ className }: { className?: string }) {
   const [language, setLanguage] = useLanguage();
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger className={className} asChild>
         <Button variant="ghost" size="icon">
           {flagEmojiMap[language]}
           <span className="sr-only">Toggle language</span>

@@ -14,8 +14,13 @@ import { Button } from "./ui/button";
 import { useIsMobile } from "./ui/use-mobile";
 import { Card } from "./ui/card";
 import { useLanguage } from "./language-toggle";
-import { type Command as Cmd } from "@/lib/global-search";
-import { Drawer, DrawerContent } from "./ui/drawer";
+import type { Command as Cmd } from "@/lib/global-search";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+} from "./ui/drawer";
 
 const searchLabel = {
   "pt-BR": "Bucar",
@@ -38,7 +43,7 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [isMobile, open]);
+  }, []);
 
   if (open) {
     inputRef.current?.focus();
@@ -48,30 +53,33 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
   const isMacOS =
     navigator.platform?.includes("Mac") || navigator.userAgent.includes("Mac");
 
+  const toggleOpen = () => setOpen((open) => !open);
   return (
     <>
-      <div className="" onClick={() => setOpen((open) => !open)}>
-        {(() => {
-          if (isMobile)
-            return (
-              <Button variant="ghost" size="icon">
-                <Search className="w-5 h-5" />
-              </Button>
-            );
-          return (
-            <Card className="text-xs text-muted-foreground hover:text-primary flex items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out min-w-min">
-              <span>{searchLabel[language]}</span>
-              <span className="flex items-center gap-1">
-                {isMacOS ? <Command className="w-3 h-3" /> : "Ctrl"} + K
-              </span>
-            </Card>
-          );
-        })()}
+      <div onClick={toggleOpen} onKeyUp={toggleOpen}>
+        <Button variant="ghost" size="icon" className="sm:hidden">
+          <Search className="w-5 h-5" />
+        </Button>
+
+        <Card className="hidden md:flex text-xs text-muted-foreground hover:text-primary items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out min-w-min">
+          <span>{searchLabel[language]}</span>
+          <span className="flex items-center gap-1">
+            {isMacOS ? <Command className="w-3 h-3" /> : "Ctrl"} + K
+          </span>
+        </Card>
       </div>
       {(() => {
+        if (!open) {
+          return null;
+        }
+
         if (isMobile) {
           return (
-            <Drawer open={open} onOpenChange={setOpen} autoFocus>
+            <Drawer onOpenChange={setOpen} autoFocus open>
+              <DrawerTitle className="hidden">global search</DrawerTitle>
+              <DrawerDescription className="hidden">
+                global search
+              </DrawerDescription>
               <DrawerContent>
                 <CommandWrapper className="bg-white dark:bg-background md:min-w-[450px] px-2 py-4">
                   <CommandInput
@@ -82,7 +90,7 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     {commands.map((command) =>
-                      renderCommandItem(command, setOpen)
+                      renderCommandItem(command, setOpen),
                     )}
                   </CommandList>
                 </CommandWrapper>
@@ -92,7 +100,7 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
         }
 
         return (
-          <CommandDialog open={open} onOpenChange={setOpen}>
+          <CommandDialog onOpenChange={setOpen} open>
             <CommandInput
               placeholder="Type a command or search..."
               ref={inputRef}

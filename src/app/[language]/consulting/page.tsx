@@ -17,7 +17,7 @@ import { ExpertiseCard } from "@/components/expertise-card";
 import { FAQSection } from "@/components/faq-section";
 import { ContactCTA } from "@/components/contact-cta";
 import { getDictionary } from "@/i18n";
-import { LangMap } from "@/i18n/lang-map";
+import type { LangMap } from "@/i18n/lang-map";
 import { EngagementSection } from "@/components/engagement-methods";
 
 export default async function ConsultingPage({
@@ -91,8 +91,8 @@ function ExpertiseSection({
     <Container id="consulting-services">
       <SectionIntro title={expertise.title} subtitle={expertise.description} />
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-        {expertise.areas.map((expertise, index) => (
-          <ExpertiseCard key={index} {...expertise} />
+        {expertise.areas.map((expertise) => (
+          <ExpertiseCard key={expertise.title} {...expertise} />
         ))}
       </div>
     </Container>

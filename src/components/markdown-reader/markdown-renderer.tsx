@@ -3,15 +3,21 @@
 
 import type React from "react";
 
-import { Fragment, PropsWithChildren, useEffect, useState } from "react";
-import ReactMarkdown, { Components } from "react-markdown";
+import { Fragment, type PropsWithChildren, useEffect, useState } from "react";
+import ReactMarkdown, { type Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 import { Copy, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -22,13 +28,16 @@ import { humanizeDirentName } from "@/lib/humanize";
 import Link from "next/link";
 import { useIsMobile } from "../ui/use-mobile";
 import { cn } from "@/lib/utils";
+import type { LangMap } from "@/i18n/lang-map";
 
 interface MarkdownRendererProps {
+  dictionary: LangMap["/content"];
   content: string;
   path: string[];
 }
 
 export default function MarkdownRenderer({
+  dictionary,
   content,
   path,
   children,
@@ -57,7 +66,7 @@ export default function MarkdownRenderer({
   // after some scroll, hide the header
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(
-    typeof window == "undefined" ? 0 : window?.scrollY
+    typeof window === "undefined" ? 0 : window?.scrollY,
   );
 
   useEffect(() => {
@@ -77,21 +86,25 @@ export default function MarkdownRenderer({
   return (
     <>
       <Sheet>
+        <SheetTitle className="hidden">file tree</SheetTitle>
+        <SheetDescription className="hidden">file tree</SheetDescription>
         <SheetTrigger className="hover:bg-muted/50" asChild>
           <Breadcrumb
             className={cn(
               "max-sm:sticky relative max-sm:top-16 z-40 py-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-              isVisible ? "translate-y-0" : "-translate-y-16 -webkit-transform:-translate-y-16",
-              "transition-all duration-100 ease-in-out"
+              isVisible
+                ? "translate-y-0"
+                : "-translate-y-16 -webkit-transform:-translate-y-16",
+              "transition-all duration-100 ease-in-out",
             )}
           >
             <BreadcrumbList className="px-4 rounded cursor-pointer">
-              {(showText ? ["Click to view content"] : path).map(
+              {(showText ? [dictionary.showDrawer] : path).map(
                 (item, index) => {
                   if (index === path.length - 1 || showText) {
                     return (
                       <BreadcrumbItem
-                        key={index}
+                        key={item}
                         className="transition-colors duration-500 ease-in-out"
                       >
                         {humanizeDirentName(item)}
@@ -100,14 +113,14 @@ export default function MarkdownRenderer({
                   }
 
                   return (
-                    <Fragment key={index}>
+                    <Fragment key={item}>
                       <BreadcrumbItem className="transition-colors duration-500 ease-in-out">
                         {humanizeDirentName(item)}
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                     </Fragment>
                   );
-                }
+                },
               )}
             </BreadcrumbList>
           </Breadcrumb>
