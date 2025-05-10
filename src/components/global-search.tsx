@@ -51,7 +51,10 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
   }
 
   const isMacOS =
-    navigator.platform?.includes("Mac") || navigator.userAgent.includes("Mac");
+    typeof window !== "undefined" &&
+    window.navigator &&
+    (window.navigator.platform?.includes("Mac") ||
+      window.navigator.userAgent.includes("Mac"));
 
   const toggleOpen = () => setOpen((open) => !open);
   return (
