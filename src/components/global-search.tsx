@@ -21,6 +21,7 @@ import {
   DrawerDescription,
   DrawerTitle,
 } from "./ui/drawer";
+import { cn } from "@/lib/utils";
 
 const searchLabel = {
   "pt-BR": "Bucar",
@@ -29,6 +30,8 @@ const searchLabel = {
 
 export function GlobalSearch({ commands }: { commands: Cmd[] }) {
   const [open, setOpen] = useState(false);
+  const toggleOpen = () => setOpen((open) => !open);
+
   const isMobile = useIsMobile();
   const inputRef = useRef<HTMLInputElement>(null);
   const [language] = useLanguage();
@@ -50,13 +53,20 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
     inputRef.current?.select();
   }
 
-  const isMacOS =
-    typeof window !== "undefined" &&
-    window.navigator &&
-    (window.navigator.platform?.includes("Mac") ||
-      window.navigator.userAgent.includes("Mac"));
+  const [isMounted, setIsMounted] = useState(false);
 
-  const toggleOpen = () => setOpen((open) => !open);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const isMacOS = (() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    return window.navigator.userAgent.includes("Mac");
+  })();
+
   return (
     <>
       <div onClick={toggleOpen} onKeyUp={toggleOpen}>
@@ -64,11 +74,24 @@ export function GlobalSearch({ commands }: { commands: Cmd[] }) {
           <Search className="w-5 h-5" />
         </Button>
 
-        <Card className="hidden md:flex text-xs text-muted-foreground hover:text-primary items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out min-w-min">
-          <span>{searchLabel[language]}</span>
-          <span className="flex items-center gap-1">
-            {isMacOS ? <Command className="w-3 h-3" /> : "Ctrl"} + K
-          </span>
+        <Card className="hidden md:flex min-w-32 text-xs text-muted-foreground hover:text-primary items-center justify-center gap-3 py-2 px-4 cursor-pointer hover:bg-muted/50 transition-colors duration-200 ease-in-out">
+          {(() => {
+            if (!isMounted) {
+              return "Ctrl + K";
+            }
+
+            return (
+              <>
+                <span>{searchLabel[language]}</span>
+                <span className="flex items-center gap-1">
+                  <Command className={cn("w-3 h-3", isMacOS ? "" : "hidden")} />
+                  <span className={cn(isMacOS ? "hidden" : "")}>Ctrl</span>
+                  <span>+</span>
+                  <span>K</span>
+                </span>
+              </>
+            );
+          })()}
         </Card>
       </div>
       {(() => {
