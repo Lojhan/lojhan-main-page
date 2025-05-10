@@ -5,6 +5,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { getContentRaw } from "@/lib/filesystem";
 import { PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
@@ -21,7 +22,9 @@ export default async function Layout({ children, params }: Props) {
   return (
     <>
       {/* Mobile view - hidden on sm screens and above */}
-      <div className="w-full sm:hidden" id="scroll-target">{children}</div>
+      <div className="w-full sm:hidden" id="scroll-target">
+        {children}
+      </div>
 
       {/* Desktop view - hidden on screens smaller than sm */}
       <div className="hidden w-full sm:block">
@@ -39,4 +42,29 @@ export default async function Layout({ children, params }: Props) {
       </div>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const [pt_BR_files, en_US_files] = await Promise.all([
+    getContentRaw("", "pt-BR"),
+    getContentRaw("", "en-US"),
+  ]);
+
+  const pt_BR_urls = pt_BR_files.map((file) => {
+    return {
+      path: file.split("/"),
+      language: "pt-BR",
+    };
+  });
+
+  const en_US_urls = en_US_files.map((file) => {
+    return {
+      path: file.split("/"),
+      language: "en-US",
+    };
+  });
+
+  const urls = [...pt_BR_urls, ...en_US_urls];
+
+  return urls;
 }
