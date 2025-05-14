@@ -3,8 +3,8 @@
 Welcome to the Go programming language documentation section. This area contains in-depth guides, tutorials, and reference materials for Go developers of all skill levels.
 
 ## Available Topics
-
 - [Goroutines](goroutines.md) - Comprehensive guide to Go's lightweight concurrency model, including best practices, common patterns, and real-world examples
+- [Struct Tags](struct_tags.md) - Explanation of struct tags in Go, their usage, and how they interact with libraries like `encoding/json` and `gorm`
 
 ## Purpose
 

@@ -12,7 +12,7 @@ function buildFileTree(paths: string[]): FileNode[] {
   const nodeMap = new Map<string, FileNode>();
 
   // Process each path
-  paths.forEach((path) => {
+  for (const path of paths) {
     // Split the path into segments
     const parts = path.split("/");
 
@@ -24,8 +24,7 @@ function buildFileTree(paths: string[]): FileNode[] {
 
       // Check if node exists
       if (!nodeMap.has(currentPath)) {
-        // Determine if it's a file or directory
-        const isFile = index === parts.length - 1 && part.includes(".");
+        const isFile = index === parts.length - 1 && /\.(md|txt)$/.test(part);
 
         // Create new node
         nodeMap.set(currentPath, {
@@ -36,10 +35,10 @@ function buildFileTree(paths: string[]): FileNode[] {
         });
       }
     });
-  });
+  }
 
   // Link parent-child relationships
-  nodeMap.forEach((node) => {
+  for (const [, node] of nodeMap) {
     if (node.type === "dir") {
       // Only include direct children (one level down)
       node.children = Array.from(nodeMap.values()).filter((child) => {
@@ -47,25 +46,25 @@ function buildFileTree(paths: string[]): FileNode[] {
         const nodeParts = node.path.split("/");
         return (
           childParts.length === nodeParts.length + 1 &&
-          child.path.startsWith(node.path + "/")
+          child.path.startsWith(`${node.path}/`)
         );
       });
     }
-  });
+  }
 
   // Find and return root nodes
   return Array.from(nodeMap.values()).filter(
     (node) =>
       !Array.from(nodeMap.values()).some(
         (other) =>
-          other.type === "dir" && node.path.startsWith(other.path + "/")
-      )
+          other.type === "dir" && node.path.startsWith(`${other.path}/`),
+      ),
   );
 }
 
 export async function getContentRaw(
   filter: string,
-  language: string
+  language: string,
 ): Promise<string[]> {
   const { readdir } = await import("node:fs/promises");
 
@@ -83,7 +82,7 @@ export async function getContentRaw(
 
 export async function getContentStructure(
   filter: string,
-  language: string
+  language: string,
 ): Promise<FileNode[]> {
   const files = await getContentRaw(filter, language);
 
