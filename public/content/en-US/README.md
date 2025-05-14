@@ -34,3 +34,7 @@ content/
 
 1. Browse the technology-specific foldersEach folder contains a detailed README.md with the topics covered.
 2. The code examples are organized by concepts
+
+## Authors:
+
+- [Lojhan](https://github.com/Lojhan)

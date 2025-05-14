@@ -28,3 +28,7 @@ If you'd like to contribute to this documentation by fixing errors or adding new
 - [Official Go Documentation](https://golang.org/doc/)
 - [Go by Example](https://gobyexample.com/)
 - [Effective Go](https://golang.org/doc/effective_go)
+
+## Authors:
+
+- [Lojhan](https://github.com/Lojhan)

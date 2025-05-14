@@ -29,3 +29,7 @@ Se você gostaria de contribuir para esta documentação corrigindo erros ou adi
 - [Documentação Oficial do Go](https://golang.org/doc/)
 - [Go by Example](https://gobyexample.com/)
 - [Effective Go](https://golang.org/doc/effective_go)
+
+## Autores:
+
+- [Lojhan](https://github.com/Lojhan)

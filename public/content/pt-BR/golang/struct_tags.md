@@ -327,6 +327,6 @@ A implementação do sistema de validação que analisamos demonstra como as str
 
 À medida que você avança em sua jornada com Go, explorar e compreender o potencial das struct tags permitirá que você crie APIs mais elegantes e poderosas para seus próprios pacotes e bibliotecas.
 
+## Autores:
 
-
-
+- [Lojhan](https://github.com/Lojhan)

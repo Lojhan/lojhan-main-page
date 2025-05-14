@@ -327,3 +327,7 @@ The validation system implementation we analyzed demonstrates how struct tags ca
 - Web frameworks like Gin and Echo for binding and validation
 
 As you advance in your journey with Go, exploring and understanding the potential of struct tags will allow you to create more elegant and powerful APIs for your own packages and libraries.
+
+## Authors:
+
+- [Lojhan](https://github.com/Lojhan)

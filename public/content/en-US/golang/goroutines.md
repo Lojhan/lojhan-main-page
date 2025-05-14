@@ -217,3 +217,7 @@ func processData(data []Item) []Result {
 As goroutines representam um dos recursos mais poderosos do Go, permitindo programação concorrente eficiente e relativamente fácil de raciocinar. Ao combinar goroutines com canais e o pacote sync, os desenvolvedores de Go podem criar aplicações altamente concorrentes sem muita da complexidade tradicionalmente associada à programação multithread.
 
 A natureza leve das goroutines permite que programas Go sejam escalonados para milhares ou até milhões de operações simultâneas, tornando-as particularmente adequadas para aplicativos e serviços de rede modernos.
+
+## Authors:
+
+- [Lojhan](https://github.com/Lojhan)

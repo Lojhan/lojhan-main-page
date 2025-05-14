@@ -130,7 +130,7 @@ export default function MarkdownRenderer({
         </SheetContent>
       </Sheet>
 
-      <div className="sm:px-6 container mx-auto max-sm:max-w-[90vw]">
+      <div className="sm:px-6 container mx-auto max-sm:max-w-[90vw] mb-24">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
           {content}
         </ReactMarkdown>
