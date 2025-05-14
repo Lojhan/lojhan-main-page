@@ -11,10 +11,8 @@ import type { PropsWithChildren } from "react";
 type Props = PropsWithChildren<{
   params: Promise<{
     language: string;
+    path: string[];
   }>;
-  searchParams: {
-    showSidebar: boolean;
-  };
 }>;
 
 export default async function Layout({ children, params }: Props) {
