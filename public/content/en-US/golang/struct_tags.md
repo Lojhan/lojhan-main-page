@@ -1,6 +1,4 @@
-Lojhan: can you write the en_US version for this?
-
-GitHub Copilot: # Understanding Struct Tags in Go
+# Understanding Struct Tags in Go
 
 Struct tags are one of the most powerful and versatile features of the Go language, allowing you to add metadata to data structures. While they may seem simple at first glance, they enable the creation of elegant frameworks for serialization, validation, ORM mapping, and much more.
 
@@ -43,7 +41,7 @@ func main() {
     type Example struct {
         Field string `info:"important"`
     }
-    
+
     e := Example{Field: "value"}
     t := reflect.TypeOf(e)
     field := t.Field(0)
@@ -119,7 +117,7 @@ func main() {
 	printRules(example)
 }
 
-// Output:  
+// Output:
 // Field: ExampleField
 //  - Rule: required
 //  - Rule: min=3
