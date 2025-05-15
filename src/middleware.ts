@@ -27,11 +27,24 @@ export function middleware(request: NextRequest) {
 
   if (isFilePath(pathname)) {
     // Skip if the pathname is a file
-    return;
+    return NextResponse.next();
   }
 
-  const pathnameHasLocale = locales.some((locale) => pathname.includes(locale));
+  addLocaleToPath(request);
+  addDefaultPathToContent(request);
 
+  if (request.nextUrl.pathname === pathname) {
+    // nothing changed
+    return NextResponse.next();
+  }
+
+  return NextResponse.redirect(request.nextUrl);
+}
+
+function addLocaleToPath(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  const pathnameHasLocale = locales.some((locale) => pathname.includes(locale));
   if (pathnameHasLocale) return;
 
   const languageCookie = request.cookies.get("language");
@@ -39,15 +52,33 @@ export function middleware(request: NextRequest) {
   if (languageCookie) {
     const locale = languageCookie.value;
     request.nextUrl.pathname = `/${locale}${pathname}`;
-    return NextResponse.redirect(request.nextUrl);
+    return;
   }
 
-  // Redirect if there is no locale
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  // e.g. incoming request is /products
-  // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
+}
+
+function addDefaultPathToContent(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (!pathname.includes("/content")) {
+    // Skip if the pathname is not a content path
+    return;
+  }
+
+  const pathParts = pathname.split("/");
+
+  if (pathParts.length <= 0) {
+    // Skip if the pathname is empty, this should not happen anyway
+    return;
+  }
+
+  if (!pathParts.at(-1)?.includes(".md")) {
+    // Fallback to README.md if no file is specified
+    pathParts.push("README.md");
+    request.nextUrl.pathname = `${pathParts.join("/")}`;
+  }
 }
 
 export const config: MiddlewareConfig = {

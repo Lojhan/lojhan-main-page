@@ -17,6 +17,7 @@ type Props = PropsWithChildren<{
 
 export default async function Layout({ children, params }: Props) {
   const { language } = await params;
+
   return (
     <>
       {/* Mobile view - hidden on sm screens and above */}
