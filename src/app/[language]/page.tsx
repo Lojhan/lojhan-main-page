@@ -17,6 +17,7 @@ import { SectionIntro } from "@/components/section-intro";
 import { getDictionary } from "@/i18n";
 import type { LangMap } from "@/i18n/lang-map";
 import { default as convert } from "xml-js";
+import { ContactCTA } from "@/components/contact-cta";
 
 export default async function Home({
   params,
@@ -33,7 +34,12 @@ export default async function Home({
         <ExpertiseSection expertise={dictionary.expertise} />
         <ServicesSection services={dictionary.services} />
         <BlogSection blog={dictionary.blog} />
-        <ContactCTA contact={dictionary.contact} />
+        <ContactCTA
+          title={dictionary.contact.title}
+          subtitle={dictionary.contact.description}
+          cat={dictionary.contact.getInTouch}
+          imgSrc="/placeholder.svg?height=400&width=600"
+        />
       </main>
       <SiteFooter />
     </div>
@@ -198,28 +204,6 @@ async function BlogSection({ blog }: { blog: LangMap["/"]["blog"] }) {
         <Button asChild variant="outline">
           <Link href="https://blog.lojhan.com">{blog.viewAll}</Link>
         </Button>
-      </div>
-    </Container>
-  );
-}
-
-function ContactCTA({ contact }: { contact: LangMap["/"]["contact"] }) {
-  return (
-    <Container id="how-i-can-help-you">
-      <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-          {contact.title}
-        </h1>
-        <p className="max-w-[600px] text-muted-foreground md:text-xl">
-          {contact.description}
-        </p>
-        <div className="flex flex-col gap-2 min-[600px]:flex-row">
-          <Button asChild size="lg">
-            <Link href="#plans">
-              {contact.getInTouch} <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
       </div>
     </Container>
   );
