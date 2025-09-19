@@ -42,6 +42,13 @@ export const navItems: NavItem[] = [
   },
   {
     title: {
+      "pt-BR": "Links",
+      "en-US": "Links",
+    },
+    href: "/links",
+  },
+  {
+    title: {
       "pt-BR": "Contato",
       "en-US": "Contact",
     },

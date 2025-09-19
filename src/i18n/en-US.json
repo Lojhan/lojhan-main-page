@@ -529,5 +529,51 @@
   },
   "/content": {
     "showDrawer": "Show menu"
+  },
+  "/links": {
+    "hero": {
+      "title": "All my links in one place",
+      "description": "Tech Lead, Mentor, and Consultant. Find all my social media, projects, and ways to get in touch."
+    },
+    "links": {
+      "categories": {
+        "social": {
+          "title": "Social Media",
+          "description": "Connect with me on social platforms",
+          "items": {
+            "linkedin": "Professional network and career updates",
+            "github": "Open source projects and code repositories",
+            "instagram": "Tech thoughts, insights, and community discussions"
+          }
+        },
+        "professional": {
+          "title": "Professional Links",
+          "description": "My services and content",
+          "items": {
+            "blog": {
+              "title": "Tech Blog",
+              "description": "Articles about software development, architecture, and tech leadership"
+            },
+            "mentorship": {
+              "title": "Mentorship",
+              "description": "1:1 mentoring for developers and tech professionals"
+            },
+            "consulting": {
+              "title": "Consulting",
+              "description": "Technical consulting and architecture services"
+            },
+            "content": {
+              "title": "Content Hub",
+              "description": "Technical guides, tutorials, and learning resources"
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "title": "Get in touch",
+      "description": "Have a question or want to discuss a project? I'm here to help!",
+      "getInTouch": "Contact me"
+    }
   }
 }

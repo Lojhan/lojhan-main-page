@@ -202,6 +202,52 @@ export const langMap = {
   "/content": {
     showDrawer: "[string]",
   },
+  "/links": {
+    hero: {
+      title: "[string]",
+      description: "[string]",
+    },
+    links: {
+      categories: {
+        social: {
+          title: "[string]",
+          description: "[string]",
+          items: {
+            linkedin: "[string]",
+            github: "[string]",
+            instagram: "[string]",
+          },
+        },
+        professional: {
+          title: "[string]",
+          description: "[string]",
+          items: {
+            blog: {
+              title: "[string]",
+              description: "[string]",
+            },
+            mentorship: {
+              title: "[string]",
+              description: "[string]",
+            },
+            consulting: {
+              title: "[string]",
+              description: "[string]",
+            },
+            content: {
+              title: "[string]",
+              description: "[string]",
+            },
+          },
+        },
+      },
+    },
+    contact: {
+      title: "[string]",
+      description: "[string]",
+      getInTouch: "[string]",
+    },
+  },
 } as const;
 
 export type LangMap = typeof langMap;

@@ -530,5 +530,51 @@
   },
   "/content": {
     "showDrawer": "Mostrar menu"
+  },
+  "/links": {
+    "hero": {
+      "title": "Todos os meus links em um lugar",
+      "description": "Tech Lead, Mentor e Consultor. Encontre todas as minhas redes sociais, projetos e formas de entrar em contato."
+    },
+    "links": {
+      "categories": {
+        "social": {
+          "title": "Redes Sociais",
+          "description": "Conecte-se comigo nas redes sociais",
+          "items": {
+            "linkedin": "Rede profissional e atualizações de carreira",
+            "github": "Projetos open source e repositórios de código",
+            "instagram": "Reflexões sobre tecnologia, insights e discussões da comunidade"
+          }
+        },
+        "professional": {
+          "title": "Links Profissionais",
+          "description": "Meus serviços e conteúdos",
+          "items": {
+            "blog": {
+              "title": "Blog de Tecnologia",
+              "description": "Artigos sobre desenvolvimento de software, arquitetura e liderança técnica"
+            },
+            "mentorship": {
+              "title": "Mentoria",
+              "description": "Mentoria 1:1 para desenvolvedores e profissionais de tecnologia"
+            },
+            "consulting": {
+              "title": "Consultoria",
+              "description": "Consultoria técnica e serviços de arquitetura"
+            },
+            "content": {
+              "title": "Hub de Conteúdo",
+              "description": "Guias técnicos, tutoriais e recursos de aprendizado"
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "title": "Entre em contato",
+      "description": "Tem uma pergunta ou deseja discutir um projeto? Estou aqui para ajudar!",
+      "getInTouch": "Entre em contato"
+    }
   }
 }

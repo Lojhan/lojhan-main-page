@@ -36,6 +36,10 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
     };
   }, [activePath, lastScrollY]);
 
+  if (activePath === "links") {
+    return null;
+  }
+
   return (
     <header
       className={cn(
