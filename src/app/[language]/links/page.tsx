@@ -4,7 +4,6 @@ import {
   ExternalLink,
   Github,
   Linkedin,
-  Mail,
   BookOpen,
   Code,
   Users,
