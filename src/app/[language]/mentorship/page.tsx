@@ -64,24 +64,33 @@ export default async function MentorshipPage({
 
 function AboutSection({ about }: { about: LangMap["/mentorship"]["about"] }) {
   return (
-    <Container id="how-i-can-help-you" className="bg-muted">
-      <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col max-sm:px-2">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-          {about.title}
-        </h1>
-        <p className="max-w-[600px] text-muted-foreground md:text-xl">
-          {about.description}
-        </p>
-        <div className="flex flex-col gap-2 min-[600px]:flex-row">
-          <Button asChild size="lg">
-            <Link href="#plans">
-              {about.exploreMentorshipPlans}{" "}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button variant="outline" asChild size="lg">
-            <Link href="/contact">{about.requestMentorship}</Link>
-          </Button>
+    <Container id="how-i-can-help-you" className="bg-muted relative">
+      <Image
+        src="/background_1_extended.webp"
+        alt="Mentorship Hero"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/60 to-transparent" />
+      <div className="relative z-10">
+        <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col max-sm:px-2">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+            {about.title}
+          </h1>
+          <p className="max-w-[600px] text-muted-foreground md:text-xl">
+            {about.description}
+          </p>
+          <div className="flex flex-col gap-2 min-[600px]:flex-row">
+            <Button asChild size="lg">
+              <Link href="#plans">
+                {about.exploreMentorshipPlans}{" "}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" asChild size="lg">
+              <Link href="/contact">{about.requestMentorship}</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </Container>
@@ -124,7 +133,7 @@ function SuccessStoriesSection({
       />
       <div
         className={cn(
-          "mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3",
+          "mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3"
         )}
       >
         {successStories.items.map((item) => (
@@ -191,7 +200,7 @@ function SuccessStoryCase({
             "\n",
             `
 
-`,
+`
           )}
         </DialogDescription>
       </DialogContent>

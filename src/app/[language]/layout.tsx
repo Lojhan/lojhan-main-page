@@ -93,7 +93,7 @@ export async function generateMetadata({
       siteName: metadata.title,
       images: [
         {
-          url: "https://www.lojhan.com/lojhan-photo-home.png",
+          url: "https://www.lojhan.com/lojhan-photo-home.webp",
           width: 1200,
           height: 630,
           alt: "Lojhan - Tech Lead, Mentor e Consultor",
