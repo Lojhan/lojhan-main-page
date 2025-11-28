@@ -25,7 +25,6 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 import { EngagementSection } from "@/components/engagement-methods";
 
 export default async function MentorshipPage({
@@ -69,7 +68,7 @@ function AboutSection({ about }: { about: LangMap["/mentorship"]["about"] }) {
         src="/background_1_extended.webp"
         alt="Mentorship Hero"
         fill
-        className="object-cover"
+        className="object-cover object-left md:object-bottom-left"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black via-black/60 to-transparent" />
       <div className="relative z-10">
@@ -131,11 +130,7 @@ function SuccessStoriesSection({
         title={successStories.title}
         subtitle={successStories.description}
       />
-      <div
-        className={cn(
-          "mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3"
-        )}
-      >
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
         {successStories.items.map((item) => (
           <SuccessStoryCase key={item.name} story={item} />
         ))}
