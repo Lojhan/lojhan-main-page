@@ -305,111 +305,69 @@
     "mentorshipPlans": {
       "title": "Mentorship Plans",
       "description": "Choose the mentorship plan that best adapts to your needs and objectives.",
-      "getStarted": "Get started",
+      "getStarted": "Get in touch",
       "tabs": [
         {
-          "title": "Monthly",
+          "title": "Group",
           "items": [
             {
               "isMostPopular": false,
-              "title": "Basic Plan",
-              "description": "For developers looking to continue growing",
-              "price": "R$ 720.00",
-              "modifier": "/month",
+              "title": "Development at Scale",
+              "description": "For Mid-level and Senior Devs who want to master development at scale, system design, and Cloud.",
+              "price": "R$ 1,497.00",
               "features": [
-                "Sessions in Portuguese or English",
-
-                "3 one-hour mentoring sessions per month",
-
-                "Resume review",
-                "Access to study group",
-
-                "Support by email or WhatsApp"
-              ]
-            },
-            {
-              "isMostPopular": true,
-              "title": "Professional Plan",
-              "description": "For developers who are serious about professional growth",
-              "price": "R$ 1,045.00",
-              "modifier": "/month",
-              "features": [
-                "Sessions in Portuguese or English",
-
-                "4 one-hour mentoring sessions per month",
-
-                "1 mock interview",
-
-                "Resume review",
-                "Priority in scheduling sessions",
-                "Access to the study group",
-
-                "Support by email or WhatsApp"
+                "Sessions starting in January 2026",
+                "Duration of 6 weeks",
+                "6 Live Meetings (2h each) with real cases",
+                "Exclusive Networking Group",
+                "Hot Seat: Live problem analysis"
               ]
             },
             {
               "isMostPopular": false,
-              "title": "Expert Plan",
-              "description": "For developers seeking technical and professional excellence",
-              "price": "R$ 1,595.00",
-              "modifier": "/month",
+              "title": "Bit Twiddling",
+              "description": "For Mid-level and Senior Devs who want to master algorithms, data structures, and programming logic.",
+              "price": "R$ 1,497.00",
               "features": [
-                "Sessions in Portuguese or English",
-
-                "4 one-hour mentoring sessions per month",
-                "2 interview preparation sessions",
-                "2 mock interviews",
-
-                "Resume review",
-                "Priority in scheduling sessions",
-                "Access to the study group",
-
-                "Support by email or WhatsApp"
+                "Sessions starting in January 2026",
+                "Duration of 6 weeks",
+                "6 Live Meetings (2h each) with real cases",
+                "Exclusive Networking Group",
+                "Hot Seat: Live problem analysis"
               ]
             }
           ]
         },
         {
-          "title": "Package",
+          "title": "Individual",
           "items": [
             {
-              "isMostPopular": false,
-              "title": "Basic Package",
-              "description": "For developers looking to continue growing",
-              "price": "R$ 2,035.00",
-              "modifier": "",
+              "isMostPopular": true,
+              "title": "Tech Lead Advisory",
+              "description": "I will help you navigate corporate politics, design complex architectures, and double your market value.",
+              "price": "R$ 3,500.00",
+              "modifier": "/month",
               "features": [
-                "Sessions in Portuguese or English",
-
-                "10 one-hour mentoring sessions",
-                "1 mock interview",
-
-                "Resume review",
-                "Access to study group",
-
-                "Support by email or WhatsApp"
-              ],
-              "timeline": "10 to 12 weeks"
+                "2 Video Conference Sessions (60 min) per month",
+                "VIP Access: Direct WhatsApp (response within 24h)",
+                "Bi-weekly Code & Architecture Review",
+                "Career Simulation (Mock interview/Profile)",
+                "Minimum contract of 2 months",
+                "Quarterly Option: R$ 9,000.00"
+              ]
             },
             {
               "isMostPopular": false,
-              "title": "Advanced Package",
-              "description": "For developers looking for technical and professional excellence",
-              "price": "R$ 3,685.00",
-              "modifier": "",
+              "title": "Deep Dive Session",
+              "description": "For those with an urgent problem. Architecture validation, interview preparation, or technical unblocking.",
+              "price": "R$ 997.00",
+              "modifier": "/session (90min)",
               "features": [
-                "Sessions in Portuguese or English",
-
-                "20 one-hour mentoring sessions",
-                "1 mock interview",
-
-                "Resume review",
-                "Priority in scheduling sessions",
-                "Access to study group",
-
-                "Support by email or WhatsApp"
-              ],
-              "timeline": "20 to 24 weeks"
+                "1 Diagnostic Session of 90 minutes",
+                "Call recording",
+                "List of materials and references",
+                "Focus on solving a specific problem"
+              ]
             }
           ]
         }

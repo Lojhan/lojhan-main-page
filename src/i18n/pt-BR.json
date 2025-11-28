@@ -309,107 +309,66 @@
       "getStarted": "Entre em contato",
       "tabs": [
         {
-          "title": "Mensal",
+          "title": "Grupo",
           "items": [
             {
               "isMostPopular": false,
-              "title": "Plano Básico",
-              "description": "Para desenvolvedores buscando continuarem crescendo",
-              "price": "R$ 720,00",
-              "modifier": "/mês",
+              "title": "Desenvolvimento em Escala",
+              "description": "Para Devs Plenos e Sêniores que querem dominar desenvolvimento em escala, system design e Cloud.",
+              "price": "R$ 1.497,00",
               "features": [
-                "Sessões em português ou inglês",
-
-                "3 sessões de uma hora de mentoria por mês",
-
-                "Revisão de currículo",
-                "Acesso ao grupo de estudos",
-
-                "Suporte por email ou whatsapp"
-              ]
-            },
-            {
-              "isMostPopular": true,
-              "title": "Plano Profissional",
-              "description": "Para desenvolvedores que levam a sério o crescimento profissional",
-              "price": "R$ 1.045,00",
-              "modifier": "/mês",
-              "features": [
-                "Sessões em português ou inglês",
-
-                "4 sessões de uma hora de mentoria por mês",
-                "1 entrevista simulada",
-
-                "Revisão de currículo",
-                "Prioridade no agendamento de sessões",
-                "Acesso ao grupo de estudos",
-
-                "Suporte por email ou whatsapp"
+                "Sessões começando em Janeiro de 2026",
+                "Duração de 6 semanas",
+                "6 Encontros Ao Vivo (2h cada) com cases reais",
+                "Grupo Exclusivo para Networking",
+                "Hot Seat: Análise de problemas ao vivo"
               ]
             },
             {
               "isMostPopular": false,
-              "title": "Plano Expert",
-              "description": "Para desenvolvedores que buscam excelência técnica e profissional",
-              "price": "R$ 1.595,00",
-              "modifier": "/mês",
+              "title": "Escovando bits",
+              "description": "Para Devs Plenos e Sêniores que querem dominar algoritmos, estruturas de dados e lógica de programação.",
+              "price": "R$ 1.497,00",
               "features": [
-                "Sessões em português ou inglês",
-
-                "4 sessões de uma hora de mentoria por mês",
-                "2 sessões de preparação para entrevista",
-                "2 entrevistas simuladas",
-
-                "Revisão de currículo",
-                "Prioridade no agendamento de sessões",
-                "Acesso ao grupo de estudos",
-
-                "Suporte por email ou whatsapp"
+                "Sessões começando em Janeiro de 2026",
+                "Duração de 6 semanas",
+                "6 Encontros Ao Vivo (2h cada) com cases reais",
+                "Grupo Exclusivo para Networking",
+                "Hot Seat: Análise de problemas ao vivo"
               ]
             }
           ]
         },
         {
-          "title": "Pacote",
+          "title": "Individual",
           "items": [
             {
-              "isMostPopular": false,
-              "title": "Pacote Básico",
-              "description": "Para desenvolvedores buscando continuarem crescendo",
-              "price": "R$ 2.035,00",
-              "modifier": "",
+              "isMostPopular": true,
+              "title": "Tech Lead Advisory",
+              "description": "Vou te ajudar a navegar a política corporativa, desenhar arquiteturas complexas e dobrar seu valor de mercado.",
+              "price": "R$ 3.500,00",
+              "modifier": "/mês",
               "features": [
-                "Sessões em português ou inglês",
-
-                "10 sessões de uma hora de mentoria",
-                "1 entrevistas simuladas",
-
-                "Revisão de currículo",
-                "Acesso ao grupo de estudos",
-
-                "Suporte por email ou whatsapp"
-              ],
-              "timeline": "10 a 12 semanas"
+                "2 Sessões de Videoconferência (60 min) por mês",
+                "Acesso VIP: WhatsApp direto (resposta em 24h)",
+                "Code & Architecture Review quinzenal",
+                "Simulação de Carreira (Mock interview/Perfil)",
+                "Contrato mínimo de 2 meses",
+                "Opção Trimestral: R$ 9.000,00"
+              ]
             },
             {
               "isMostPopular": false,
-              "title": "Pacote Avançado",
-              "description": "Para desenvolvedores que buscam excelência técnica e profissional",
-              "price": "R$ 3.685,00",
-              "modifier": "",
+              "title": "Deep Dive Session",
+              "description": "Para quem tem um problema urgente. Validação de arquitetura, preparação para entrevistas ou desbloqueio técnico.",
+              "price": "R$ 997,00",
+              "modifier": "/sessão (90min)",
               "features": [
-                "Sessões em português ou inglês",
-
-                "20 sessões de uma hora de mentoria",
-                "1 entrevistas simuladas",
-
-                "Revisão de currículo",
-                "Prioridade no agendamento de sessões",
-                "Acesso ao grupo de estudos",
-
-                "Suporte por email ou whatsapp"
-              ],
-              "timeline": "20 a 24 semanas"
+                "1 Sessão de 90 minutos de diagnóstico",
+                "Gravação da chamada",
+                "Lista de materiais e referências",
+                "Foco em resolução de problema específico"
+              ]
             }
           ]
         }
