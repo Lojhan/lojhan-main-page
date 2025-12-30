@@ -22,13 +22,15 @@ const metaMap = {
   },
 };
 
+type Language = keyof typeof metaMap;
+
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ language: "en-US" | "pt-BR" }>;
+  params: Promise<{ language: string }>;
 }): Promise<Metadata> {
   const { language } = await params;
-  const metadata = metaMap[language ?? "pt-BR"];
+  const metadata = metaMap[(language as Language) || "pt-BR"];
   return {
     ...metadata,
     creator: "Lojhan",
@@ -113,11 +115,10 @@ export async function generateMetadata({
 export default async function RootLayout({
   children,
   params,
-    
 }: Readonly<{
   children: React.ReactNode;
   params: Promise<{
-    language: "en-US" | "pt-BR";
+    language: string;
   }>;
 }>) {
   const { language } = await params;
