@@ -33,9 +33,9 @@ export function EngagementSection({
       <Tabs defaultValue={tabs[0]} className="mx-auto max-w-7xl py-12">
         <div className="max-sm:sticky relative max-sm:top-16 z-40 py-2 bg-muted">
           <TabsList className="flex gap-4 justify-center">
-            {tabs.map((tab, index) => (
+            {tabs.map((tab) => (
               <TabsTrigger
-                key={index}
+                key={tab}
                 value={tab}
                 className="w-48 text-center cursor-pointer hover:bg-muted-foreground hover:text-foreground"
               >
@@ -44,25 +44,25 @@ export function EngagementSection({
             ))}
           </TabsList>
         </div>
-        {props.tabs.map((tab, index) => (
+        {props.tabs.map((tab) => (
           <TabsContent
-            key={index}
+            key={tab.title}
             value={tab.title}
             className={`grid gap-8
               sm:grid-cols-${Math.max(1, tab.items.length - 2)}
               md:grid-cols-${Math.max(1, tab.items.length - 1)}
               lg:grid-cols-${Math.max(1, tab.items.length)}`}
           >
-            {tab.items.length == 0 ? (
+            {tab.items.length === 0 ? (
               <div className="col-span-full text-center">
                 <p className="text-muted-foreground h-[300px] flex items-center justify-center">
                   No items available in this category...Yet!
                 </p>
               </div>
             ) : null}
-            {tab.items.map((item, itemIndex) => (
+            {tab.items.map((item) => (
               <EngagementCard
-                key={itemIndex}
+                key={item.title}
                 {...item}
                 getStarted={props.getStarted}
               />

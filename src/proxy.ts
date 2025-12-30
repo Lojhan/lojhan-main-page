@@ -1,7 +1,7 @@
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import {
-  type MiddlewareConfig,
+  type ProxyConfig,
   type NextRequest,
   NextResponse,
 } from "next/server";
@@ -22,7 +22,7 @@ function isFilePath(pathname: string) {
   return regex.test(pathname);
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (isFilePath(pathname)) {
@@ -81,7 +81,7 @@ function addDefaultPathToContent(request: NextRequest) {
   }
 }
 
-export const config: MiddlewareConfig = {
+export const config: ProxyConfig = {
   matcher: [
     // Skip all internal paths (_next)
     "/((?!_next).*)",
