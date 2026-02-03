@@ -485,6 +485,75 @@
       }
     }
   },
+  "/cientista": {
+    "hero": {
+      "badge": "Version 1.0.0",
+      "title": "Streamline Software Migration with",
+      "highlight": "Cientista",
+      "description": "A versatile library designed to facilitate the smooth update of critical software paths. Manage and execute synchronous, asynchronous, and promise-returning tests with ease."
+    },
+    "features": {
+      "title": "Powerful Features",
+      "subtitle": "Everything you need to manage complex testing workflows efficiently",
+      "items": [
+        {
+          "title": "Multiple Test Types",
+          "description": "Support for synchronous, asynchronous, and promise-returning tests. Execute any type of experiment with confidence."
+        },
+        {
+          "title": "Configurable Options",
+          "description": "Customize verbosity, logging, and behavior on performance changes. Fine-tune exactly how your experiments run."
+        },
+        {
+          "title": "Robust Error Handling",
+          "description": "Comprehensive error handling with custom error types and continuation chains for reliable execution."
+        },
+        {
+          "title": "Validation Methods",
+          "description": "Add custom validation methods to ensure your tests produce expected results."
+        }
+      ]
+    },
+    "example": {
+      "installationTitle": "Installation",
+      "codeFileName": "fibonacci.ts"
+    },
+    "api": {
+      "title": "API Reference",
+      "subtitle": "Essential methods to work with Cientista",
+      "items": [
+        {
+          "method": "withTest(name, fn, cleanup?, validate?)",
+          "description": "Add a test with optional cleanup and validation methods"
+        },
+        {
+          "method": "withCleanup(name, fn)",
+          "description": "Add a cleanup method to a test"
+        },
+        {
+          "method": "skipTests(condition)",
+          "description": "Skip tests based on conditions, regex patterns, or arrays of names"
+        },
+        {
+          "method": "onSuccess(callback)",
+          "description": "Define callback for successful test executions"
+        },
+        {
+          "method": "onError(callback)",
+          "description": "Define callback for error handling"
+        },
+        {
+          "method": "run(args)",
+          "description": "Execute all registered tests with provided arguments"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Need Assistance Using Cientista?",
+      "description": "Get expert guidance on implementing Cientista in your project. I can help you set up experiments, optimize your testing workflows, and answer any questions you have.",
+      "getInTouch": "Get in touch"
+    }
+  },
   "/content": {
     "showDrawer": "Show menu"
   },

@@ -487,6 +487,75 @@
       }
     }
   },
+  "/cientista": {
+    "hero": {
+      "badge": "Versão 1.0.0",
+      "title": "Simplifique Migração de Software com",
+      "highlight": "Cientista",
+      "description": "Uma biblioteca versátil projetada para facilitar a atualização segura de caminhos críticos do software. Gerencie e execute testes síncronos, assíncronos e que retornam Promise com facilidade."
+    },
+    "features": {
+      "title": "Recursos poderosos",
+      "subtitle": "Tudo o que você precisa para gerenciar fluxos de testes complexos com eficiência",
+      "items": [
+        {
+          "title": "Vários tipos de testes",
+          "description": "Suporte a testes síncronos, assíncronos e que retornam Promise. Execute qualquer tipo de experimento com confiança."
+        },
+        {
+          "title": "Opções configuráveis",
+          "description": "Personalize verbosidade, logging e comportamento em mudanças de performance. Ajuste exatamente como seus experimentos rodam."
+        },
+        {
+          "title": "Tratamento de erros robusto",
+          "description": "Tratamento completo de erros com tipos personalizados e cadeias de continuação para execução confiável."
+        },
+        {
+          "title": "Métodos de validação",
+          "description": "Adicione métodos de validação personalizados para garantir resultados esperados."
+        }
+      ]
+    },
+    "example": {
+      "installationTitle": "Instalação",
+      "codeFileName": "fibonacci.ts"
+    },
+    "api": {
+      "title": "Referência da API",
+      "subtitle": "Métodos essenciais para trabalhar com o Cientista",
+      "items": [
+        {
+          "method": "withTest(name, fn, cleanup?, validate?)",
+          "description": "Adiciona um teste com métodos opcionais de limpeza e validação"
+        },
+        {
+          "method": "withCleanup(name, fn)",
+          "description": "Adiciona um método de limpeza a um teste"
+        },
+        {
+          "method": "skipTests(condition)",
+          "description": "Ignora testes com base em condições, padrões regex ou listas de nomes"
+        },
+        {
+          "method": "onSuccess(callback)",
+          "description": "Define callback para execuções bem-sucedidas"
+        },
+        {
+          "method": "onError(callback)",
+          "description": "Define callback para tratamento de erros"
+        },
+        {
+          "method": "run(args)",
+          "description": "Executa todos os testes registrados com os argumentos fornecidos"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Precisa de ajuda usando o Cientista?",
+      "description": "Receba orientação especializada para implementar o Cientista no seu projeto. Posso ajudar você a configurar experimentos, otimizar fluxos de teste e tirar dúvidas.",
+      "getInTouch": "Fale comigo"
+    }
+  },
   "/content": {
     "showDrawer": "Mostrar menu"
   },

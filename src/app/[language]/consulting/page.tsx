@@ -59,7 +59,7 @@ export default async function ConsultingPage({
 
 function AboutSection({ about }: { about: LangMap["/consulting"]["about"] }) {
   return (
-    <Container className="bg-muted" id="about">
+    <Container className="bg-gradient-to-b from-muted/50 to-background" id="about">
       <div className="mx-auto max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 flex flex-col max-sm:px-2">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
           {about.title}
