@@ -43,9 +43,9 @@ export function FileTreeNode({
         }}
         href={`/content/${node.path}`}
         className={cn(
-          "flex items-center rounded-md p-1 text-left text-sm hover:bg-accent",
-          isMarkdown && "font-medium text-primary",
-          shouldHighlight && "bg-accent",
+          "flex items-center rounded-md p-1 text-left text-sm text-muted-foreground hover:bg-sidebar-accent",
+          isMarkdown && "font-medium",
+          shouldHighlight && "bg-sidebar-accent text-foreground",
         )}
       >
         {node.type === "dir" ? (

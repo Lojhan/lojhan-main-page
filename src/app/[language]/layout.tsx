@@ -1,13 +1,27 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit, Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { GlobalSearchServer } from "@/components/global-search-server";
 import "../globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({ subsets: ["latin"] });
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-outfit",
+  display: "swap",
+  preload: true,
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-lato",
+  display: "swap",
+  preload: true,
+});
 
 const metaMap = {
   "pt-BR": {
@@ -124,7 +138,7 @@ export default async function RootLayout({
   const { language } = await params;
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${outfit.variable} ${lato.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -16,7 +16,7 @@ import { Container } from "@/components/ui/container";
 import { SectionIntro } from "@/components/section-intro";
 import { getDictionary } from "@/i18n";
 import type { LangMap } from "@/i18n/lang-map";
-import { default as convert } from "xml-js";
+// import { default as convert } from "xml-js";
 import { ContactCTA } from "@/components/contact-cta";
 
 export default async function Home({
@@ -33,8 +33,9 @@ export default async function Home({
         <AboutSection about={dictionary.about} />
         <ExpertiseSection expertise={dictionary.expertise} />
         <ServicesSection services={dictionary.services} />
-        <BlogSection blog={dictionary.blog} />
+        {/* <BlogSection blog={dictionary.blog} /> */}
         <ContactCTA
+          className="bg-muted"
           title={dictionary.contact.title}
           subtitle={dictionary.contact.description}
           cat={dictionary.contact.getInTouch}
@@ -135,76 +136,76 @@ function ServicesSection({ services }: { services: LangMap["/"]["services"] }) {
   );
 }
 
-async function BlogSection({ blog }: { blog: LangMap["/"]["blog"] }) {
-  const rssData = await fetch("https://blog.lojhan.com/rss.xml", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/rss+xml",
-    },
-  }).then((res) => res.text());
+// async function BlogSection({ blog }: { blog: LangMap["/"]["blog"] }) {
+//   const rssData = await fetch("https://blog.lojhan.com/rss.xml", {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/rss+xml",
+//     },
+//   }).then((res) => res.text());
 
-  const json = convert.xml2js(rssData, {
-    compact: true,
-    alwaysArray: false,
-    alwaysChildren: true,
-  }) as unknown as {
-    rss: {
-      channel: {
-        item: [
-          {
-            title: { _cdata: string };
-            link: { _text: string };
-            description: { _cdata: string };
-            category: { _cdata: string }[] | { _cdata: string };
-          },
-        ];
-      };
-    };
-  };
+//   const json = convert.xml2js(rssData, {
+//     compact: true,
+//     alwaysArray: false,
+//     alwaysChildren: true,
+//   }) as unknown as {
+//     rss: {
+//       channel: {
+//         item: [
+//           {
+//             title: { _cdata: string };
+//             link: { _text: string };
+//             description: { _cdata: string };
+//             category: { _cdata: string }[] | { _cdata: string };
+//           },
+//         ];
+//       };
+//     };
+//   };
 
-  const posts = json.rss.channel.item
-    .map((p) => ({
-      title: p.title._cdata,
-      link: p.link._text,
-      description: p.description._cdata,
-      tags: Array.isArray(p.category)
-        ? p.category.map((c) => c._cdata)
-        : [p.category._cdata],
-    }))
-    .slice(0, 3);
+//   const posts = json.rss.channel.item
+//     .map((p) => ({
+//       title: p.title._cdata,
+//       link: p.link._text,
+//       description: p.description._cdata,
+//       tags: Array.isArray(p.category)
+//         ? p.category.map((c) => c._cdata)
+//         : [p.category._cdata],
+//     }))
+//     .slice(0, 3);
 
-  return (
-    <Container className="bg-muted" id="blog">
-      <SectionIntro title={blog.title} subtitle={blog.description} />
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 items-center">
-        {posts.map((post) => (
-          <Link key={post.title} href={post.link}>
-            <Card className="overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt={post.title}
-                className="aspect-video object-cover w-full"
-              />
-              <CardHeader>
-                <CardTitle>{post.title}</CardTitle>
-                <CardDescription className="line-clamp-1">
-                  {post.tags.join(", ")}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm line-clamp-3">{post.description}</p>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
-      </div>
-      <div className="flex justify-center">
-        <Button asChild variant="outline">
-          <Link href="https://blog.lojhan.com">{blog.viewAll}</Link>
-        </Button>
-      </div>
-    </Container>
-  );
-}
+//   return (
+//     <Container className="bg-muted" id="blog">
+//       <SectionIntro title={blog.title} subtitle={blog.description} />
+//       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-3 items-center">
+//         {posts.map((post) => (
+//           <Link key={post.title} href={post.link}>
+//             <Card className="overflow-hidden">
+//               <Image
+//                 src="/placeholder.svg?height=300&width=400"
+//                 width={400}
+//                 height={300}
+//                 alt={post.title}
+//                 className="aspect-video object-cover w-full"
+//               />
+//               <CardHeader>
+//                 <CardTitle>{post.title}</CardTitle>
+//                 <CardDescription className="line-clamp-1">
+//                   {post.tags.join(", ")}
+//                 </CardDescription>
+//               </CardHeader>
+//               <CardContent>
+//                 <p className="text-sm line-clamp-3">{post.description}</p>
+//               </CardContent>
+//             </Card>
+//           </Link>
+//         ))}
+//       </div>
+//       <div className="flex justify-center">
+//         <Button asChild variant="outline">
+//           <Link href="https://blog.lojhan.com">{blog.viewAll}</Link>
+//         </Button>
+//       </div>
+//     </Container>
+//   );
+// }

@@ -52,7 +52,7 @@ export function SiteHeader({ children }: { children: React.ReactNode }) {
         <Link
           href="/"
           aria-label={navItems[0].title[language]}
-          className="flex items-center gap-2 font-bold text-xl"
+          className="flex items-center gap-2 font-bold text-xl cursor-pointer"
         >
           <Logo.DarkArrows
             width={100}
