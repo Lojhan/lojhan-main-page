@@ -4,16 +4,24 @@ import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-export function InstallationSection({ title }: { title: string }) {
+interface InstallationSectionProps {
+  title: string;
+  packageName: string;
+}
+
+export function InstallationSection({
+  title,
+  packageName,
+}: InstallationSectionProps) {
   const [packageManager, setPackageManager] = useState<
     "npm" | "pnpm" | "yarn" | "bun"
   >("npm");
 
   const installCommands = {
-    npm: "npm install cientista",
-    pnpm: "pnpm add cientista",
-    yarn: "yarn add cientista",
-    bun: "bun add cientista",
+    npm: `npm install ${packageName}`,
+    pnpm: `pnpm add ${packageName}`,
+    yarn: `yarn add ${packageName}`,
+    bun: `bun add ${packageName}`,
   };
 
   return (
@@ -26,10 +34,10 @@ export function InstallationSection({ title }: { title: string }) {
               type="button"
               key={pm}
               onClick={() => setPackageManager(pm)}
-              className={`px-3 py-1 text-xs rounded font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
                 packageManager === pm
                   ? "bg-primary text-primary-foreground"
-                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                  : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
               {pm}

@@ -556,6 +556,75 @@
       "getInTouch": "Fale comigo"
     }
   },
+  "/resource-pool": {
+    "hero": {
+      "badge": "Versão 1.0.0",
+      "title": "Gerenciamento de Recursos de Alto Desempenho com",
+      "highlight": "Resource Pool",
+      "description": "Uma implementação de pool de recursos rápida e eficiente construída com Rust e N-API. Gerencie conexões, threads e objetos caros com desempenho nativo."
+    },
+    "features": {
+      "title": "Recursos Poderosos",
+      "subtitle": "Tudo o que você precisa para gerenciamento eficiente de recursos em escala",
+      "items": [
+        {
+          "title": "Alto Desempenho",
+          "description": "Vantagem significativa de velocidade sobre implementações puras de JavaScript graças ao código Rust nativo."
+        },
+        {
+          "title": "Aquisição Flexível",
+          "description": "Suporta tanto acquire() bloqueante síncrono quanto acquireAsync() assíncrono com timeouts."
+        },
+        {
+          "title": "Limpeza Automática",
+          "description": "O padrão use() garante que recursos sejam automaticamente retornados ao pool, mesmo se erros ocorrerem."
+        },
+        {
+          "title": "Observabilidade em Tempo Real",
+          "description": "Monitore o status do pool com propriedades em tempo real: tamanho, recursos disponíveis, requisições pendentes e contagem de usados."
+        }
+      ]
+    },
+    "example": {
+      "installationTitle": "Instalação",
+      "codeFileName": "pool-usage.ts"
+    },
+    "api": {
+      "title": "Referência da API",
+      "subtitle": "Métodos essenciais para trabalhar com Resource Pool",
+      "items": [
+        {
+          "method": "new GenericObjectPool(resources: T[])",
+          "description": "Cria um pool pré-preenchido com o array fornecido de recursos"
+        },
+        {
+          "method": "pool.use<R>(fn, options?)",
+          "description": "Adquire um recurso, executa fn e o libera automaticamente"
+        },
+        {
+          "method": "pool.acquireAsync(timeoutMs?)",
+          "description": "Retorna uma promise que se resolve com um recurso ou rejeita no timeout"
+        },
+        {
+          "method": "pool.acquire()",
+          "description": "Adquire um recurso de forma síncrona. Lança exceção se nenhum estiver disponível"
+        },
+        {
+          "method": "pool.release(resource)",
+          "description": "Retorna um recurso ao pool, tornando-o disponível para outros consumidores"
+        },
+        {
+          "method": "pool.add(resource)",
+          "description": "Adiciona um novo recurso ao pool dinamicamente"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Precisa de Ajuda com Resource Pool?",
+      "description": "Receba orientação especializada para implementar Resource Pool no seu projeto. Posso ajudá-lo a otimizar o gerenciamento de recursos, lidar com concorrência e tirar dúvidas.",
+      "getInTouch": "Fale comigo"
+    }
+  },
   "/content": {
     "showDrawer": "Mostrar menu"
   },

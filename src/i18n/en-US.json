@@ -554,6 +554,75 @@
       "getInTouch": "Get in touch"
     }
   },
+  "/resource-pool": {
+    "hero": {
+      "badge": "Version 1.0.0",
+      "title": "High-Performance Resource Management with",
+      "highlight": "Resource Pool",
+      "description": "A fast, efficient resource pool implementation built with Rust and N-API. Manage connections, threads, and expensive objects with native performance."
+    },
+    "features": {
+      "title": "Powerful Features",
+      "subtitle": "Everything you need for efficient resource management at scale",
+      "items": [
+        {
+          "title": "High Performance",
+          "description": "Significant speed advantage over pure JavaScript implementations thanks to native Rust code."
+        },
+        {
+          "title": "Flexible Acquisition",
+          "description": "Supports both synchronous blocking acquire() and asynchronous acquireAsync() with timeouts."
+        },
+        {
+          "title": "Automatic Cleanup",
+          "description": "The use() pattern ensures resources are automatically released back to the pool, even if errors occur."
+        },
+        {
+          "title": "Real-time Observability",
+          "description": "Monitor pool status with real-time properties: size, available resources, pending requests, and used count."
+        }
+      ]
+    },
+    "example": {
+      "installationTitle": "Installation",
+      "codeFileName": "pool-usage.ts"
+    },
+    "api": {
+      "title": "API Reference",
+      "subtitle": "Essential methods to work with Resource Pool",
+      "items": [
+        {
+          "method": "new GenericObjectPool(resources: T[])",
+          "description": "Creates a pool pre-filled with the provided array of resources"
+        },
+        {
+          "method": "pool.use<R>(fn, options?)",
+          "description": "Acquires a resource, executes fn, and automatically releases it"
+        },
+        {
+          "method": "pool.acquireAsync(timeoutMs?)",
+          "description": "Returns a promise that resolves with a resource or rejects on timeout"
+        },
+        {
+          "method": "pool.acquire()",
+          "description": "Synchronously acquires a resource. Throws if none are available"
+        },
+        {
+          "method": "pool.release(resource)",
+          "description": "Returns a resource to the pool, making it available for other consumers"
+        },
+        {
+          "method": "pool.add(resource)",
+          "description": "Adds a new resource to the pool dynamically"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Need Help with Resource Pool?",
+      "description": "Get expert guidance on implementing Resource Pool in your project. I can help you optimize resource management, handle concurrency, and answer any questions.",
+      "getInTouch": "Get in touch"
+    }
+  },
   "/content": {
     "showDrawer": "Show menu"
   },

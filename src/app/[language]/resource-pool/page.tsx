@@ -1,6 +1,4 @@
-import { CheckCircle, Code2, Shield, Wrench, Zap } from "lucide-react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { CheckCircle, Code2, Shield, Zap } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SiteFooter } from "@/components/site-footer";
 import { Container } from "@/components/ui/container";
@@ -9,14 +7,15 @@ import { ContactCTA } from "@/components/contact-cta";
 import { InstallationSection } from "@/components/installation-section";
 import { getDictionary } from "@/i18n";
 import type { LangMap } from "@/i18n/lang-map";
+import { CodeExampleSection as Code } from "./code-example-section";
 
-export default async function CientistaPage({
+export default async function ResourcePoolPage({
   params,
 }: {
   params: Promise<{ language: "en-US" | "pt-BR" }>;
 }) {
   const { language } = await params;
-  const dictionary = await getDictionary(language, "/cientista");
+  const dictionary = await getDictionary(language, "/resource-pool");
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -36,7 +35,7 @@ export default async function CientistaPage({
   );
 }
 
-function HeroSection({ dictionary }: { dictionary: LangMap["/cientista"] }) {
+function HeroSection({ dictionary }: { dictionary: LangMap["/resource-pool"] }) {
   return (
     <Container
       className="bg-gradient-to-b from-muted/60 to-background md:py-0 lg:py-0"
@@ -50,7 +49,7 @@ function HeroSection({ dictionary }: { dictionary: LangMap["/cientista"] }) {
           </div>
           <h1 className="text-3xl font-bold sm:text-5xl xl:text-6xl/none">
             {dictionary.hero.title}{" "}
-            <span className="text-primary">{dictionary.hero.highlight} 🧪</span>
+            <span className="text-primary">{dictionary.hero.highlight} 🚀</span>
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
             {dictionary.hero.description}
@@ -65,9 +64,9 @@ function HeroSection({ dictionary }: { dictionary: LangMap["/cientista"] }) {
 function FeaturesSection({
   features,
 }: {
-  features: LangMap["/cientista"]["features"];
+  features: LangMap["/resource-pool"]["features"];
 }) {
-  const featureIcons = [Zap, Wrench, Shield, CheckCircle];
+  const featureIcons = [Zap, CheckCircle, Shield, Code2];
 
   return (
     <Container id="features" className="md:py-0 lg:py-0">
@@ -101,72 +100,17 @@ function FeaturesSection({
 function CodeExampleSection({
   example,
 }: {
-  example: LangMap["/cientista"]["example"];
+  example: LangMap["/resource-pool"]["example"];
 }) {
-  const codeString = `import { Cientista } from 'cientista';
-
-// Define base implementation
-function fibonacciBase(n: number): number {
-  if (n <= 1) return n;
-  return fibonacciBase(n - 1) + fibonacciBase(n - 2);
-}
-
-// Define optimized implementation
-function fibonacciOptimized(n: number): number {
-  let a = 0, b = 1, f = 1;
-  for (let i = 2; i <= n; i++) {
-    f = a + b;
-    [a, b] = [b, f];
-  }
-  return f;
-}
-
-// Create experiment
-const experiment = new Cientista(fibonacciBase, "Fibonacci");
-experiment.withTest('optimized', fibonacciOptimized);
-
-// Handle results
-experiment.onSuccess((key, result) => {
-  console.log(\`\${key}: \${result}\`);
-});
-
-experiment.onError((key, error) => {
-  console.error(\`Error in \${key}: \${error}\`);
-});
-
-// Run the experiment
-await experiment.run(10);`;
-
   return (
     <div className="flex flex-col gap-8 max-sm:mt-8 mt-16">
-      <InstallationSection title={example.installationTitle} packageName="cientista" />
-
-      {/* Code Example */}
-      <div className="overflow-hidden rounded-lg border border-muted-foreground/20">
-        <div className="bg-slate-900 px-6 py-3 border-b border-slate-700">
-          <span className="text-sm font-medium text-slate-400">
-            {example.codeFileName}
-          </span>
-        </div>
-        <SyntaxHighlighter
-          language="typescript"
-          style={atomOneDark}
-          customStyle={{
-            padding: "1.5rem",
-            fontSize: "0.875rem",
-            lineHeight: "1.5",
-            backgroundColor: "#0d1117",
-          }}
-          wrapLines
-        >
-          {codeString}
-        </SyntaxHighlighter>
-      </div>
+      <InstallationSection title={example.installationTitle} packageName="@lojhan/resource-pool" />
+      <Code example={example} />
     </div>
   );
 }
 
-function APISection({ api }: { api: LangMap["/cientista"]["api"] }) {
+function APISection({ api }: { api: LangMap["/resource-pool"]["api"] }) {
   return (
     <Container id="api" className="bg-muted/50">
       <SectionIntro title={api.title} subtitle={api.subtitle} />

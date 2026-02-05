@@ -130,6 +130,43 @@ export const langMap = {
       getInTouch: "[string]",
     },
   },
+  "/resource-pool": {
+    hero: {
+      badge: "[string]",
+      title: "[string]",
+      highlight: "[string]",
+      description: "[string]",
+    },
+    features: {
+      title: "[string]",
+      subtitle: "[string]",
+      items: [
+        {
+          title: "[string]",
+          description: "[string]",
+        },
+      ],
+    },
+    example: {
+      installationTitle: "[string]",
+      codeFileName: "[string]",
+    },
+    api: {
+      title: "[string]",
+      subtitle: "[string]",
+      items: [
+        {
+          method: "[string]",
+          description: "[string]",
+        },
+      ],
+    },
+    contact: {
+      title: "[string]",
+      description: "[string]",
+      getInTouch: "[string]",
+    },
+  },
   "/mentorship": {
     about: {
       title: "[string]",
