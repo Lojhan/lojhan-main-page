@@ -308,44 +308,13 @@
       "getStarted": "Get in touch",
       "tabs": [
         {
-          "title": "Group",
-          "items": [
-            {
-              "isMostPopular": false,
-              "title": "Development at Scale",
-              "description": "For Mid-level and Senior Devs who want to master development at scale, system design, and Cloud.",
-              "price": "R$ 1,497.00",
-              "features": [
-                "Sessions starting in January 2026",
-                "Duration of 6 weeks",
-                "6 Live Meetings with real cases",
-                "Exclusive Networking Group",
-                "Hot Seat: Live problem analysis"
-              ]
-            },
-            {
-              "isMostPopular": false,
-              "title": "Bit Twiddling",
-              "description": "For Mid-level and Senior Devs who want to master algorithms, data structures, and programming logic.",
-              "price": "R$ 1,497.00",
-              "features": [
-                "Sessions starting in January 2026",
-                "Duration of 6 weeks",
-                "6 Live Meetings with real cases",
-                "Exclusive Networking Group",
-                "Hot Seat: Live problem analysis"
-              ]
-            }
-          ]
-        },
-        {
           "title": "Individual",
           "items": [
             {
               "isMostPopular": true,
               "title": "Tech Lead Advisory",
               "description": "I will help you navigate corporate politics, design complex architectures, and double your market value.",
-              "price": "R$ 3,500.00",
+              "price": "R$ 1.750,00",
               "modifier": "/month",
               "features": [
                 "2 Video Conference Sessions (60 min) per month",
@@ -353,14 +322,14 @@
                 "Bi-weekly Code & Architecture Review",
                 "Career Simulation (Mock interview/Profile)",
                 "Minimum contract of 2 months",
-                "Quarterly Option: R$ 9,000.00"
+                "Quarterly Option: R$ 4.000,00"
               ]
             },
             {
               "isMostPopular": false,
               "title": "Deep Dive Session",
               "description": "For those with an urgent problem. Architecture validation, interview preparation, or technical unblocking.",
-              "price": "R$ 997.00",
+              "price": "R$ 697,00",
               "modifier": "/session (90min)",
               "features": [
                 "1 Diagnostic Session of 90 minutes",

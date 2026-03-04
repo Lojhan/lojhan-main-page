@@ -309,44 +309,13 @@
       "getStarted": "Entre em contato",
       "tabs": [
         {
-          "title": "Grupo",
-          "items": [
-            {
-              "isMostPopular": false,
-              "title": "Desenvolvimento em Escala",
-              "description": "Para Devs Plenos e Sêniores que querem dominar desenvolvimento em escala, system design e Cloud.",
-              "price": "R$ 1.497,00",
-              "features": [
-                "Sessões começando em Janeiro de 2026",
-                "Duração de 6 semanas",
-                "6 Encontros Ao Vivo com cases reais",
-                "Grupo Exclusivo para Networking",
-                "Hot Seat: Análise de problemas ao vivo"
-              ]
-            },
-            {
-              "isMostPopular": false,
-              "title": "Escovando bits",
-              "description": "Para Devs Plenos e Sêniores que querem dominar algoritmos, estruturas de dados e lógica de programação.",
-              "price": "R$ 1.497,00",
-              "features": [
-                "Sessões começando em Janeiro de 2026",
-                "Duração de 6 semanas",
-                "6 Encontros Ao Vivo com cases reais",
-                "Grupo Exclusivo para Networking",
-                "Hot Seat: Análise de problemas ao vivo"
-              ]
-            }
-          ]
-        },
-        {
           "title": "Individual",
           "items": [
             {
               "isMostPopular": true,
               "title": "Tech Lead Advisory",
               "description": "Vou te ajudar a navegar a política corporativa, desenhar arquiteturas complexas e dobrar seu valor de mercado.",
-              "price": "R$ 3.500,00",
+              "price": "R$ 1.750,00",
               "modifier": "/mês",
               "features": [
                 "2 Sessões de Videoconferência (60 min) por mês",
@@ -354,14 +323,14 @@
                 "Code & Architecture Review quinzenal",
                 "Simulação de Carreira (Mock interview/Perfil)",
                 "Contrato mínimo de 2 meses",
-                "Opção Trimestral: R$ 9.000,00"
+                "Opção Trimestral: R$ 4.000,00"
               ]
             },
             {
               "isMostPopular": false,
               "title": "Deep Dive Session",
               "description": "Para quem tem um problema urgente. Validação de arquitetura, preparação para entrevistas ou desbloqueio técnico.",
-              "price": "R$ 997,00",
+              "price": "R$ 697,00",
               "modifier": "/sessão (90min)",
               "features": [
                 "1 Sessão de 90 minutos de diagnóstico",
